@@ -1,74 +1,71 @@
 # 🕌 Laman Web Rasmi Musolla Al-Widad Kita Sejati
 
-Selamat datang ke repositori rasmi laman web **Musolla Al-Widad Kita Sejati** (Residensi Kita Sejati Cybersouth, Dengkil, Selangor).
+Selamat datang ke repositori rasmi laman web **Musolla Al-Widad Kita Sejati** (**Pangsapuri Kita Sejati Cybersouth**, Dengkil, Selangor).
 
-Laman web ini direka khusus untuk kemudahan jemaah dan komuniti setempat sebagai pusat sehenti bagi hebahan pengumuman, pengurusan khairat kematian bersama Masjid Al-Ilmi Dengkil, laporan penyata kewangan telus, kutipan dana infaq, jadual kuliah/aktiviti, serta saluran aduan dan maklum balas penduduk.
+Laman web ini direka khusus dengan tema mesra komuniti (*homey and community vibe*) yang tenang, hangat dan menyatu, berteraskan identiti visual logo rasmi musolla (*Mosque Deep Teal*, *Warm Amber*, dan *Crescent Gold*). Laman ini berfungsi sebagai portal sehenti bagi pendaftaran Khairat Kematian bersama Masjid Al-Ilmi Dengkil, semakan penyata kewangan telus mengikut tahun, infaq operasi dan naik taraf fasiliti, takwim kuliah, serta saluran aduan & cadangan penduduk.
 
 ---
 
 ## 📋 Isi Kandungan
 
-1. [Ciri-Ciri Utama](#-ciri-ciri-utama)
-2. [Tema & Identiti Visual](#-tema--identiti-visual)
+1. [Ciri-Ciri Utama & Identiti Komuniti](#-ciri-ciri-utama--identiti-komuniti)
+2. [Maklumat Asas & Lokasi Pangsapuri](#-maklumat-asas--lokasi-pangsapuri)
 3. [Struktur Direktori Projek](#-struktur-direktori-projek)
 4. [Panduan Ujian Tempatan (Local Testing)](#-panduan-ujian-tempatan-local-testing)
-5. [Panduan Menyunting Kandungan (Customization)](#-panduan-menyunting-kandungan-customization)
-   - [A. Mengemaskini Maklumat Asas & Pautan (`site.config.json`)](#a-mengemaskini-maklumat-asas--pautan-siteconfigjson)
-   - [B. Menyunting Carta Organisasi (`data/organisasi.json`)](#b-menyunting-carta-organisasi-dataorganisasijson)
-   - [C. Menambah / Mengemaskini Penyata Kewangan PDF](#c-menambah--mengemaskini-penyata-kewangan-pdf)
-   - [D. Mengemaskini Teks & Terjemahan i18n (`lang/`)](#d-mengemaskini-teks--terjemahan-i18n-lang)
-   - [E. Menggantikan Logo & Favicon (Nisbah 1:1)](#e-menggantikan-logo--favicon-nisbah-11)
-   - [F. Menambah Aktiviti & Kuliah Baharu (`data/activities.json`)](#f-menambah-aktiviti--kuliah-baharu-dataactivitiesjson)
+5. [Panduan Menyunting & Menyelenggara Kandungan](#-panduan-menyunting--menyelenggara-kandungan)
+   - [A. Mengemaskini & Menambah Akaun Media Sosial (`site.config.json`)](#a-mengemaskini--menambah-akaun-media-sosial-siteconfigjson)
+   - [B. Mengemaskini Fail Perlembagaan Musolla PDF (`assets/perlembagaan/`)](#b-mengemaskini-fail-perlembagaan-musolla-pdf-assetsperlembagaan)
+   - [C. Menambah Penyata Kewangan Mengikut Tahun & Pagination (`data/reports.json`)](#c-menambah-penyata-kewangan-mengikut-tahun--pagination-datareportsjson)
+   - [D. Mengemaskini Takwim Aktiviti / Mengosongkan Senarai (`data/activities.json`)](#d-mengemaskini-takwim-aktiviti--mengosongkan-senarai-dataactivitiesjson)
+   - [E. Menyunting Carta Organisasi (`data/organisasi.json`)](#e-menyunting-carta-organisasi-dataorganisasijson)
+   - [F. Menukar Maklumat Hubungan & Pautan Luar (`site.config.json`)](#f-menukar-maklumat-hubungan--pautan-luar-siteconfigjson)
+   - [G. Menukar Logo & Favicon (Nisbah 1:1)](#g-menukar-logo--favicon-nisbah-11)
+   - [H. Mengemaskini Teks & Dwi-Bahasa i18n (`lang/`)](#h-mengemaskini-teks--dwi-bahasa-i18n-lang)
 6. [Panduan Deployment ke Cloudflare Pages](#-panduan-deployment-ke-cloudflare-pages)
-7. [Pengurusan Kod di GitHub](#-pengurusan-kod-di-github)
+7. [Kredit, Hak Cipta & Sumber Terbuka](#-kredit-hak-cipta--sumber-terbuka)
 
 ---
 
-## ✨ Ciri-Ciri Utama
+## ✨ Ciri-Ciri Utama & Identiti Komuniti
 
-- **Sistem Reka Bentuk Shadcn UI**: Bersih, moden, elegan, tipografi kemas (*Plus Jakarta Sans*), komponen kad, lencana (*badges*), modal dialog, dan akordion.
-- **Sokongan Penuh Dwi-Bahasa (i18n)**:
-  - **Bahasa Melayu** sebagai bahasa utama (*default*).
-  - **English** sebagai bahasa kedua (*secondary*).
-  - Teks disimpan secara berasingan dalam format JSON di folder `lang/` (`lang/ms.json` & `lang/en.json`).
-- **Mod Gelap & Cerah (Dark / Light Theme)**:
-  - Default: **Ikut Tetapan Peranti (System Device)**.
-  - Pilihan seterusnya: **Mod Gelap (Dark Mode)**, diikuti **Mod Cerah (Light Mode)**.
-  - Pilihan disimpan secara automatik dalam simpanan pelayar (`localStorage`).
-- **Nisbah Logo Tetap 1:1**:
-  - Logo musolla mengekalkan nisbah aspek 1:1 pada setiap paparan (navigasi, hero, avatar dan footer).
-- **Pengurusan Khairat Kematian**:
-  - Menjelaskan penyertaan rasmi di bawah naungan **Masjid Al-Ilmi Dengkil**.
-  - Butang pendaftaran dialihkan terus ke portal sistem e-Khairat Masjid Al-Ilmi.
-- **Penyata Kewangan Telus**:
-  - Senarai laporan bulanan & tahunan dengan butang semakan fail PDF (modal pratonton dalaman & muat turun).
-- **Infaq & Sumbangan Dalam Talian**:
-  - Butang 1-klik untuk menyalin nombor akaun Bank Islam dengan notifikasi pop-up (*toast*).
-  - Kod QR DuitNow rasmi (1:1) dengan butang muat turun.
-- **Borang Maklum Balas Penduduk (Google Form)**:
-  - Butang pautan terus ke borang Google Form bagi aduan fasiliti dan cadangan penambahbaikan.
-- **Navigasi Lokasi**:
-  - Pautan Google Maps: [https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9](https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9)
-  - Salinan alamat penuh 1-klik dan iframe peta interaktif.
-- **Media Sosial Rasmi**:
-  - Facebook: [https://www.facebook.com/alwidad.kitasejati](https://www.facebook.com/alwidad.kitasejati)
-  - Instagram: [https://www.instagram.com/alwidad.kitasejati](https://www.instagram.com/alwidad.kitasejati)
-  - Emel Rasmi: `alwidad.kitasejati@gmail.com`
-- **Tiada Komponen Kiblat & Waktu Solat**: Mematuhi arahan bahawa widget kiblat dan waktu solat tidak diperlukan.
-- **Tiada Pangkalan Data Luaran Diperlukan**: Menggunakan seni bina statik moden (SSG / Client SPA) yang sangat pantas, selamat dan bebas kos penyelenggaraan pelayan.
+- **Suasana Hangat Komuniti (*Homey & Welcoming*)**: Latar belakang krim lembut (*warm linen* `#faf8f5`), permukaan kad selesa, bayang-bayang semulajadi, dan corak arabes halus berbanding gaya futuristik/neon yang kaku.
+- **Identiti Warna Berasaskan Logo**:
+  - *Primary Teal* (`#116876` / `#21b8cc`): Melambangkan kedamaian rohani dan masjid.
+  - *Secondary Amber* (`#eb7713` / `#f68928`): Melambangkan kemesraan ukhuwah dan kejiranan.
+  - *Accent Gold* (`#f1a91e` / `#f5b72e`): Melambangkan keberkatan dan syiar Islam.
+- **Nisbah Logo Tetap 1:1**: Dipelihara pada semua peranti (`logo-sq`).
+- **Sokongan Dwi-Bahasa (i18n)**: Bahasa Melayu (Lalai) dan Bahasa Inggeris di dalam folder `lang/`.
+- **Mod Gelap & Cerah Pintar**: Bermula dengan tetapan peranti jemaah (*Device Default*), diikuti Mod Gelap, kemudian Mod Cerah.
+- **Navigasi Modal Mesra Telefon & Papan Kekunci**:
+  - Modal PDF dan Kredit boleh ditutup dengan menekan kekunci **ESC** di komputer.
+  - Pada telefon pintar (Android / iOS), menekan butang **Back** atau *swipe gesture* akan menutup modal secara lancar tanpa keluar dari laman web.
+- **Khairat Kematian Masjid Al-Ilmi**: Pautan terus ke portal rasmi: [https://www.e-khairat.com/al-ilmi](https://www.e-khairat.com/al-ilmi).
+- **Pengurusan Penyata Kewangan Mengikut Tahun & Pagination**:
+  - Fail PDF disusun di dalam folder tahunan (contoh: `assets/reports/2026/`, `assets/reports/2025/`).
+  - Pemilihan tahun interaktif dan kawalan pagination (5 penyata setiap halaman).
+- **Perlembagaan Musolla Tersendiri**: Fail PDF berasingan di `assets/perlembagaan/perlembagaan-musolla-al-widad.pdf` dengan pratonton terbina dalam dan butang muat turun.
+- **Infaq & Sumbangan Terperinci**:
+  - Butang 1-klik salin no akaun Bank Islam (`12038010098765`) berserta notifikasi toast.
+  - Kod QR DuitNow kemas tanpa lencana nisbah teknikal.
+  - Pecahan penyaluran dana merangkumi: *Utiliti & Bil (Jika Diperlukan)*, *Naik Taraf & Fasiliti Musolla*, *Program Dakwah*, *Aktiviti Komuniti*, dan *Pembersihan Persekitaran*.
+- **Media Sosial Fleksibel**: Boleh menambah atau membuang platform media sosial baharu (Facebook, Instagram, TikTok, YouTube, Telegram, WhatsApp) hanya melalui `site.config.json`.
+- **Aktiviti Responsif**: Sekiranya tiada aktiviti dijadualkan, seksyen memaparkan mesej komuniti yang mesra tanpa mencacatkan susun atur.
+- **Pautan Kredit & Penghargaan**: Modal menyenaraikan pustaka sumber terbuka dan atribusi penjanaan AI (Google Gemini & Antigravity).
 
 ---
 
-## 🎨 Tema & Identiti Visual
+## 📍 Maklumat Asas & Lokasi Pangsapuri
 
-Palet warna tema laman web ini diekstrak secara terus daripada logo rasmi Musolla Al-Widad Kita Sejati:
-
-| Elemen | Warna Hex | Penerangan |
-|---|---|---|
-| **Primary (Teal)** | `#0c6978` (Light) / `#11b8ce` (Dark) | Warna utama kubah/buku dalam logo, melambangkan ketenangan & kesucian ilmu. |
-| **Secondary (Amber)** | `#f27914` (Light) / `#f98e2a` (Dark) | Warna kaligrafi & hati dalam logo, melambangkan kehangatan ukhuwah & kasih sayang. |
-| **Accent (Gold)** | `#f59e0b` / `#fbbf24` | Warna bulan sabit kubah masjid. |
-| **Card / Surface** | `#ffffff` (Light) / `#0e1e26` (Dark) | Permukaan kad kemas berlatarbelakangkan corak arabes geometri halus. |
+- **Nama Organisasi**: Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth
+- **Alamat Penuh**:
+  ```text
+  Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth,
+  Persiaran Cybersouth Perdana, Cybersouth,
+  43800 Dengkil, Selangor Darul Ehsan
+  ```
+- **Koordinat Peta Google**: `2.876102, 101.646251`
+- **Pautan Navigasi**: [https://www.google.com/maps?q=2.876102,101.646251](https://www.google.com/maps?q=2.876102,101.646251)
+- **Emel Rasmi**: `alwidad.kitasejati@gmail.com`
 
 ---
 
@@ -76,282 +73,216 @@ Palet warna tema laman web ini diekstrak secara terus daripada logo rasmi Musoll
 
 ```text
 musolla-al-widad-website/
-├── assets/                       # Aset media projek (Nisbah 1:1)
-│   ├── logo.png                  # Logo rasmi Musolla Al-Widad (1024x1024)
-│   ├── duitnow-qr.svg            # Kod QR DuitNow rasmi (1:1)
+├── assets/
+│   ├── logo.png                  # Logo rasmi Musolla Al-Widad (1024x1024, 1:1)
+│   ├── duitnow-qr.svg            # Kod QR DuitNow (1:1)
 │   ├── avatars/                  # Avatar jawatankuasa (1:1)
-│   ├── activities/               # Ilustrasi poster aktiviti / kuliah
-│   └── reports/                  # Salinan fail PDF penyata kewangan & perlembagaan
+│   ├── activities/               # Poster kuliah & gotong-royong
+│   ├── perlembagaan/             # Fail PDF Perlembagaan Musolla
+│   │   └── perlembagaan-musolla-al-widad.pdf
+│   └── reports/                  # Penyata kewangan mengikut tahun
+│       ├── 2026/                 # Laporan tahun 2026
+│       │   ├── penyata-kewangan-2026-09.pdf
+│       │   └── ...
+│       └── 2025/                 # Laporan tahun 2025
+│           └── penyata-kewangan-tahunan-2025.pdf
 ├── css/
-│   └── style.css                 # Token reka bentuk Shadcn UI & kelas utiliti
+│   └── style.css                 # Tema hangat komuniti & token Shadcn UI
 ├── data/
-│   ├── organisasi.json           # Data barisan Jawatankuasa Carta Organisasi
-│   └── activities.json           # Data takwim kuliah & aktiviti kemasyarakatan
+│   ├── organisasi.json           # Senarai ahli jawatankuasa
+│   ├── activities.json           # Takwim aktiviti & pengajian
+│   └── reports.json              # Indeks fail penyata kewangan & tahun
 ├── lang/
-│   ├── ms.json                   # Kamus terjemahan Bahasa Melayu (Utama)
-│   └── en.json                   # Kamus terjemahan English (Sekunder)
+│   ├── ms.json                   # Terjemahan Bahasa Melayu (Lalai)
+│   └── en.json                   # Terjemahan English
 ├── js/
-│   ├── theme.js                  # Pengurus tema (Device Default -> Dark -> Light)
-│   ├── i18n.js                   # Enjin penterjemahan antarabangsa
-│   └── app.js                    # Logik carousel, tab, modal, clipboard & render
+│   ├── theme.js                  # Mod tema (Peranti -> Gelap -> Cerah)
+│   ├── i18n.js                   # Enjin penterjemahan dwi-bahasa
+│   └── app.js                    # Logik pagination, modal, sosial & render
 ├── scripts/
-│   ├── build.js                  # Skrip persediaan fail ke folder dist/ untuk Cloudflare
-│   ├── generate-sample-pdfs.js   # Penjana fail PDF contoh
-│   └── test-server.js            # Skrip ujian integrasi endpoint
-├── site.config.json              # Pusat konfigurasi pautan, no. telefon, emel & akaun bank
+│   ├── build.js                  # Skrip pembinaan untuk Cloudflare Pages
+│   ├── generate-sample-pdfs.js   # Skrip penjana PDF contoh
+│   └── test-server.js            # Ujian automatik 12 laluan pelayan
+├── site.config.json              # Konfigurasi media sosial, no telefon & pautan
 ├── server.js                     # Pelayan ujian tempatan (Zero Dependencies)
-├── index.html                    # Laman web utama (Modular & Responsif)
-├── package.json                  # Metadata pakej dan skrip npm
-├── .gitignore                    # Senarai fail diabaikan oleh Git
-└── README.md                     # Dokumentasi teknikal & panduan pentadbir
+├── index.html                    # Laman web utama
+├── package.json                  # Konfigurasi npm
+└── README.md                     # Dokumentasi projek
 ```
 
 ---
 
 ## 💻 Panduan Ujian Tempatan (Local Testing)
 
-Anda boleh menguji laman web ini secara terus di komputer anda sebelum menolak kod (*push*) ke GitHub dan Cloudflare Pages. Tiada perisian tambahan rumit diperlukan kerana projek ini menggunakan keupayaan terbina dalam Node.js.
+Anda boleh menguji laman web secara terus di komputer anda sebelum menolak kod ke GitHub.
 
-### Kaedah 1: Menggunakan Perintah Node.js (Disyorkan)
-
-1. Buka terminal (PowerShell, Command Prompt, atau Terminal) di folder projek ini.
-2. Jalankan arahan berikut:
+1. Buka terminal di folder projek:
    ```bash
    node server.js
    ```
-   *(atau jika menggunakan persekitaran Antigravity: `agy-node server.js`)*
-3. Terminal akan memaparkan mesej:
+2. Terminal akan memaparkan:
    ```text
    ======================================================
    🕌 Laman Web Musolla Al-Widad Kita Sejati Berjalan!
    🌐 Buka di pelayar web: http://localhost:3000
    ======================================================
    ```
-4. Buka pelayar web anda (Chrome / Edge / Firefox) dan layari `http://localhost:3000`.
-
-### Kaedah 2: Menggunakan npm / pnpm
-
-Jika anda mempunyai npm atau pnpm dipasang:
-```bash
-npm start
-# atau
-npm run dev
-```
-
-### Kaedah 3: Buka Terus `index.html`
-
-Anda juga boleh membuka fail `index.html` secara terus dengan klik dua kali fail tersebut di File Explorer. *(Nota: Sesetengah ciri fetch data JSON tempatan lebih lancar diuji menggunakan Kaedah 1 pelayan HTTP tempatan).*
+3. Buka pelayar web dan akses: `http://localhost:3000`
 
 ---
 
-## 🛠️ Panduan Menyunting Kandungan (Customization)
+## 🛠️ Panduan Menyunting & Menyelenggara Kandungan
 
-Semua komponen direka bentuk secara modular supaya mudah disunting oleh jawatankuasa musolla tanpa perlu mengusik kod JavaScript atau HTML yang kompleks.
+### A. Mengemaskini & Menambah Akaun Media Sosial (`site.config.json`)
 
-### A. Mengemaskini Maklumat Asas & Pautan (`site.config.json`)
-
-Buka fail [`site.config.json`](site.config.json) untuk mengemaskini maklumat berikut:
+Pihak musolla boleh menambah atau memadam sebarang akaun media sosial (Facebook, Instagram, TikTok, YouTube, Telegram, WhatsApp) dengan menyunting senarai `socialMedia` dalam [`site.config.json`](site.config.json):
 
 ```json
-{
-  "siteName": "Musolla Al-Widad Kita Sejati",
-  "location": {
-    "address": "Musolla Al-Widad, Residensi Kita Sejati Cybersouth, 43800 Dengkil, Selangor",
-    "googleMapsUrl": "https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9"
+"socialMedia": [
+  {
+    "id": "facebook",
+    "name": "Facebook",
+    "url": "https://www.facebook.com/alwidad.kitasejati",
+    "handle": "@alwidad.kitasejati",
+    "descMs": "Siaran langsung kuliah, album foto aktiviti & hebahan harian.",
+    "descEn": "Live streams, photo albums & daily community notices.",
+    "icon": "facebook"
   },
-  "contacts": {
-    "email": "alwidad.kitasejati@gmail.com",
-    "pengerusi": {
-      "name": "Nama Pengerusi",
-      "phone": "+6012-345 6789",
-      "whatsapp": "60123456789"
-    },
-    "setiausaha": {
-      "name": "Nama Setiausaha",
-      "phone": "+6013-456 7890",
-      "whatsapp": "60134567890"
-    }
+  {
+    "id": "tiktok",
+    "name": "TikTok",
+    "url": "https://www.tiktok.com/@alwidad.kitasejati",
+    "handle": "@alwidad.kitasejati",
+    "descMs": "Klip video pendek pengajian & tazkirah santai.",
+    "descEn": "Short religious snippets & reminders.",
+    "icon": "tiktok"
   },
-  "urls": {
-    "khairatMasjidAlIlmi": "https://masjidalilmi-dengkil.com/ekhairat",
-    "googleFormFeedback": "https://forms.gle/PAUTAN_BORANG_GOOGLE_FORM_ANDA",
-    "constitutionDrive": "https://drive.google.com/drive/folders/PAUTAN_GOOGLE_DRIVE_ANDA"
-  },
-  "bankAccount": {
-    "bankName": "Bank Islam Malaysia Berhad",
-    "accountName": "Musolla Al-Widad Kita Sejati",
-    "accountNumber": "12038010098765",
-    "reference": "Infaq Musolla"
+  {
+    "id": "youtube",
+    "name": "YouTube",
+    "url": "https://www.youtube.com/@alwidad.kitasejati",
+    "handle": "Musolla Al-Widad",
+    "descMs": "Arkib rakaman penuh kuliah maghrib dan tazkirah khas.",
+    "descEn": "Full lecture recordings and archives.",
+    "icon": "youtube"
   }
-}
+]
 ```
-
-- **Pautan Khairat**: Masukkan URL portal e-Khairat Masjid Al-Ilmi pada `khairatMasjidAlIlmi`.
-- **Pautan Google Form**: Masukkan URL borang Google Form pada `googleFormFeedback`.
-- **Pautan Google Drive**: Masukkan URL folder/fail Perlembagaan pada `constitutionDrive`.
+Ikon dan pautan pada **Footer** serta kad pautan pada bahagian **Aktiviti & Berita** akan dikemaskini secara automatik!
 
 ---
 
-### B. Menyunting Carta Organisasi (`data/organisasi.json`)
+### B. Mengemaskini Fail Perlembagaan Musolla PDF (`assets/perlembagaan/`)
 
-Buka fail [`data/organisasi.json`](data/organisasi.json) untuk menambah, memadam atau menukar maklumat barisan jawatankuasa.
+Perlembagaan musolla disimpan secara berasingan untuk memudahkan pengemaskinian:
 
-Setiap ahli mempunyai struktur berikut:
-```json
-{
-  "id": "pengerusi",
-  "level": 2,
-  "roleMs": "Pengerusi",
-  "roleEn": "Chairman",
-  "name": "Nama Penuh Pengerusi",
-  "image": "assets/avatars/avatar-pengerusi.svg",
-  "badge": "Pimpinan Utama",
-  "phone": "+6012-345 6789",
-  "whatsapp": "60123456789",
-  "note": "Penyelaras Keseluruhan Pentadbiran"
-}
-```
-*Tip: Untuk meletakkan gambar sebenar ahli jawatankuasa, simpan gambar dengan nisbah segi empat sama (1:1 contoh: 400x400 piksel) di dalam folder `assets/avatars/` dan kemaskini nama fail pada kunci `"image"`.*
+1. Sediakan dokumen PDF perlembagaan baharu anda yang telah disahkan.
+2. Namakan fail tersebut sebagai `perlembagaan-musolla-al-widad.pdf`.
+3. Letakkan atau gantikan fail tersebut di dalam folder:
+   ```text
+   assets/perlembagaan/perlembagaan-musolla-al-widad.pdf
+   ```
+4. Salin juga ke folder `public/assets/perlembagaan/perlembagaan-musolla-al-widad.pdf` (jika menggunakan folder public).
+5. Secara automatik, paparan iframe dan butang muat turun di tab *Perlembagaan Musolla* akan menggunakan dokumen baharu ini.
+*(Sekiranya anda menukar nama fail, kemaskini laluan fail pada kunci `"perlembagaanPdf"` di dalam `site.config.json`).*
 
 ---
 
-### C. Menambah / Mengemaskini Penyata Kewangan PDF
+### C. Menambah Penyata Kewangan Mengikut Tahun & Pagination (`data/reports.json`)
 
-1. Simpan fail PDF penyata kewangan anda di dalam folder `assets/reports/` (contoh: `penyata-kewangan-2026-10.pdf`).
-2. Buka fail [`index.html`](index.html) dan cari bahagian `#kewangan`.
-3. Tambah atau sunting baris laporan:
-```html
-<div class="p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-  <div class="flex items-center gap-3.5">
-    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-500 flex items-center justify-center font-bold text-xs">PDF</div>
-    <div>
-      <h5 class="font-bold text-foreground text-sm sm:text-base">Penyata Kewangan Bulanan - Oktober 2026</h5>
-      <p class="text-xs text-muted-foreground">Tempoh: Oktober 2026 • Status: Diaudit &amp; Disahkan</p>
-    </div>
-  </div>
-  <div class="flex items-center gap-2">
-    <button onclick="window.openPdfModal('assets/reports/penyata-kewangan-2026-10.pdf', 'Penyata Kewangan - Oktober 2026')" class="btn btn-primary btn-sm gap-1.5">
-      Papar PDF
-    </button>
-    <a href="assets/reports/penyata-kewangan-2026-10.pdf" download class="btn btn-outline btn-sm gap-1.5">
-      Muat Turun
-    </a>
-  </div>
-</div>
-```
+Penyata kewangan kini diasingkan mengikut tahun dan dipaginasikan (5 laporan per halaman):
 
----
-
-### D. Mengemaskini Teks & Terjemahan i18n (`lang/`)
-
-Semua perkataan dan ayat di dalam laman web menggunakan enjin i18n yang mengambil data dari:
-- [`lang/ms.json`](lang/ms.json) untuk Bahasa Melayu.
-- [`lang/en.json`](lang/en.json) untuk Bahasa Inggeris.
-
-Sekiranya anda menukar teks dalam `lang/ms.json`, pastikan kunci yang sama juga dikemaskini dalam `lang/en.json` supaya kedua-dua bahasa kekal selari.
+1. Masukkan fail PDF laporan kewangan di dalam folder tahun berkenaan, contohnya:
+   ```text
+   assets/reports/2026/penyata-kewangan-2026-10.pdf
+   ```
+   *(Bagi tahun baharu seperti 2027, cipta folder `assets/reports/2027/`).*
+2. Buka fail [`data/reports.json`](data/reports.json) dan daftarkan laporan tersebut:
+   ```json
+   {
+     "years": ["2026", "2025"],
+     "reports": [
+       {
+         "id": "2026-10",
+         "year": "2026",
+         "period": "Oktober 2026",
+         "title": "Penyata Kewangan Bulanan - Oktober 2026",
+         "type": "Bulanan",
+         "status": "Diaudit & Disahkan",
+         "file": "assets/reports/2026/penyata-kewangan-2026-10.pdf"
+       }
+     ]
+   }
+   ```
+Laman web akan menguruskan pemilihan tahun, penapisan laporan, dan pagination 5 fail per halaman secara automatik!
 
 ---
 
-### E. Menggantikan Logo & Favicon (Nisbah 1:1)
+### D. Mengemaskini Takwim Aktiviti / Mengosongkan Senarai (`data/activities.json`)
 
-1. Sediakan fail logo baharu dalam format PNG beresolusi tinggi (contoh: 1024x1024 piksel atau sekurang-kurangnya 512x512 piksel) dengan nisbah **tepat 1:1**.
-2. Gantikan fail `assets/logo.png` dengan logo baharu anda.
-3. Salin juga fail yang sama ke `public/logo.png`.
-4. Nisbah aspek 1:1 (`logo-sq`) akan dipelihara secara automatik pada seluruh sudut laman web.
+- Buka [`data/activities.json`](data/activities.json) untuk menambah aktiviti baharu mengikut kategori (`lectures`, `community`, `youth`).
+- **Sekiranya tiada aktiviti yang dijadualkan**: Kosongkan senarai menjadi `[]`. Laman web akan secara automatik menyembunyikan butang penapis dan memaparkan mesej mesra:
+  *"Tiada aktiviti dijadualkan pada masa ini. Nantikan hebahan seterusnya daripada pihak jawatankuasa."*
 
 ---
 
-### F. Menambah Aktiviti & Kuliah Baharu (`data/activities.json`)
+### E. Menyunting Carta Organisasi (`data/organisasi.json`)
 
-Buka fail [`data/activities.json`](data/activities.json) dan tambah objek aktiviti baharu:
-```json
-{
-  "id": 5,
-  "category": "lectures",
-  "titleMs": "Tajuk Kuliah dalam BM",
-  "titleEn": "Lecture Title in English",
-  "date": "Tarikh Program",
-  "time": "Masa Program",
-  "speaker": "Nama Penceramah",
-  "locationMs": "Dewan Solat Utama, Musolla Al-Widad",
-  "locationEn": "Main Prayer Hall, Musolla Al-Widad",
-  "status": "upcoming",
-  "badgeMs": "Akan Datang",
-  "badgeEn": "Upcoming",
-  "descMs": "Penerangan program dalam Bahasa Melayu.",
-  "descEn": "Description in English.",
-  "image": "assets/activities/activity-kuliah.svg"
-}
-```
+Buka [`data/organisasi.json`](data/organisasi.json) untuk mengemaskini nama, jawatan atau nombor WhatsApp ahli jawatankuasa. Anda boleh meletakkan foto sebenar ahli (nisbah 1:1) di `assets/avatars/`.
+
+---
+
+### F. Menukar Maklumat Hubungan & Pautan Luar (`site.config.json`)
+
+- **Borang Google Form Aduan**: Sunting `urls.googleFormFeedback`.
+- **Pautan Khairat**: `urls.khairatMasjidAlIlmi` (lalai: `https://www.e-khairat.com/al-ilmi`).
+- **Nombor Telefon Pengerusi & Setiausaha**: Sunting di bahagian `contacts`.
+
+---
+
+### G. Menukar Logo & Favicon (Nisbah 1:1)
+
+Gantikan fail `assets/logo.png` dengan logo baharu anda. Pastikan imej mempunyai nisbah segi empat sama tepat (1:1, contoh: 1024x1024 piksel).
+
+---
+
+### H. Mengemaskini Teks & Dwi-Bahasa i18n (`lang/`)
+
+- [`lang/ms.json`](lang/ms.json) untuk teks Bahasa Melayu.
+- [`lang/en.json`](lang/en.json) untuk teks Bahasa Inggeris.
 
 ---
 
 ## 🚀 Panduan Deployment ke Cloudflare Pages
 
-Laman web ini sangat sesuai dihoskan secara percuma dan pantas melalui **Cloudflare Pages**.
-
 ### Kaedah A: Sambungan Automatik melalui GitHub (Disyorkan)
 
-1. Tolak (*push*) projek ini ke repositori GitHub anda (lihat langkah di bahagian [Pengurusan Kod di GitHub](#-pengurusan-kod-di-github)).
-2. Log masuk ke papan pemuka [Cloudflare Dashboard](https://dash.cloudflare.com/).
-3. Di menu sebelah kiri, pilih **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
-4. Pilih akaun GitHub anda dan pilih repositori `musolla-al-widad-website`.
-5. Tetapkan konfigurasi binaan (*Build Settings*):
+1. Tolak kod terkini ke GitHub:
+   ```bash
+   git add .
+   git commit -m "feat: kemaskini tema komuniti dan struktur perlembagaan"
+   git push origin main
+   ```
+2. Di papan pemuka **Cloudflare Pages**:
+   - Pilih **Create application** > **Pages** > **Connect to Git**.
+   - Pilih repositori `musolla-al-widad-website`.
    - **Framework preset**: `None`
    - **Build command**: `node scripts/build.js`
    - **Build output directory**: `dist`
-   *(Atau jika anda tidak mahu menjalankan skrip build, biarkan Build command kosong dan letakkan Build output directory sebagai `.`)*
-6. Klik **Save and Deploy**.
-7. Cloudflare Pages akan membina dan menerbitkan laman web anda dalam masa beberapa saat dengan sambungan HTTPS percuma dan rangkaian CDN global terpantas!
-8. Anda boleh menambah domain khas (*Custom Domain*) seperti `musolla-alwidad.my` atau subdomain persatuan residensi pada tab **Custom domains** di Cloudflare Pages.
-
-### Kaedah B: Muat Naik Manual (Direct Upload)
-
-Jika anda tidak mahu menyambung ke Git:
-1. Jalankan arahan binaan di komputer anda:
-   ```bash
-   node scripts/build.js
-   ```
-2. Ini akan menghasilkan folder `dist/` yang mengandungi semua fail siap terbitan.
-3. Di Cloudflare Pages, pilih **Upload assets** dan seret (*drag and drop*) keseluruhan folder `dist/`.
+3. Klik **Save and Deploy**. Laman web akan beroperasi serta-merta dengan SSL percuma!
 
 ---
 
-## 🐙 Pengurusan Kod di GitHub
+## 📜 Kredit, Hak Cipta & Sumber Terbuka
 
-Untuk memulakan repositori baru dan memuat naik ke akaun GitHub anda:
+Laman web ini dibina menggunakan komponen sumber terbuka berikut:
+- **Tailwind CSS** (MIT License)
+- **Shadcn UI** (MIT License)
+- **Plus Jakarta Sans** (SIL Open Font License 1.1) oleh Tokotype
+- **Amiri Calligraphy Font** (SIL Open Font License 1.1) oleh Khaled Hosny
+- **Lucide Icons** (ISC / MIT License)
 
-```bash
-# 1. Semak status fail
-git status
+**Penjanaan & Senibina Laman Web:**
+Laman web ini dijana menggunakan **Google Gemini** dan **Google Antigravity** dengan arahan (*prompt*) daripada **Hanis Irfan**.
 
-# 2. Tambah semua fail ke staging
-git add .
-
-# 3. Buat commit pertama
-git commit -m "feat: inisialisasi laman web rasmi Musolla Al-Widad Kita Sejati"
-
-# 4. Tetapkan branch utama kepada main
-git branch -M main
-
-# 5. Sambungkan ke repositori GitHub anda (gantikan dengan URL repo anda)
-git remote add origin https://github.com/NAMA_PENGGUNA_ANDA/musolla-al-widad-website.git
-
-# 6. Tolak kod ke GitHub
-git push -u origin main
-```
-
----
-
-## 📞 Maklumat Perhubungan Rasmi
-
-- **Nama Organisasi**: Musolla Al-Widad Kita Sejati Cybersouth
-- **Alamat**: Residensi Kita Sejati Cybersouth, 43800 Dengkil, Selangor Darul Ehsan
-- **Peta Lokasi**: [https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9](https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9)
-- **Emel Rasmi**: `alwidad.kitasejati@gmail.com`
-- **Facebook**: [https://www.facebook.com/alwidad.kitasejati](https://www.facebook.com/alwidad.kitasejati)
-- **Instagram**: [https://www.instagram.com/alwidad.kitasejati](https://www.instagram.com/alwidad.kitasejati)
-
----
-
-*Laman web ini dibina dengan keikhlasan untuk kemaslahatan dan penyatuan ukhuwah jemaah Musolla Al-Widad Kita Sejati Cybersouth.*
+*Sebarang cadangan penambahbaikan, komen atau aduan berkaitan laman web ini amat dialu-alukan melalui borang maklum balas rasmi musolla.*

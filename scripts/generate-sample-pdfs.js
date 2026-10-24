@@ -14,10 +14,10 @@ function createSamplePdf(title, subtitle, bodyLines) {
     '/F1 16 Tf',
     '50 780 Td',
     '(' + title + ') Tj',
-    '/F1 12 Tf',
-    '0 -28 Td',
+    '/F1 11 Tf',
+    '0 -26 Td',
     '(' + subtitle + ') Tj',
-    '0 -20 Td',
+    '0 -18 Td',
     '(----------------------------------------------------------------------) Tj'
   ];
 
@@ -58,60 +58,86 @@ function createSamplePdf(title, subtitle, bodyLines) {
   return body + xref + trailer;
 }
 
-const reportsDir = path.join(__dirname, '..', 'assets', 'reports');
-if (!fs.existsSync(reportsDir)) {
-  fs.mkdirSync(reportsDir, { recursive: true });
-}
+const ROOT_DIR = path.join(__dirname, '..');
 
-// Reports
-const reports = [
-  { file: 'penyata-kewangan-2026-09.pdf', title: 'PENYATA KEWANGAN BULANAN - SEPTEMBER 2026', subtitle: 'Musolla Al-Widad Kita Sejati Cybersouth (September 2026)', lines: [
-    'RINGKASAN PENYATA KEWANGAN BULANAN',
-    'Baki Terdahulu: RM 30,320.00',
-    'Jumlah Penerimaan Infaq / Tabung: RM 12,450.00',
-    'Jumlah Perbelanjaan Utiliti & Penyelenggaraan: RM 4,120.00',
-    'Baki Bersih Akhir Bulan di Bank Islam: RM 38,650.00',
-    'Status: Telah Diaudit & Disahkan oleh Pemeriksa Kira-Kira Komuniti'
-  ]},
-  { file: 'penyata-kewangan-2026-08.pdf', title: 'PENYATA KEWANGAN BULANAN - OGOS 2026', subtitle: 'Musolla Al-Widad Kita Sejati Cybersouth (Ogos 2026)', lines: [
-    'RINGKASAN PENYATA KEWANGAN BULANAN',
-    'Baki Terdahulu: RM 23,410.00',
-    'Jumlah Penerimaan Infaq / Tabung: RM 10,800.00',
-    'Jumlah Perbelanjaan Utiliti & Penyelenggaraan: RM 3,890.00',
-    'Baki Bersih Akhir Bulan di Bank Islam: RM 30,320.00',
-    'Status: Telah Diaudit & Disahkan oleh Pemeriksa Kira-Kira Komuniti'
-  ]},
-  { file: 'penyata-kewangan-2026-07.pdf', title: 'PENYATA KEWANGAN BULANAN - JULAI 2026', subtitle: 'Musolla Al-Widad Kita Sejati Cybersouth (Julai 2026)', lines: [
-    'RINGKASAN PENYATA KEWANGAN BULANAN',
-    'Baki Terdahulu: RM 17,370.00',
-    'Jumlah Penerimaan Infaq / Tabung: RM 9,450.00',
-    'Jumlah Perbelanjaan Utiliti & Penyelenggaraan: RM 3,410.00',
-    'Baki Bersih Akhir Bulan di Bank Islam: RM 23,410.00',
-    'Status: Telah Diaudit & Disahkan oleh Pemeriksa Kira-Kira Komuniti'
-  ]},
-  { file: 'penyata-kewangan-tahunan-2025.pdf', title: 'LAPORAN KEWANGAN TAHUNAN - TAHUN 2025', subtitle: 'Musolla Al-Widad Kita Sejati Cybersouth (1 Jan - 31 Dis 2025)', lines: [
-    'RINGKASAN LAPORAN KEWANGAN TAHUNAN BERAKHIR 31 DISEMBER 2025',
-    'Jumlah Penerimaan Infaq Keseluruhan: RM 85,400.00',
-    'Jumlah Perbelanjaan Tahunan (Operasi, Utiliti, Aktiviti): RM 42,100.00',
-    'Baki Terkumpul Dibawa Ke Hadapan: RM 43,300.00',
-    'Status: Dibentangkan dan Diluluskan Sebulat Suara dalam Mesyuarat Agung (AGM)'
-  ]},
-  { file: 'perlembagaan-musolla-al-widad.pdf', title: 'PERLEMBAGAAN MUSOLLA AL-WIDAD KITA SEJATI', subtitle: 'Dokumen Peraturan dan Tatacara Pentadbiran Musolla', lines: [
-    'FASAL 1: NAMA DAN ALAMAT BERDAFTAR',
-    'Nama organisasi ini ialah Musolla Al-Widad Kita Sejati Cybersouth.',
-    'Alamat rasmi: Residensi Kita Sejati Cybersouth, 43800 Dengkil, Selangor.',
-    'FASAL 2: TUJUAN DAN OBJEKTIF PENUBUHAN',
-    'Menyediakan prasarana ibadah fardu lima waktu yang kondusif.',
-    'Mengimarahkan majlis ilmu, pengajian Al-Quran dan pembangunan sahsiah jemaah.',
-    'Mengeratkan ukhuwah kejiranan dan memelihara kebajikan umat Islam setempat.',
-    'FASAL 3: PENTADBIRAN DAN JAWATANKUASA',
-    'Ditadbir oleh Jawatankuasa yang dilantik terdiri daripada Pengerusi, Setiausaha,',
-    'Bendahari, Ketua-Ketua Biro dan Pemeriksa Kira-Kira Bebas.'
-  ]}
+// 1. Perlembagaan Musolla
+const perlembagaanDir = path.join(ROOT_DIR, 'assets', 'perlembagaan');
+if (!fs.existsSync(perlembagaanDir)) fs.mkdirSync(perlembagaanDir, { recursive: true });
+
+fs.writeFileSync(
+  path.join(perlembagaanDir, 'perlembagaan-musolla-al-widad.pdf'),
+  createSamplePdf(
+    'PERLEMBAGAAN MUSOLLA AL-WIDAD KITA SEJATI',
+    'Pangsapuri Kita Sejati Cybersouth, 43800 Dengkil, Selangor',
+    [
+      'FASAL 1: NAMA DAN ALAMAT BERDAFTAR',
+      'Nama rasmi ialah Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth.',
+      'Alamat: Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor.',
+      'FASAL 2: MATLAMAT PENUBUHAN',
+      'Pusat ibadah solat berjemaah, majlis taklim, kebajikan dan perpaduan jemaah.',
+      'FASAL 3: PENTADBIRAN & JAWATANKUASA',
+      'Ditadbir oleh Jawatankuasa yang dilantik dalam Mesyuarat Agung Penduduk.',
+      'FASAL 4: PENGURUSAN KEWANGAN & AUDIT',
+      'Setiap infaq dan perbelanjaan diaudit secara telus dan dibentangkan berkala.'
+    ]
+  )
+);
+console.log('Generated Perlembagaan PDF');
+
+// 2. Financial Reports for 2026
+const dir2026 = path.join(ROOT_DIR, 'assets', 'reports', '2026');
+if (!fs.existsSync(dir2026)) fs.mkdirSync(dir2026, { recursive: true });
+
+const reports2026 = [
+  { file: 'penyata-kewangan-2026-09.pdf', title: 'PENYATA KEWANGAN BULANAN - SEPTEMBER 2026', month: 'September 2026' },
+  { file: 'penyata-kewangan-2026-08.pdf', title: 'PENYATA KEWANGAN BULANAN - OGOS 2026', month: 'Ogos 2026' },
+  { file: 'penyata-kewangan-2026-07.pdf', title: 'PENYATA KEWANGAN BULANAN - JULAI 2026', month: 'Julai 2026' },
+  { file: 'penyata-kewangan-2026-06.pdf', title: 'PENYATA KEWANGAN BULANAN - JUN 2026', month: 'Jun 2026' },
+  { file: 'penyata-kewangan-2026-05.pdf', title: 'PENYATA KEWANGAN BULANAN - MEI 2026', month: 'Mei 2026' },
+  { file: 'penyata-kewangan-2026-04.pdf', title: 'PENYATA KEWANGAN BULANAN - APRIL 2026', month: 'April 2026' },
+  { file: 'penyata-kewangan-2026-03.pdf', title: 'PENYATA KEWANGAN BULANAN - MAC 2026', month: 'Mac 2026' }
 ];
 
-reports.forEach(r => {
-  const p = path.join(reportsDir, r.file);
-  fs.writeFileSync(p, createSamplePdf(r.title, r.subtitle, r.lines));
-  console.log('Generated:', p);
+reports2026.forEach(r => {
+  fs.writeFileSync(
+    path.join(dir2026, r.file),
+    createSamplePdf(
+      r.title,
+      'Musolla Al-Widad, Pangsapuri Kita Sejati (' + r.month + ')',
+      [
+        'RINGKASAN PENYATA KEWANGAN BULANAN',
+        'Status: Diaudit dan Disahkan oleh Pemeriksa Kira-Kira',
+        'Bank Islam Malaysia Berhad: 12038010098765',
+        'Disediakan oleh Bendahari Musolla Al-Widad'
+      ]
+    )
+  );
 });
+console.log('Generated 2026 Reports');
+
+// 3. Financial Reports for 2025
+const dir2025 = path.join(ROOT_DIR, 'assets', 'reports', '2025');
+if (!fs.existsSync(dir2025)) fs.mkdirSync(dir2025, { recursive: true });
+
+const reports2025 = [
+  { file: 'penyata-kewangan-tahunan-2025.pdf', title: 'LAPORAN KEWANGAN TAHUNAN - TAHUN 2025', month: 'Jan - Dis 2025' },
+  { file: 'penyata-kewangan-2025-12.pdf', title: 'PENYATA KEWANGAN BULANAN - DISEMBER 2025', month: 'Disember 2025' },
+  { file: 'penyata-kewangan-2025-11.pdf', title: 'PENYATA KEWANGAN BULANAN - NOVEMBER 2025', month: 'November 2025' }
+];
+
+reports2025.forEach(r => {
+  fs.writeFileSync(
+    path.join(dir2025, r.file),
+    createSamplePdf(
+      r.title,
+      'Musolla Al-Widad, Pangsapuri Kita Sejati (' + r.month + ')',
+      [
+        'RINGKASAN LAPORAN KEWANGAN',
+        'Status: Dibentangkan & Diluluskan dalam AGM Penduduk',
+        'Bank Islam Malaysia Berhad: 12038010098765',
+        'Disediakan oleh Bendahari Musolla Al-Widad'
+      ]
+    )
+  );
+});
+console.log('Generated 2025 Reports');

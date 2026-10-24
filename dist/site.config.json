@@ -1,47 +1,79 @@
 {
   "siteName": "Musolla Al-Widad Kita Sejati",
   "shortName": "Musolla Al-Widad",
+  "tagline": "Pusat Ibadah, Ukhuwah & Kebajikan Komuniti Pangsapuri Kita Sejati Cybersouth",
   "logo": "assets/logo.png",
   "favicon": "assets/logo.png",
   "location": {
-    "name": "Residensi Kita Sejati Cybersouth",
-    "address": "Musolla Al-Widad, Residensi Kita Sejati Cybersouth, 43800 Dengkil, Selangor",
-    "googleMapsUrl": "https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9",
-    "wazeUrl": "https://waze.com/ul?ll=2.8763,101.6669&navigate=yes"
+    "name": "Pangsapuri Kita Sejati Cybersouth",
+    "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan",
+    "coordinates": "2.876102, 101.646251",
+    "googleMapsUrl": "https://www.google.com/maps?q=2.876102,101.646251",
+    "googleMapsShortUrl": "https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9"
   },
-  "socialMedia": {
-    "facebook": {
+  "socialMedia": [
+    {
+      "id": "facebook",
+      "name": "Facebook",
       "url": "https://www.facebook.com/alwidad.kitasejati",
-      "username": "@alwidad.kitasejati",
-      "name": "Facebook Rasmi"
+      "handle": "@alwidad.kitasejati",
+      "descMs": "Siaran langsung kuliah, album foto aktiviti & hebahan harian.",
+      "descEn": "Live streams, photo albums & daily community notices.",
+      "icon": "facebook",
+      "color": "blue"
     },
-    "instagram": {
+    {
+      "id": "instagram",
+      "name": "Instagram",
       "url": "https://www.instagram.com/alwidad.kitasejati",
-      "username": "@alwidad.kitasejati",
-      "name": "Instagram Rasmi"
+      "handle": "@alwidad.kitasejati",
+      "descMs": "Poster kuliah berkala, intisari tazkirah & sorotan komuniti.",
+      "descEn": "Lecture posters, tazkirah quotes & community highlights.",
+      "icon": "instagram",
+      "color": "pink"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/@alwidad.kitasejati",
+      "handle": "@alwidad.kitasejati",
+      "descMs": "Klip video pendek pengajian, tazkirah santai & info pantas.",
+      "descEn": "Short religious snippets, reminders & quick community updates.",
+      "icon": "tiktok",
+      "color": "black"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "url": "https://www.youtube.com/@alwidad.kitasejati",
+      "handle": "Musolla Al-Widad",
+      "descMs": "Arkib rakaman penuh kuliah maghrib dan tazkirah khas.",
+      "descEn": "Full lecture recordings and special Islamic talk archives.",
+      "icon": "youtube",
+      "color": "red"
     }
-  },
+  ],
   "contacts": {
     "email": "alwidad.kitasejati@gmail.com",
     "pengerusi": {
       "title": "Pengerusi Musolla",
-      "name": "Ustaz / Tuan Pengerusi",
+      "name": "Pengerusi Musolla",
       "phone": "+6012-345 6789",
       "phoneRaw": "+60123456789",
       "whatsapp": "60123456789"
     },
     "setiausaha": {
       "title": "Setiausaha Musolla",
-      "name": "Tuan Setiausaha",
+      "name": "Setiausaha Musolla",
       "phone": "+6013-456 7890",
       "phoneRaw": "+60134567890",
       "whatsapp": "60134567890"
     }
   },
   "urls": {
-    "khairatMasjidAlIlmi": "https://masjidalilmi-dengkil.com/ekhairat",
+    "khairatMasjidAlIlmi": "https://www.e-khairat.com/al-ilmi",
     "googleFormFeedback": "https://forms.gle/sampleFeedbackAlWidad",
-    "constitutionDrive": "https://drive.google.com/drive/folders/sample-constitution-alwidad"
+    "perlembagaanPdf": "assets/perlembagaan/perlembagaan-musolla-al-widad.pdf"
   },
   "bankAccount": {
     "bankName": "Bank Islam Malaysia Berhad",

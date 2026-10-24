@@ -2,49 +2,49 @@
   <defs>
     <linearGradient id="qrBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#faf8f5"/>
     </linearGradient>
     <linearGradient id="dnHeader" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ed1c24"/>
       <stop offset="100%" stop-color="#c1181f"/>
     </linearGradient>
     <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.08"/>
     </filter>
   </defs>
 
   <!-- Background Card -->
-  <rect width="600" height="600" rx="32" fill="url(#qrBg)" stroke="#e2e8f0" stroke-width="4"/>
+  <rect width="600" height="600" rx="32" fill="url(#qrBg)" stroke="#e8e2d8" stroke-width="3"/>
 
   <!-- DuitNow Header Banner -->
   <rect x="0" y="0" width="600" height="96" rx="32" fill="url(#dnHeader)"/>
   <rect x="0" y="72" width="600" height="24" fill="url(#dnHeader)"/>
-  <text x="300" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">DuitNow QR</text>
+  <text x="300" y="58" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">DuitNow QR</text>
 
   <!-- Mosque Name & Bank Info -->
-  <text x="300" y="132" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0f172a" text-anchor="middle">MUSOLLA AL-WIDAD KITA SEJATI</text>
-  <text x="300" y="156" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#64748b" text-anchor="middle">Bank Islam Malaysia Berhad • 12038010098765</text>
+  <text x="300" y="132" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#1b2a32" text-anchor="middle">MUSOLLA AL-WIDAD KITA SEJATI</text>
+  <text x="300" y="156" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#6c7a82" text-anchor="middle">Bank Islam Malaysia Berhad • 12038010098765</text>
 
   <!-- QR Outer Box -->
-  <rect x="110" y="174" width="380" height="340" rx="20" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="110" y="174" width="380" height="340" rx="20" fill="#ffffff" stroke="#d5cebe" stroke-width="2" filter="url(#shadow)"/>
 
   <!-- Corner Position Squares (Top Left) -->
-  <rect x="140" y="204" width="70" height="70" rx="10" fill="#0f172a"/>
+  <rect x="140" y="204" width="70" height="70" rx="10" fill="#1b2a32"/>
   <rect x="154" y="218" width="42" height="42" rx="4" fill="#ffffff"/>
   <rect x="164" y="228" width="22" height="22" rx="2" fill="#0c6978"/>
 
   <!-- Corner Position Squares (Top Right) -->
-  <rect x="390" y="204" width="70" height="70" rx="10" fill="#0f172a"/>
+  <rect x="390" y="204" width="70" height="70" rx="10" fill="#1b2a32"/>
   <rect x="404" y="218" width="42" height="42" rx="4" fill="#ffffff"/>
   <rect x="414" y="228" width="22" height="22" rx="2" fill="#0c6978"/>
 
   <!-- Corner Position Squares (Bottom Left) -->
-  <rect x="140" y="414" width="70" height="70" rx="10" fill="#0f172a"/>
+  <rect x="140" y="414" width="70" height="70" rx="10" fill="#1b2a32"/>
   <rect x="154" y="428" width="42" height="42" rx="4" fill="#ffffff"/>
   <rect x="164" y="438" width="22" height="22" rx="2" fill="#0c6978"/>
 
   <!-- Stylized QR Grid Data Dots -->
-  <g fill="#0f172a">
+  <g fill="#1b2a32">
     <!-- Row 1 -->
     <rect x="230" y="206" width="14" height="14" rx="2"/>
     <rect x="256" y="206" width="14" height="14" rx="2"/>
@@ -119,10 +119,9 @@
   <!-- Center DuitNow Icon Badge -->
   <rect x="260" y="290" width="80" height="80" rx="16" fill="#ffffff" stroke="#ed1c24" stroke-width="3"/>
   <circle cx="300" cy="330" r="26" fill="#ed1c24"/>
-  <!-- DuitNow Triangle/Arrow Shape in white -->
   <path d="M 292 318 L 314 330 L 292 342 Z" fill="#ffffff"/>
 
   <!-- Footer Tag -->
-  <text x="300" y="546" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#0f766e" text-anchor="middle">★ IMBAS MENGGUNAKAN SEBARANG APLIKASI BANK ATAU E-WALLET ★</text>
-  <text x="300" y="570" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#94a3b8" text-anchor="middle">Kod QR Rasmi Musolla Al-Widad Kita Sejati (1:1)</text>
+  <text x="300" y="552" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#0c6978" text-anchor="middle">★ IMBAS MENGGUNAKAN SEBARANG APLIKASI BANK ATAU E-WALLET ★</text>
+  <text x="300" y="574" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="12" font-weight="500" fill="#8c979f" text-anchor="middle">Infaq Ikhlas Menjana Pengimarahan &amp; Kebajikan Komuniti</text>
 </svg>

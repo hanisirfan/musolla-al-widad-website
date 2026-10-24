@@ -2,8 +2,9 @@
   "site": {
     "name": "Musolla Al-Widad Kita Sejati",
     "shortName": "Musolla Al-Widad",
-    "tagline": "Center of Worship, Brotherhood & Welfare for Kita Sejati Cybersouth",
-    "residency": "Kita Sejati Cybersouth, Dengkil, Selangor"
+    "tagline": "Center of Worship, Brotherhood & Community Welfare for Pangsapuri Kita Sejati Cybersouth",
+    "residency": "Pangsapuri Kita Sejati Cybersouth, Dengkil, Selangor",
+    "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan"
   },
   "nav": {
     "home": "Home",
@@ -12,7 +13,6 @@
     "finance": "Finance",
     "donation": "Donations",
     "activities": "Activities & News",
-    "facilities": "Facilities",
     "faq": "FAQ",
     "contact": "Contact Us",
     "donateBtn": "Donate Now",
@@ -29,12 +29,12 @@
   "hero": {
     "badge": "Official Community Portal",
     "title": "Musolla Al-Widad Kita Sejati",
-    "subtitle": "A center for congregational worship, fostering neighborhood ties, and mutual welfare to build a blessed community at Kita Sejati Cybersouth.",
+    "subtitle": "A center for congregational worship, fostering neighborhood ties, and mutual welfare to build a harmonious and blessed community at Pangsapuri Kita Sejati.",
     "ctaDonation": "Make a Donation",
     "ctaKhairat": "Register Khairat Kematian",
     "ctaLocation": "Get Musolla Directions",
     "ctaAnnouncement": "Latest Announcements",
-    "statHouseholds": "Resident Families",
+    "statHouseholds": "Apartment Families",
     "statCapacity": "Congregation Capacity",
     "statPrograms": "Programs & Classes"
   },
@@ -49,7 +49,7 @@
         "tag": "Khairat Kematian",
         "date": "Latest",
         "title": "Funeral Fund Registration with Masjid Al-Ilmi Dengkil",
-        "desc": "Musolla Al-Widad is officially partnered under the e-Khairat program of Masjid Al-Ilmi Dengkil. Registration is open to all Kita Sejati residents to safeguard family welfare.",
+        "desc": "Musolla Al-Widad is officially partnered under the e-Khairat program of Masjid Al-Ilmi Dengkil. Registration is open to all Pangsapuri Kita Sejati residents to safeguard family welfare.",
         "link": "#khairat",
         "button": "View Khairat Details"
       },
@@ -58,7 +58,7 @@
         "tag": "Musolla Fund",
         "date": "Ongoing",
         "title": "Musolla Operations & Facilities Infaq Campaign",
-        "desc": "Support our monthly utility bills, prayer hall maintenance, air conditioning, and equipment upkeep via direct online banking or DuitNow QR code.",
+        "desc": "Support our continuous prayer hall maintenance, religious lectures, and facility enhancements through online banking or DuitNow QR.",
         "link": "#sumbangan",
         "button": "Contribute Donation"
       },
@@ -100,7 +100,7 @@
       "missionList": [
         "Provide a clean, secure, and serene worship environment for all congregants and visitors.",
         "Organize high-quality Islamic lectures, Quran study circles, and youth classes to cultivate noble character.",
-        "Strengthen neighborliness, unity, and mutual cooperation among all residency residents.",
+        "Strengthen neighborliness, unity, and mutual cooperation among all apartment residents.",
         "Manage infaq and waqf funds transparently, responsibly, and with the utmost integrity."
       ],
       "coreValuesTitle": "Our Core Values",
@@ -114,33 +114,14 @@
     "org": {
       "title": "Committee Organization Chart",
       "desc": "Leadership board and committee members of Musolla Al-Widad Kita Sejati for the current administration term.",
-      "advisor": "Advisor / Religious Officer",
-      "chairman": "Chairman",
-      "deputyChairman": "Deputy Chairman",
-      "secretary": "Secretary",
-      "assistantSecretary": "Assistant Secretary",
-      "treasurer": "Treasurer",
-      "assistantTreasurer": "Assistant Treasurer",
-      "committeeMembers": "Committee Members",
-      "auditors": "Internal Auditors",
-      "viewProfile": "Contact",
-      "editHint": "Committee details can be easily updated in the data/organisasi.json file."
+      "viewProfile": "Contact"
     },
     "constitution": {
       "title": "Constitution of Musolla Al-Widad",
-      "desc": "Official document outlining establishment rules, committee powers, general assembly protocols, and financial governance.",
-      "status": "Official Guidelines",
-      "summaryTitle": "Key Constitutional Articles",
-      "articles": [
-        { "number": "Articles 1 - 3", "title": "Name, Address & Purpose", "desc": "Formal stipulations for Musolla Al-Widad within Kita Sejati Cybersouth under the oversight of state religious authorities." },
-        { "number": "Articles 4 - 6", "title": "Membership & Resident Rights", "desc": "Eligibility criteria for local congregants, resident registrations, and community participation rights." },
-        { "number": "Articles 7 - 10", "title": "Management Board & Duties", "desc": "Roles of the Chairman, Deputy Chairman, Secretary, Treasurer, and designated working bureaus." },
-        { "number": "Articles 11 - 14", "title": "Finance, Infaq & Auditing", "desc": "Guidelines for donation collections, operational expenditures, cheque authorizations, and annual audits." }
-      ],
-      "embedTitle": "Digital Copy of Constitution",
-      "openDrive": "Open Full Document in Google Drive",
-      "download": "Download PDF Summary",
-      "note": "The Google Drive link can be customized at any time inside site.config.json."
+      "desc": "Official document outlining establishment rules, committee powers, and financial governance protocols.",
+      "badge": "Official Document",
+      "viewPdf": "View Full PDF",
+      "download": "Download PDF"
     }
   },
   "khairat": {
@@ -148,7 +129,7 @@
     "title": "Funeral Welfare Fund (Khairat)",
     "subtitle": "Officially Affiliated Under Masjid Al-Ilmi Dengkil",
     "lead": "To ensure that funeral management (fardhu kifayah) is carried out smoothly, respectfully, and without financial distress to grieving families, Musolla Al-Widad Kita Sejati has joined under the Khairat Kematian program of Masjid Al-Ilmi Dengkil.",
-    "highlight": "All Muslim residents of Kita Sejati Cybersouth are strongly encouraged to register as khairat members to secure peace of mind and protection for their beloved families.",
+    "highlight": "All Muslim residents of Pangsapuri Kita Sejati are strongly encouraged to register as khairat members to secure peace of mind and protection for their beloved families.",
     "benefitsTitle": "Membership Benefits & Coverage",
     "benefits": [
       {
@@ -195,56 +176,16 @@
   },
   "finance": {
     "title": "Financial Reports & Transparency",
-    "subtitle": "Monthly infaq contributions and operational expenditures are transparently documented for congregational review.",
+    "subtitle": "Monthly infaq contributions and operational expenditures are transparently documented for congregational review categorized by year.",
     "transparencyTitle": "Our Commitment to Accountability",
-    "transparencyDesc": "Every ringgit donated by the community is systematically logged, verified, and audited. Infaq funds strictly support daily operations, utilities, facility upkeep, and religious community events.",
-    "annualSummaryTitle": "Monthly & Annual Financial Statements",
+    "transparencyDesc": "Every ringgit donated by the community is systematically logged, verified, and audited. Infaq funds support ongoing operations, facilities upgrading, dakwah sessions, and neighborhood welfare.",
+    "selectYear": "Select Report Year",
     "viewPdf": "View PDF",
-    "downloadPdf": "Download PDF",
-    "table": {
-      "period": "Period / Month",
-      "type": "Report Type",
-      "status": "Audit Status",
-      "action": "Action"
-    },
-    "reports": [
-      {
-        "id": "2026-09",
-        "period": "September 2026",
-        "title": "Monthly Financial Statement - September 2026",
-        "type": "Monthly",
-        "status": "Audited & Verified",
-        "file": "assets/reports/penyata-kewangan-2026-09.pdf",
-        "size": "240 KB"
-      },
-      {
-        "id": "2026-08",
-        "period": "August 2026",
-        "title": "Monthly Financial Statement - August 2026",
-        "type": "Monthly",
-        "status": "Audited & Verified",
-        "file": "assets/reports/penyata-kewangan-2026-08.pdf",
-        "size": "235 KB"
-      },
-      {
-        "id": "2026-07",
-        "period": "July 2026",
-        "title": "Monthly Financial Statement - July 2026",
-        "type": "Monthly",
-        "status": "Audited & Verified",
-        "file": "assets/reports/penyata-kewangan-2026-07.pdf",
-        "size": "228 KB"
-      },
-      {
-        "id": "2025-annual",
-        "period": "Year 2025",
-        "title": "Annual Audited Financial Report - FY Ended 31 Dec 2025",
-        "type": "Annual",
-        "status": "Adopted at AGM",
-        "file": "assets/reports/penyata-kewangan-tahunan-2025.pdf",
-        "size": "580 KB"
-      }
-    ],
+    "downloadPdf": "Download",
+    "prevPage": "Previous",
+    "nextPage": "Next",
+    "pageIndicator": "Page {current} of {total}",
+    "noReports": "No financial reports recorded for this year yet.",
     "notice": "Would you like detailed receipt breakdowns or have financial questions? Please contact our Musolla Treasurer via WhatsApp or the feedback form."
   },
   "donation": {
@@ -268,86 +209,55 @@
     "qrCard": {
       "title": "DuitNow QR Code (All Banks & e-Wallets)",
       "desc": "Scan using any banking app (Maybank MAE, CIMB OCTO, Bank Islam, TNG eWallet, GrabPay, Boost, etc.)",
-      "downloadQr": "Download QR Code Image",
-      "ratioBadge": "1:1 Ratio"
+      "downloadQr": "Download QR Code Image"
     },
     "utilization": {
       "title": "How Are Your Contributions Used?",
       "items": [
         {
-          "title": "Monthly Utilities & Bills",
-          "desc": "Funding electrical power (air conditioning & lighting), water services, and audio sound system."
+          "title": "Utilities & Bills (If Required)",
+          "desc": "Assisting with electricity bills for air conditioning, water supply, and operating utilities when required."
         },
         {
-          "title": "Cleaning & Maintenance",
-          "desc": "Deep carpet washing, toilet sanitation, air conditioning servicing, and facility maintenance."
+          "title": "Musolla Upgrades & Facilities",
+          "desc": "Repairing, enhancing and upgrading prayer hall facilities, sound acoustic systems, air conditioners and ablution amenities."
         },
         {
-          "title": "Lectures & Religious Scholars",
-          "desc": "Honorarium for invited religious speakers, weekend Quranic clinics, and youth knowledge sessions."
+          "title": "Religious Programs & Dakwah",
+          "desc": "Honorarium for weekly lecture teachers, Quranic classes, Islamic celebrations, and spiritual workshops."
         },
         {
-          "title": "Welfare & Community Events",
-          "desc": "Ramadan community iftar, Eid celebrations, gotong-royong cleaning days, and urgent aid for needy neighbors."
+          "title": "Community Events & Welfare",
+          "desc": "Gotong-royong cleaning days, Ramadan iftar, Eid gatherings, and immediate welfare assistance for vulnerable neighbors."
+        },
+        {
+          "title": "Sanitation & Cleanliness",
+          "desc": "Periodic carpet shampooing, restroom sanitation, and preserving a hygienic, serene worship environment."
         }
       ]
     }
   },
   "activities": {
     "title": "Musolla Activities & News",
-    "subtitle": "Stay connected with upcoming programs, religious study sessions, and neighborhood events.",
+    "subtitle": "Stay connected with upcoming programs, religious study sessions, and neighborhood events at Musolla Al-Widad.",
     "socialSection": {
-      "title": "Official Social Media Feeds",
-      "desc": "Follow our official Facebook and Instagram pages for live lecture streams, event photos, and instant daily announcements.",
-      "fbBtn": "Visit Our Facebook Page",
-      "igBtn": "Visit Our Instagram Page",
-      "fbUsername": "@alwidad.kitasejati",
-      "igUsername": "@alwidad.kitasejati"
+      "title": "Official Social Media Channels",
+      "desc": "Follow our social media channels for live lecture streams, video recaps, and instant daily announcements."
     },
-    "eventsTitle": "Latest Activities & Schedule",
+    "eventsTitle": "Current Activities & Calendar",
     "filterAll": "All",
     "filterLectures": "Lectures & Classes",
     "filterCommunity": "Community",
     "filterYouth": "Kids & Youth",
+    "emptyNotice": "No scheduled activities at this time. Stay tuned for future announcements from the committee.",
     "badgeUpcoming": "Upcoming",
     "badgeCompleted": "Completed",
     "timeLabel": "Time",
-    "locationLabel": "Venue",
-    "viewDetails": "More Details"
-  },
-  "facilities": {
-    "title": "Musolla Facilities",
-    "subtitle": "Thoughtfully designed amenities to ensure comfort and ease for all congregants.",
-    "items": [
-      {
-        "title": "Air-Conditioned Main Prayer Hall",
-        "desc": "Spacious hall equipped with soft carpeting and modern climate control for daily prayers and community gatherings."
-      },
-      {
-        "title": "Dedicated Female Prayer Section (Muslimat)",
-        "desc": "Private and comfortable muslimat area complete with interior ablution area, clean prayer veils (telekung), and mirrors."
-      },
-      {
-        "title": "Accessible Ablution & Restrooms (OKU)",
-        "desc": "Anti-slip tiled restrooms and ablution stations accessible to senior citizens and people with mobility needs."
-      },
-      {
-        "title": "High-Fidelity Sound System",
-        "desc": "Clear acoustic amplification ensuring the azan call and lecture talks are heard clearly throughout the venue."
-      },
-      {
-        "title": "Mini Islamic Library & Reading Corner",
-        "desc": "Collection of Holy Quran copies, translations, Hadith volumes, and Islamic literature for all ages."
-      },
-      {
-        "title": "Sheltered Access & Parking",
-        "desc": "Designated bays for cars and motorcycles near entrance points with covered walkway access."
-      }
-    ]
+    "locationLabel": "Venue"
   },
   "faq": {
     "title": "Frequently Asked Questions (FAQ)",
-    "subtitle": "Helpful answers to common questions asked by Kita Sejati residents.",
+    "subtitle": "Helpful answers to common questions asked by Pangsapuri Kita Sejati residents.",
     "items": [
       {
         "q": "Is Friday congregational prayer (Solat Jumaat) held at Musolla Al-Widad?",
@@ -355,11 +265,7 @@
       },
       {
         "q": "How can residents enroll in the Khairat Kematian program?",
-        "a": "Musolla Al-Widad participates under the official Khairat Kematian program of Masjid Al-Ilmi Dengkil. Simply click the 'Register Khairat' button on this portal to access the Masjid Al-Ilmi e-Khairat system."
-      },
-      {
-        "q": "Can residents reserve the musolla space for family tahlil or doa selamat?",
-        "a": "Yes. Residents are warmly welcomed to utilize the musolla for religious gatherings and tahlil. Please reach out to the Secretary at least one week in advance to schedule the session."
+        "a": "Musolla Al-Widad participates under the official Khairat Kematian program of Masjid Al-Ilmi Dengkil. Simply click the 'Register Khairat' button on this portal to access the Masjid Al-Ilmi e-Khairat system (https://www.e-khairat.com/al-ilmi)."
       },
       {
         "q": "How can I volunteer to support musolla initiatives?",
@@ -367,7 +273,7 @@
       },
       {
         "q": "Where can I review the musolla's financial statements?",
-        "a": "All audited monthly and annual financial statements are regularly published in PDF format under the 'Finance' section of this portal for public congregational transparency."
+        "a": "All audited monthly and annual financial statements are regularly published categorized by year under the 'Finance' section of this portal in PDF format for public transparency."
       }
     ]
   },
@@ -378,46 +284,48 @@
       "badge": "Feedback & Reports",
       "title": "Resident Feedback & Reporting Form (Google Form)",
       "desc": "Have an idea for facility improvement, a cleanliness report, or an activity proposal? Please share it via our official Google Form.",
-      "button": "Open Google Feedback Form",
-      "note": "All feedback is reviewed in our regular committee sessions."
+      "button": "Open Google Feedback Form"
     },
     "contactsTitle": "Key Contact Persons",
     "pengerusi": {
       "role": "Musolla Chairman",
-      "name": "Chairman",
-      "phone": "+6012-345 6789",
-      "display": "012-345 6789"
+      "name": "Chairman"
     },
     "setiausaha": {
       "role": "Musolla Secretary",
-      "name": "Secretary",
-      "phone": "+6013-456 7890",
-      "display": "013-456 7890"
+      "name": "Secretary"
     },
     "email": {
       "role": "Official Email Address",
       "address": "alwidad.kitasejati@gmail.com"
     },
-    "call": "Call Phone",
-    "whatsapp": "Message WhatsApp",
+    "call": "Call",
+    "whatsapp": "WhatsApp",
     "sendEmail": "Send Email",
     "locationSection": {
       "title": "Location & Navigation",
-      "address": "Musolla Al-Widad, Residensi Kita Sejati Cybersouth, 43800 Dengkil, Selangor Darul Ehsan",
+      "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan",
       "openGoogleMaps": "Open in Google Maps",
-      "wazeBtn": "Open in Waze",
       "copyAddress": "Copy Full Address",
       "copiedAddressToast": "Address copied to clipboard!"
     }
   },
   "footer": {
     "aboutTitle": "Musolla Al-Widad",
-    "aboutDesc": "A sacred home of worship and heart of community togetherness in Kita Sejati Cybersouth, Dengkil, Selangor.",
+    "aboutDesc": "A sacred home of worship and heart of community togetherness in Pangsapuri Kita Sejati Cybersouth, Dengkil, Selangor.",
     "quickLinksTitle": "Quick Links",
     "contactTitle": "Committee Contacts",
     "socialTitle": "Follow Our Socials",
     "rights": "All Rights Reserved. Musolla Al-Widad Kita Sejati.",
-    "developedFor": "Built with care for the Kita Sejati Cybersouth community."
+    "developedFor": "Built with care for the Pangsapuri Kita Sejati Cybersouth community.",
+    "creditsBtn": "Credits & Attributions"
+  },
+  "credits": {
+    "title": "Credits & Attributions",
+    "lead": "This official web portal for Musolla Al-Widad Kita Sejati is built using open-source, modern web technologies and libraries:",
+    "aiAttribution": "This website was generated using Google Gemini and Google Antigravity with prompts from Hanis Irfan.",
+    "feedbackWelcome": "Comments, constructive feedback, and suggestions for improvement for this website are warmly welcomed through our official feedback form.",
+    "close": "Close"
   },
   "common": {
     "loading": "Loading...",

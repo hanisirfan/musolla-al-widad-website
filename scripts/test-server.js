@@ -2,8 +2,6 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Import server handler directly
-const PORT = 3456;
 const BASE_DIR = path.join(__dirname, '..');
 
 const MIME_TYPES = {
@@ -33,8 +31,11 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(PORT, '127.0.0.1', async () => {
-  console.log('Testing server running on port', PORT);
+// Port 0 automatically selects an available port
+server.listen(0, '127.0.0.1', async () => {
+  const address = server.address();
+  const PORT = address.port;
+  console.log('Testing server running on ephemeral port', PORT);
 
   const testEndpoints = [
     '/',
@@ -43,9 +44,12 @@ server.listen(PORT, '127.0.0.1', async () => {
     '/site.config.json',
     '/data/organisasi.json',
     '/data/activities.json',
+    '/data/reports.json',
     '/assets/logo.png',
     '/assets/duitnow-qr.svg',
-    '/assets/reports/penyata-kewangan-2026-09.pdf'
+    '/assets/perlembagaan/perlembagaan-musolla-al-widad.pdf',
+    '/assets/reports/2026/penyata-kewangan-2026-09.pdf',
+    '/assets/reports/2025/penyata-kewangan-tahunan-2025.pdf'
   ];
 
   function fetchUrl(url) {
@@ -64,7 +68,7 @@ server.listen(PORT, '127.0.0.1', async () => {
       console.log(`[PASS] ${result.status} ${result.url} (${result.size} bytes, ${result.type})`);
       if (result.status !== 200) throw new Error(`Status ${result.status} on ${result.url}`);
     }
-    console.log('\nAll 9 core endpoints verified successfully! 100% PASS.');
+    console.log('\nAll 12 endpoints verified successfully! 100% PASS.');
     server.close();
     process.exit(0);
   } catch (err) {

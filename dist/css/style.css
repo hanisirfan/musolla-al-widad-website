@@ -1,48 +1,60 @@
-/* Musolla Al-Widad Kita Sejati - Shadcn UI Design System */
+/* Musolla Al-Widad Kita Sejati - Warm, Homey Community Design System */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
 
 :root {
-  --background: 210 25% 98%;
-  --foreground: 202 45% 12%;
-  --card: 0 0% 100%;
-  --card-foreground: 202 45% 12%;
+  /* Warm, welcoming, earthy community tones aligned with mosque logo */
+  --background: 38 30% 98%;      /* Soft warm cream / linen #FAF8F5 */
+  --foreground: 202 38% 18%;     /* Deep soothing slate-teal #1c2e36 */
+  --card: 0 0% 100%;             /* Pure clean card */
+  --card-foreground: 202 38% 18%;
   --popover: 0 0% 100%;
-  --popover-foreground: 202 45% 12%;
-  --primary: 188 78% 26%; /* Mosque Deep Teal #0c6978 */
+  --popover-foreground: 202 38% 18%;
+  
+  --primary: 188 76% 28%;        /* Calming Mosque Deep Teal #116876 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 27 92% 51%; /* Mosque Amber/Orange #f27914 */
+  
+  --secondary: 27 88% 50%;       /* Warm Amber / Terracotta #eb7713 */
   --secondary-foreground: 0 0% 100%;
-  --accent: 38 92% 50%; /* Dome Gold #f59e0b */
-  --accent-foreground: 202 45% 12%;
-  --muted: 200 20% 94%;
-  --muted-foreground: 202 15% 42%;
-  --border: 202 18% 88%;
-  --input: 202 18% 88%;
-  --ring: 188 78% 26%;
-  --radius: 0.875rem;
+  
+  --accent: 38 88% 50%;          /* Warm Crescent Gold #f1a91e */
+  --accent-foreground: 202 45% 14%;
+  
+  --muted: 36 28% 94%;           /* Soft warm beige #f4f0e8 */
+  --muted-foreground: 202 18% 44%;/* Muted warm slate #5d717b */
+  
+  --border: 36 24% 88%;          /* Gentle warm border #e6e0d3 */
+  --input: 36 24% 88%;
+  --ring: 188 76% 28%;
+  --radius: 1rem;                /* Softer, friendly rounded corners */
 
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-arabic: 'Amiri', serif;
 }
 
 .dark {
-  --background: 204 48% 6%; /* Deep night teal #07151c */
-  --foreground: 200 20% 95%;
-  --card: 204 40% 9%; /* Dark card #0e1e26 */
-  --card-foreground: 200 20% 95%;
-  --popover: 204 40% 9%;
-  --popover-foreground: 200 20% 95%;
-  --primary: 185 85% 44%; /* Bright Teal #11b8ce */
-  --primary-foreground: 204 55% 6%;
-  --secondary: 28 92% 56%; /* Warm Luminous Amber #f98e2a */
+  /* Warm, serene night aesthetic (not harsh futuristic black) */
+  --background: 204 36% 9%;      /* Deep midnight teal-charcoal #0f1c23 */
+  --foreground: 40 25% 94%;      /* Warm gentle cream text #f6f3ee */
+  --card: 204 30% 13%;           /* Cozy dark card #17262f */
+  --card-foreground: 40 25% 94%;
+  --popover: 204 30% 13%;
+  --popover-foreground: 40 25% 94%;
+  
+  --primary: 186 72% 46%;        /* Soothing bright teal #21b8cc */
+  --primary-foreground: 204 45% 8%;
+  
+  --secondary: 28 88% 56%;       /* Warm glowing amber #f68928 */
   --secondary-foreground: 0 0% 100%;
-  --accent: 38 95% 55%; /* Golden accent #fbbf24 */
-  --accent-foreground: 204 55% 6%;
-  --muted: 204 25% 15%;
-  --muted-foreground: 200 15% 68%;
-  --border: 204 25% 18%;
-  --input: 204 25% 18%;
-  --ring: 185 85% 44%;
+  
+  --accent: 38 90% 55%;          /* Warm gold #f5b72e */
+  --accent-foreground: 204 45% 8%;
+  
+  --muted: 204 22% 18%;          /* Soft dark slate #23343e */
+  --muted-foreground: 200 16% 68%;/* Softer text #9caeb8 */
+  
+  --border: 204 20% 22%;         /* Subtle dark border #2c3f4b */
+  --input: 204 20% 22%;
+  --ring: 186 72% 46%;
 }
 
 *, *::before, *::after {
@@ -61,29 +73,31 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
 }
 
-/* Islamic Geometric Background Accent (Subtle & Elegant) */
+/* Subtle, Warm Community Arabesque Texture */
 .bg-islamic-pattern {
-  background-image: radial-gradient(hsl(var(--primary) / 0.08) 1.5px, transparent 1.5px),
-                    radial-gradient(hsl(var(--secondary) / 0.06) 1.5px, transparent 1.5px);
-  background-size: 32px 32px;
-  background-position: 0 0, 16px 16px;
+  background-image: 
+    radial-gradient(hsl(var(--primary) / 0.05) 1.5px, transparent 1.5px),
+    radial-gradient(hsl(var(--secondary) / 0.04) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
 }
 
 .dark .bg-islamic-pattern {
-  background-image: radial-gradient(hsl(var(--primary) / 0.12) 1.5px, transparent 1.5px),
-                    radial-gradient(hsl(var(--secondary) / 0.08) 1.5px, transparent 1.5px);
+  background-image: 
+    radial-gradient(hsl(var(--primary) / 0.08) 1.5px, transparent 1.5px),
+    radial-gradient(hsl(var(--secondary) / 0.06) 1.5px, transparent 1.5px);
 }
 
-/* Utility Containers */
+/* Container */
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.25rem;
@@ -91,7 +105,7 @@ body {
 }
 
 @media (min-width: 640px) {
-  .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .container { padding-left: 1.75rem; padding-right: 1.75rem; }
 }
 
 @media (min-width: 1024px) {
@@ -102,7 +116,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: hsl(var(--foreground));
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
 }
 
 p {
@@ -114,7 +129,7 @@ a {
   text-decoration: none;
 }
 
-/* Shadcn UI Buttons */
+/* Friendly, Community Button System */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -122,12 +137,12 @@ a {
   gap: 0.5rem;
   font-size: 0.875rem;
   font-weight: 600;
-  height: 2.5rem;
-  padding: 0 1.125rem;
+  height: 2.625rem;
+  padding: 0 1.25rem;
   border-radius: var(--radius);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
   text-decoration: none;
   white-space: nowrap;
   user-select: none;
@@ -145,29 +160,30 @@ a {
 .btn-primary {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
-  box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+  box-shadow: 0 4px 14px -3px hsl(var(--primary) / 0.35);
 }
 
 .btn-primary:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 6px 16px hsl(var(--primary) / 0.35);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 18px -4px hsl(var(--primary) / 0.45);
 }
 
 .btn-secondary {
   background-color: hsl(var(--secondary));
   color: hsl(var(--secondary-foreground));
-  box-shadow: 0 4px 12px hsl(var(--secondary) / 0.25);
+  box-shadow: 0 4px 14px -3px hsl(var(--secondary) / 0.35);
 }
 
 .btn-secondary:hover {
-  filter: brightness(1.1);
-  box-shadow: 0 6px 16px hsl(var(--secondary) / 0.35);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 18px -4px hsl(var(--secondary) / 0.45);
 }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: hsl(var(--card));
   border-color: hsl(var(--border));
   color: hsl(var(--foreground));
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
 
 .btn-outline:hover {
@@ -185,73 +201,34 @@ a {
   background-color: hsl(var(--muted));
 }
 
-.btn-accent {
-  background-color: hsl(var(--accent));
-  color: hsl(var(--accent-foreground));
-  font-weight: 700;
-}
-
-.btn-accent:hover {
-  filter: brightness(1.08);
-}
-
 .btn-sm {
-  height: 2rem;
-  padding: 0 0.75rem;
+  height: 2.125rem;
+  padding: 0 0.875rem;
   font-size: 0.8125rem;
+  border-radius: calc(var(--radius) - 4px);
 }
 
 .btn-lg {
-  height: 3rem;
-  padding: 0 1.5rem;
-  font-size: 1rem;
+  height: 3.125rem;
+  padding: 0 1.625rem;
+  font-size: 0.975rem;
 }
 
-/* Shadcn UI Cards */
+/* Homey Card System (Soft, rounded, natural warmth) */
 .card {
   background-color: hsl(var(--card));
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 24px -10px hsl(var(--primary) / 0.08);
+  box-shadow: 0 2px 8px -2px rgba(28, 46, 54, 0.05), 0 8px 20px -6px rgba(28, 46, 54, 0.04);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   overflow: hidden;
 }
 
-.card:hover {
-  border-color: hsl(var(--primary) / 0.35);
-}
-
 .card-hoverable:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px -8px hsl(var(--primary) / 0.15);
-}
-
-.card-header {
-  padding: 1.5rem 1.5rem 0.75rem 1.5rem;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.015em;
-}
-
-.card-description {
-  font-size: 0.875rem;
-  color: hsl(var(--muted-foreground));
-  margin-top: 0.25rem;
-}
-
-.card-content {
-  padding: 1.5rem;
-}
-
-.card-footer {
-  padding: 0.75rem 1.5rem 1.5rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(28, 46, 54, 0.09);
+  border-color: hsl(var(--primary) / 0.35);
 }
 
 /* Badges */
@@ -263,8 +240,7 @@ a {
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   width: fit-content;
 }
 
@@ -281,9 +257,15 @@ a {
 }
 
 .badge-accent {
-  background-color: hsl(var(--accent) / 0.15);
+  background-color: hsl(var(--accent) / 0.16);
   color: hsl(var(--accent-foreground));
   border: 1px solid hsl(var(--accent) / 0.3);
+}
+
+.badge-outline {
+  background-color: hsl(var(--card));
+  color: hsl(var(--muted-foreground));
+  border: 1px solid hsl(var(--border));
 }
 
 .badge-muted {
@@ -291,7 +273,7 @@ a {
   color: hsl(var(--muted-foreground));
 }
 
-/* Logo 1:1 Constraints */
+/* Fixed 1:1 Aspect Ratio Logo */
 .logo-sq {
   aspect-ratio: 1 / 1;
   object-fit: contain;
@@ -303,7 +285,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: hsl(var(--background) / 0.88);
+  background-color: hsl(var(--background) / 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid hsl(var(--border));
@@ -315,7 +297,7 @@ a {
   font-weight: 600;
   color: hsl(var(--muted-foreground));
   padding: 0.5rem 0.75rem;
-  border-radius: calc(var(--radius) - 4px);
+  border-radius: calc(var(--radius) - 6px);
   transition: all 0.15s ease;
 }
 
@@ -341,26 +323,14 @@ a {
   flex-shrink: 0;
 }
 
-.carousel-controls {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0 0.75rem;
-  pointer-events: none;
-}
-
 .carousel-btn {
-  pointer-events: auto;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.375rem;
+  height: 2.375rem;
   border-radius: 9999px;
-  background-color: hsl(var(--card) / 0.9);
+  background-color: hsl(var(--card));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -372,7 +342,6 @@ a {
   background-color: hsl(var(--primary));
   color: #fff;
   border-color: hsl(var(--primary));
-  transform: scale(1.05);
 }
 
 .carousel-indicators {
@@ -382,8 +351,8 @@ a {
   transform: translateX(-50%);
   display: flex;
   gap: 0.5rem;
-  background-color: hsl(var(--background) / 0.6);
-  backdrop-filter: blur(8px);
+  background-color: hsl(var(--card) / 0.8);
+  backdrop-filter: blur(6px);
   padding: 0.35rem 0.65rem;
   border-radius: 9999px;
   border: 1px solid hsl(var(--border));
@@ -393,7 +362,7 @@ a {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background-color: hsl(var(--muted-foreground) / 0.4);
+  background-color: hsl(var(--muted-foreground) / 0.3);
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -411,18 +380,15 @@ a {
   background-color: hsl(var(--muted));
   border-radius: var(--radius);
   overflow-x: auto;
-  scrollbar-width: none;
 }
-
-.tabs-nav::-webkit-scrollbar { display: none; }
 
 .tab-btn {
   flex: 1;
   min-width: fit-content;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.125rem;
   font-size: 0.875rem;
   font-weight: 600;
-  border-radius: calc(var(--radius) - 4px);
+  border-radius: calc(var(--radius) - 6px);
   border: none;
   background-color: transparent;
   color: hsl(var(--muted-foreground));
@@ -434,7 +400,7 @@ a {
 .tab-btn.active {
   background-color: hsl(var(--card));
   color: hsl(var(--primary));
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
 }
 
 .tab-panel {
@@ -456,7 +422,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 0;
+  padding: 1.25rem 0.25rem;
   font-size: 1rem;
   font-weight: 600;
   color: hsl(var(--foreground));
@@ -485,21 +451,20 @@ a {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
-  padding: 0;
+  transition: max-height 0.3s ease;
+  padding: 0 0.25rem;
 }
 
 .accordion-item.open .accordion-content {
-  max-height: 600px;
-  transition: max-height 0.4s ease-in-out;
+  max-height: 500px;
   padding-bottom: 1.25rem;
 }
 
-/* Modal Dialog */
+/* Modal Backdrop */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(15, 28, 35, 0.65);
   backdrop-filter: blur(4px);
   z-index: 100;
   display: flex;
@@ -521,14 +486,14 @@ a {
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  max-width: 680px;
+  max-width: 720px;
   width: 100%;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  transform: scale(0.95);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  transform: scale(0.96);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -540,7 +505,7 @@ a {
 .sheet-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(15, 28, 35, 0.65);
   backdrop-filter: blur(4px);
   z-index: 90;
   opacity: 0;
@@ -575,7 +540,7 @@ a {
   transform: translateX(0);
 }
 
-/* Toast System */
+/* Toast */
 #toast-container {
   position: fixed;
   bottom: 1.5rem;
@@ -593,9 +558,9 @@ a {
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--border));
   border-left: 4px solid hsl(var(--primary));
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.125rem;
   border-radius: calc(var(--radius) - 4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -605,38 +570,24 @@ a {
   min-width: 260px;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(4px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Helper Grid & Flex Utilities */
-.grid { display: grid; }
-.flex { display: flex; }
-.flex-col { flex-direction: column; }
-.items-center { align-items: center; }
-.justify-between { justify-content: space-between; }
-.justify-center { justify-content: center; }
-.gap-2 { gap: 0.5rem; }
-.gap-3 { gap: 0.75rem; }
-.gap-4 { gap: 1rem; }
-.gap-6 { gap: 1.5rem; }
-.gap-8 { gap: 2rem; }
-
 .section-spacing {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
   }
 }
