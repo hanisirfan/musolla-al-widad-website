@@ -1,0 +1,53 @@
+{
+  "siteName": "Musolla Al-Widad Kita Sejati",
+  "shortName": "Musolla Al-Widad",
+  "logo": "assets/logo.png",
+  "favicon": "assets/logo.png",
+  "location": {
+    "name": "Residensi Kita Sejati Cybersouth",
+    "address": "Musolla Al-Widad, Residensi Kita Sejati Cybersouth, 43800 Dengkil, Selangor",
+    "googleMapsUrl": "https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9",
+    "wazeUrl": "https://waze.com/ul?ll=2.8763,101.6669&navigate=yes"
+  },
+  "socialMedia": {
+    "facebook": {
+      "url": "https://www.facebook.com/alwidad.kitasejati",
+      "username": "@alwidad.kitasejati",
+      "name": "Facebook Rasmi"
+    },
+    "instagram": {
+      "url": "https://www.instagram.com/alwidad.kitasejati",
+      "username": "@alwidad.kitasejati",
+      "name": "Instagram Rasmi"
+    }
+  },
+  "contacts": {
+    "email": "alwidad.kitasejati@gmail.com",
+    "pengerusi": {
+      "title": "Pengerusi Musolla",
+      "name": "Ustaz / Tuan Pengerusi",
+      "phone": "+6012-345 6789",
+      "phoneRaw": "+60123456789",
+      "whatsapp": "60123456789"
+    },
+    "setiausaha": {
+      "title": "Setiausaha Musolla",
+      "name": "Tuan Setiausaha",
+      "phone": "+6013-456 7890",
+      "phoneRaw": "+60134567890",
+      "whatsapp": "60134567890"
+    }
+  },
+  "urls": {
+    "khairatMasjidAlIlmi": "https://masjidalilmi-dengkil.com/ekhairat",
+    "googleFormFeedback": "https://forms.gle/sampleFeedbackAlWidad",
+    "constitutionDrive": "https://drive.google.com/drive/folders/sample-constitution-alwidad"
+  },
+  "bankAccount": {
+    "bankName": "Bank Islam Malaysia Berhad",
+    "accountName": "Musolla Al-Widad Kita Sejati",
+    "accountNumber": "12038010098765",
+    "reference": "Infaq Musolla",
+    "qrImage": "assets/duitnow-qr.svg"
+  }
+}
