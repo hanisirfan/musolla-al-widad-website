@@ -1,24 +1,30 @@
 {
-  "name": "musolla-al-widad-website",
-  "version": "1.0.0",
-  "description": "Laman Web Rasmi Musolla Al-Widad Kita Sejati Cybersouth (Cloudflare Pages Ready)",
+  "name": "mosque-landing-page-template",
+  "version": "1.1.0",
+  "description": "Templat Laman Web Masjid & Musolla Moden (Zero Dependency, Cloudflare Pages Ready, On-The-Fly Markdown Blog)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
     "build": "node scripts/build.js",
-    "pdf:generate": "node scripts/generate-sample-pdfs.js"
+    "pdf:generate": "node scripts/generate-sample-pdfs.js",
+    "template:backup": "node scripts/template-sync.js backup",
+    "template:update": "node scripts/template-sync.js update",
+    "template:verify": "node scripts/template-sync.js verify",
+    "test": "node scripts/test-server.js"
   },
   "keywords": [
-    "musolla",
     "mosque",
+    "masjid",
+    "musolla",
     "surau",
-    "kita-sejati",
-    "cybersouth",
+    "template",
+    "landing-page",
     "cloudflare-pages",
+    "markdown-blog",
     "shadcn-ui",
     "i18n"
   ],
-  "author": "Jawatankuasa Musolla Al-Widad Kita Sejati",
+  "author": "Open Source Mosque Community Contributors",
   "license": "MIT"
 }
