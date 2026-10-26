@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "questionMs": "Bagaimanakah cara mendaftar program Khairat Kematian?",
+    "questionEn": "How do I register for the Funeral Welfare Fund?",
+    "answerMs": "Pendaftaran boleh dibuat terus melalui pautan portal pendaftaran atau dengan menghubungi biro kebajikan jawatankuasa. Borang pendaftaran juga boleh didapati daripada pihak pentadbiran.",
+    "answerEn": "Registration can be completed directly via the online portal link or by reaching out to the mosque welfare bureau. Forms are also available through the administration."
+  },
+  {
+    "id": 2,
+    "questionMs": "Bagaimanakah cara menyalurkan infaq secara dalam talian?",
+    "questionEn": "How can I contribute donations (infaq) online?",
+    "answerMs": "Anda boleh membuat pindahan bank terus ke akaun rasmi kami atau mengimbas Kod QR DuitNow yang dipaparkan pada seksyen Sumbangan. Tiada caj perkhidmatan tambahan dikenakan.",
+    "answerEn": "You can perform a direct bank transfer to our official account or scan the DuitNow QR code displayed in the Donation section. No additional service fees are applied."
+  },
+  {
+    "id": 3,
+    "questionMs": "Bolehkah saya menyemak penyata kewangan berkala?",
+    "questionEn": "Can I review the periodic financial statements?",
+    "answerMs": "Ya, bagi memastikan ketelusan dan amanah, laporan penyata kewangan bulanan dan tahunan yang disahkan dimuat naik secara tetap mengikut tahun dalam format PDF di seksyen Penyata Kewangan.",
+    "answerEn": "Yes, to uphold transparency and trust, verified monthly and annual financial statements are regularly published by year in PDF format under the Financial Reports section."
+  },
+  {
+    "id": 4,
+    "questionMs": "Bagaimanakah cara menyampaikan cadangan atau maklum balas?",
+    "questionEn": "How do I submit suggestions or inquiries?",
+    "answerMs": "Sebarang cadangan, maklum balas atau aduan fasiliti boleh disalurkan secara terus melalui Borang Hubungi dalam talian kami atau dengan menghubungi pihak jawatankuasa.",
+    "answerEn": "Any suggestions, inquiries or facility feedback can be submitted directly through our online Contact Form or by contacting the committee."
+  }
+]

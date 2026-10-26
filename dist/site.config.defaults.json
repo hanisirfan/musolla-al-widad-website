@@ -1,13 +1,31 @@
 {
-  "siteName": "Masjid / Musolla Contoh",
-  "shortName": "Masjid Contoh",
+  "siteName": "Masjid / Surau / Musolla Contoh",
+  "shortName": "Institusi Contoh",
   "tagline": "Pusat Ibadah, Pendidikan & Silaturahim Ummah Komuniti Setempat",
   "registrationNumber": "JAIS/PDK/00/000/000",
   "logo": "assets/logo.png",
   "favicon": "assets/logo.png",
+  "sections": {
+    "announcements": true,
+    "visionMission": true,
+    "management": true,
+    "khairat": true,
+    "finance": true,
+    "constitution": true,
+    "donation": true,
+    "blog": true,
+    "faq": true,
+    "contact": true,
+    "map": true
+  },
+  "heroStats": {
+    "households": "800+",
+    "capacity": "1,000",
+    "programs": "15+"
+  },
   "theme": {
     "preset": "emerald-gold",
-    "notes": "Pilihan preset: emerald-gold, teal-amber, royal-blue, maroon-gold, custom",
+    "notes": "Presets: emerald-gold, teal-amber, royal-blue, maroon-gold, custom",
     "light": {
       "primary": "#047857",
       "primaryForeground": "#ffffff",
@@ -37,12 +55,41 @@
       "border": "#244838"
     }
   },
+  "khairat": {
+    "enabled": true,
+    "programType": "independent",
+    "partnerName": "",
+    "partnerPortalUrl": "",
+    "registrationUrl": "https://forms.gle/sampleRegistration",
+    "contactNumber": "+6012-000 0000",
+    "fee": "RM 50.00 / setahun",
+    "coverageNoteMs": "Merangkumi ahli keluarga kariah berdaftar.",
+    "coverageNoteEn": "Covers registered community household members.",
+    "benefits": [
+      {
+        "id": "pengurusan-jenazah",
+        "icon": "shield-check",
+        "nameMs": "Pengurusan Jenazah Lengkap",
+        "nameEn": "Complete Funeral Arrangement",
+        "descMs": "Khidmat pemandian, kafan, solat jenazah dan pengurusan kubur yang sempurna.",
+        "descEn": "Complete bathing, shrouding, funeral prayer and burial arrangement."
+      },
+      {
+        "id": "wang-ihsan",
+        "icon": "heart-handshake",
+        "nameMs": "Sumbangan Wang Ihsan Waris",
+        "nameEn": "Bereavement Consolation Aid",
+        "descMs": "Bantuan kewangan segera kepada waris terdekat bagi meringankan beban keluarga.",
+        "descEn": "Immediate monetary assistance to immediate family."
+      }
+    ]
+  },
   "blog": {
     "enabled": true,
-    "titleMs": "Blog & Hebahan Terkini",
+    "titleMs": "Blog & Berita Terkini",
     "titleEn": "Latest Blog & News",
-    "descMs": "Perkongsian ilmu, tazkirah ringkas, laporan aktiviti dan panduan komuniti.",
-    "descEn": "Knowledge sharing, brief reminders, activity reports and community guides.",
+    "descMs": "Perkongsian ilmu, takwim kuliah, aktiviti komuniti dan panduan kariah.",
+    "descEn": "Knowledge sharing, lecture schedules, community events and guidance.",
     "postsPerPage": 6,
     "basePath": "/blog"
   },
@@ -50,8 +97,8 @@
     "name": "Komuniti Bandar Baru",
     "address": "Masjid Contoh, Jalan Impian 1, 43000 Kajang, Selangor Darul Ehsan",
     "coordinates": "3.000000, 101.700000",
-    "googleMapsUrl": "https://maps.google.com",
-    "googleMapsShortUrl": "https://maps.google.com"
+    "googleMapsUrl": "https://maps.google.com/?q=3.000000,101.700000",
+    "embedUrl": "https://maps.google.com/maps?q=3.000000,101.700000&t=&z=16&ie=UTF8&iwloc=&output=embed"
   },
   "socialMedia": [
     {
@@ -59,37 +106,52 @@
       "name": "Facebook",
       "url": "https://facebook.com",
       "handle": "@masjid.contoh",
-      "descMs": "Siaran langsung kuliah dan pengumuman aktiviti kariah.",
-      "descEn": "Live lecture streams and community announcements.",
+      "descMs": "Siaran langsung kuliah dan pengumuman kariah.",
+      "descEn": "Live streams and community announcements.",
       "icon": "facebook",
       "color": "blue"
     }
   ],
   "contacts": {
-    "email": "pentadbiran@masjidcontoh.org",
-    "pengerusi": {
-      "title": "Pengerusi Masjid",
-      "name": "Nama Pengerusi",
-      "phone": "+6012-000 0000",
-      "phoneRaw": "+60120000000",
-      "whatsapp": "60120000000"
-    },
-    "setiausaha": {
-      "title": "Setiausaha Masjid",
-      "name": "Nama Setiausaha",
-      "phone": "+6013-000 0000",
-      "phoneRaw": "+60130000000",
-      "whatsapp": "60130000000"
-    }
+    "contactFormUrl": "https://forms.gle/sampleFeedback",
+    "items": [
+      {
+        "id": "pengerusi",
+        "roleMs": "Pengerusi",
+        "roleEn": "Chairman",
+        "name": "Nama Pengerusi",
+        "type": "phone",
+        "value": "+6012-000 0000",
+        "phone": "+6012-000 0000",
+        "whatsapp": "60120000000"
+      },
+      {
+        "id": "setiausaha",
+        "roleMs": "Setiausaha",
+        "roleEn": "Secretary",
+        "name": "Nama Setiausaha",
+        "type": "whatsapp",
+        "value": "+6013-000 0000",
+        "phone": "+6013-000 0000",
+        "whatsapp": "60130000000"
+      },
+      {
+        "id": "emel",
+        "roleMs": "Emel Pentadbiran",
+        "roleEn": "Official Email",
+        "name": "pentadbiran@masjidcontoh.org",
+        "type": "email",
+        "value": "pentadbiran@masjidcontoh.org"
+      }
+    ]
   },
   "urls": {
-    "khairatMasjidAlIlmi": "https://www.e-khairat.com",
-    "googleFormFeedback": "#",
+    "contactForm": "https://forms.gle/sampleFeedback",
     "perlembagaanPdf": "assets/perlembagaan/perlembagaan-musolla-al-widad.pdf"
   },
   "bankAccount": {
     "bankName": "Bank Islam Malaysia Berhad",
-    "accountName": "Tabung Pembangunan Masjid Contoh",
+    "accountName": "Tabung Pengurusan Masjid Contoh",
     "accountNumber": "12000000000000",
     "reference": "Infaq Masjid",
     "qrImage": "assets/duitnow-qr.svg"

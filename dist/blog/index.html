@@ -142,11 +142,9 @@
       <div class="flex items-center gap-2">
         <img src="../assets/logo.png" alt="Logo" class="w-6 h-6 rounded object-contain logo-img">
         <span class="font-semibold text-foreground mosque-name-text">Musolla Al-Widad</span>
-        <span>•</span>
-        <span>Sistem Blog Markdown Tanpa Kompilasi</span>
       </div>
       <div>
-        <span>Format Tarikh Halaman: <strong>&lt;DD&gt;/&lt;MM&gt;/&lt;YYYY&gt;</strong></span>
+        <span>&copy; <span id="current-year">2026</span> <span class="mosque-name-text">Musolla Al-Widad</span>. All rights reserved.</span>
       </div>
     </div>
   </footer>
@@ -189,12 +187,16 @@
 
       if (postSlug) {
         catalogView.classList.add('hidden');
+        catalogView.style.display = 'none';
         singlePostView.classList.remove('hidden');
+        singlePostView.style.display = 'block';
         // Load post by slug on the fly!
         await window.BlogEngine.loadPostBySlug(postSlug, singlePostView);
       } else {
         catalogView.classList.remove('hidden');
+        catalogView.style.display = 'block';
         singlePostView.classList.add('hidden');
+        singlePostView.style.display = 'none';
 
         // Fetch posts index
         const posts = await window.BlogEngine.fetchPostsIndex();

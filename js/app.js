@@ -48,21 +48,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   let activitiesData = null;
   let reportsData = null;
   let announcementsData = null;
+  let faqData = null;
 
   // 1. Fetch Configuration & Data Files
   try {
-    const [cfgRes, orgRes, actRes, repRes, annRes] = await Promise.all([
+    let faqRes = null;
+    const [cfgRes, orgRes, repRes, annRes, faqResp] = await Promise.all([
       fetch('site.config.json'),
       fetch('data/organisasi.json'),
-      fetch('data/activities.json'),
       fetch('data/reports.json'),
-      fetch('data/announcements.json')
+      fetch('data/announcements.json'),
+      fetch('data/faq.json').catch(() => null)
     ]);
-    if (cfgRes.ok) siteConfig = await cfgRes.json();
-    if (orgRes.ok) orgData = await orgRes.json();
-    if (actRes.ok) activitiesData = await actRes.json();
-    if (repRes.ok) reportsData = await repRes.json();
-    if (annRes.ok) announcementsData = await annRes.json();
+    if (cfgRes && cfgRes.ok) siteConfig = await cfgRes.json();
+    if (orgRes && orgRes.ok) orgData = await orgRes.json();
+    if (repRes && repRes.ok) reportsData = await repRes.json();
+    if (annRes && annRes.ok) announcementsData = await annRes.json();
+    if (faqResp && faqResp.ok) faqData = await faqResp.json();
   } catch (err) {
     console.error('Error fetching data files:', err);
   }
@@ -136,6 +138,437 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   // 3. Dynamic Social Media Rendering
+  
+  // ==================== SECTION VISIBILITY & FEATURE TOGGLES ====================
+  function applySectionVisibility(config) {
+    if (!config) return;
+    const sections = config.sections || {};
+    const isEnabled = (sec) => sections[sec] !== false;
+
+    // Elements mapping
+    const sectionSelectors = {
+      announcements: '#announcements-section',
+      visionMission: '#tab-btn-vision, #tab-vision',
+      management: '#pengurusan',
+      khairat: '#khairat',
+      finance: '#kewangan',
+      constitution: '#tab-btn-constitution, #tab-constitution',
+      donation: '#sumbangan',
+      blog: '#blog, #aktiviti',
+      faq: '#faq',
+      contact: '#hubungi',
+      map: '#location-map-container'
+    };
+
+    // Nav link mapping
+    const navSelectors = {
+      management: 'a[href="#pengurusan"]',
+      khairat: 'a[href="#khairat"]',
+      finance: 'a[href="#kewangan"]',
+      donation: 'a[href="#sumbangan"]',
+      blog: 'a[href="#blog"]',
+      faq: 'a[href="#faq"]',
+      contact: 'a[href="#hubungi"]'
+    };
+
+    for (const [secKey, sel] of Object.entries(sectionSelectors)) {
+      const enabled = isEnabled(secKey);
+      document.querySelectorAll(sel).forEach(el => {
+        if (!enabled) {
+          el.style.setProperty('display', 'none', 'important');
+          el.classList.add('section-disabled');
+        } else {
+          el.style.removeProperty('display');
+          el.classList.remove('section-disabled');
+        }
+      });
+
+      if (navSelectors[secKey]) {
+        document.querySelectorAll(navSelectors[secKey]).forEach(link => {
+          if (!enabled) {
+            link.style.setProperty('display', 'none', 'important');
+            link.classList.add('section-disabled');
+            const parentLi = link.closest('li');
+            if (parentLi) {
+              parentLi.style.setProperty('display', 'none', 'important');
+              parentLi.classList.add('section-disabled');
+            }
+          } else {
+            link.style.removeProperty('display');
+            link.classList.remove('section-disabled');
+            const parentLi = link.closest('li');
+            if (parentLi) {
+              parentLi.style.removeProperty('display');
+              parentLi.classList.remove('section-disabled');
+            }
+          }
+        });
+      }
+    }
+
+    // Infaq button in navbar (desktop CTA & mobile drawer)
+    const navDonationBtns = document.querySelectorAll('header a[href="#sumbangan"], #mobile-sheet-panel a[href="#sumbangan"]');
+    navDonationBtns.forEach(btn => {
+      if (!isEnabled('donation')) {
+        btn.style.setProperty('display', 'none', 'important');
+        btn.classList.add('section-disabled');
+      } else {
+        btn.style.removeProperty('display');
+        btn.classList.remove('section-disabled');
+      }
+    });
+
+    // If first tab in management is hidden, activate the next visible tab
+    if (!isEnabled('visionMission')) {
+      const orgBtn = document.getElementById('tab-btn-org') || document.querySelector('[data-tab-target="tab-org"]');
+      const orgTab = document.getElementById('tab-org');
+      if (orgBtn && orgTab) {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        orgBtn.classList.add('active');
+        orgTab.classList.add('active');
+      }
+    }
+  }
+
+  // ==================== HERO BUTTONS & STATS VISIBILITY ====================
+  function applyHeroVisibility(config) {
+    if (!config) return;
+    const sections = config.sections || {};
+    const isEnabled = (sec) => sections[sec] !== false;
+
+    // Donation button: only if donation enabled and bank account exists
+    const hasDonation = isEnabled('donation') && Boolean(config.bankAccount?.accountNumber || config.bankAccount?.qrImage);
+    const heroBtnDonation = document.getElementById('hero-btn-donation');
+    if (heroBtnDonation) heroBtnDonation.classList.toggle('hidden', !hasDonation);
+
+    // Khairat button: only if khairat enabled
+    const hasKhairat = isEnabled('khairat') && (config.khairat?.enabled !== false);
+    const heroBtnKhairat = document.getElementById('hero-btn-khairat');
+    if (heroBtnKhairat) heroBtnKhairat.classList.toggle('hidden', !hasKhairat);
+
+    // Location button & Map: only if map enabled AND full address + maps url are defined
+    const hasLocation = isEnabled('map') && Boolean(config.location?.address && (config.location?.googleMapsUrl || config.location?.coordinates));
+    const heroBtnLocation = document.getElementById('hero-btn-location');
+    if (heroBtnLocation) {
+      heroBtnLocation.classList.toggle('hidden', !hasLocation);
+      if (hasLocation && config.location.googleMapsUrl) {
+        heroBtnLocation.href = config.location.googleMapsUrl;
+      }
+    }
+
+    const mapContainer = document.getElementById('location-map-container');
+    if (mapContainer) {
+      mapContainer.classList.toggle('hidden', !hasLocation);
+      if (hasLocation) {
+        const addrText = mapContainer.querySelector('.location-address-text');
+        if (addrText && config.location.address) addrText.textContent = config.location.address;
+        const iframe = mapContainer.querySelector('iframe');
+        if (iframe && config.location.embedUrl) iframe.src = config.location.embedUrl;
+        const gmapsBtn = mapContainer.querySelector('.link-maps');
+        if (gmapsBtn && config.location.googleMapsUrl) gmapsBtn.href = config.location.googleMapsUrl;
+      }
+    }
+
+    // Hero Stats (Households & Capacity only visible if defined!)
+    const stats = config.heroStats || config.stats || {};
+    const statHouseholdsEl = document.getElementById('hero-stat-households');
+    const statCapacityEl = document.getElementById('hero-stat-capacity');
+    const statsContainer = document.getElementById('hero-stats-container');
+
+    let visibleStats = 0;
+    if (statHouseholdsEl) {
+      if (stats.households && stats.households.trim()) {
+        statHouseholdsEl.classList.remove('hidden');
+        const val = statHouseholdsEl.querySelector('.stat-value');
+        if (val) val.textContent = stats.households;
+        visibleStats++;
+      } else {
+        statHouseholdsEl.classList.add('hidden');
+      }
+    }
+
+    if (statCapacityEl) {
+      if (stats.capacity && stats.capacity.trim()) {
+        statCapacityEl.classList.remove('hidden');
+        const val = statCapacityEl.querySelector('.stat-value');
+        if (val) val.textContent = stats.capacity;
+        visibleStats++;
+      } else {
+        statCapacityEl.classList.add('hidden');
+      }
+    }
+
+    if (statsContainer) {
+      statsContainer.classList.toggle('hidden', visibleStats === 0);
+      if (visibleStats === 1) {
+        // Adjust grid styling if only one stat is defined
+        statsContainer.classList.remove('grid-cols-2');
+        statsContainer.classList.add('grid-cols-1');
+        if (statCapacityEl) statCapacityEl.classList.remove('border-l', 'pl-6');
+      } else {
+        statsContainer.classList.remove('grid-cols-1');
+        statsContainer.classList.add('grid-cols-2');
+        if (statCapacityEl) statCapacityEl.classList.add('border-l', 'pl-6');
+      }
+    }
+  }
+
+  // ==================== CURATED KHAIRAT KEMATIAN RENDERING ====================
+  function renderKhairatSection(config) {
+    if (!config) return;
+    const khairat = config.khairat || {};
+    const section = document.getElementById('khairat');
+    if (!section) return;
+
+    if (config.sections?.khairat === false || khairat.enabled === false) {
+      section.classList.add('hidden');
+      return;
+    }
+    section.classList.remove('hidden');
+
+    const lang = window.i18n ? window.i18n.getLanguage() : 'ms';
+    const isPartnered = (khairat.programType === 'partnered');
+
+    const badgeEl = section.querySelector('.khairat-type-badge');
+    const subtitleEl = section.querySelector('.khairat-subtitle');
+    const leadEl = section.querySelector('.khairat-lead');
+    const ctaBtn = section.querySelector('.btn-register-khairat');
+
+    if (badgeEl) {
+      badgeEl.textContent = isPartnered
+        ? (lang === 'en' ? `Partnered Program with ${khairat.partnerName || 'Mosque'}` : `Kerjasama Bersama ${khairat.partnerName || 'Masjid'}`)
+        : (lang === 'en' ? 'Official In-House Funeral Fund' : 'Program Khairat Rasmi');
+    }
+
+    if (subtitleEl) {
+      subtitleEl.textContent = isPartnered
+        ? (lang === 'en' ? `Official Welfare Initiative with ${khairat.partnerName || 'Partner Mosque'}` : `Penyertaan Rasmi di Bawah Naungan ${khairat.partnerName || 'Masjid Kariah'}`)
+        : (lang === 'en' ? 'Community Funeral Welfare Fund' : 'Khairat Kematian Komuniti');
+    }
+
+    if (leadEl) {
+      leadEl.textContent = isPartnered
+        ? (lang === 'en'
+            ? `To ensure funeral arrangements are conducted with utmost care and dignity, ${config.siteName} is officially partnered under ${khairat.partnerName || 'the partner mosque'}.`
+            : `Bagi memastikan urusan fardu kifayah terlaksana dengan sempurna, pantas dan teratur, ${config.siteName} bekerjasama di bawah program rasmi ${khairat.partnerName || 'Masjid Kariah'}.`)
+        : (lang === 'en'
+            ? `Organized and managed directly by the committee of ${config.siteName} to support member families during bereavement.`
+            : `Dikelola secara langsung oleh pihak jawatankuasa ${config.siteName} bagi memelihara kebajikan dan meringankan beban waris jemaah.`);
+    }
+
+    if (ctaBtn) {
+      const regUrl = khairat.registrationUrl || khairat.partnerPortalUrl || '#';
+      ctaBtn.href = regUrl;
+      const btnSpan = ctaBtn.querySelector('span');
+      if (btnSpan) {
+        btnSpan.textContent = isPartnered
+          ? (lang === 'en' ? 'Register on e-Khairat Portal' : 'Daftar di Portal e-Khairat')
+          : (lang === 'en' ? 'Register Membership' : 'Daftar Keahlian Khairat');
+      }
+    }
+
+    // Benefits rendering (Admin-defined, optional)
+    const benefitsSection = document.getElementById('khairat-benefits-section');
+    const benefitsContainer = document.getElementById('khairat-benefits-container');
+    const benefits = khairat.benefits || [];
+
+    if (benefits.length === 0) {
+      if (benefitsSection) benefitsSection.classList.add('hidden');
+    } else {
+      if (benefitsSection) benefitsSection.classList.remove('hidden');
+      if (benefitsContainer) {
+        benefitsContainer.innerHTML = benefits.map(b => {
+          const name = lang === 'en' ? (b.nameEn || b.nameMs) : (b.nameMs || b.nameEn);
+          const desc = lang === 'en' ? (b.descEn || b.descMs) : (b.descMs || b.descEn);
+          return `
+            <div class="card p-5 space-y-2.5 card-hoverable border border-border bg-card">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h4 class="font-bold text-base text-foreground">${name}</h4>
+              <p class="text-xs text-muted-foreground leading-relaxed">${desc}</p>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+  }
+
+  // ==================== FLEXIBLE CONTACTS & CONTACT FORM RENDERING ====================
+  function renderContactsSection(config) {
+    if (!config) return;
+    const contacts = config.contacts || {};
+    const lang = window.i18n ? window.i18n.getLanguage() : 'ms';
+
+    // Contact Form Card
+    const formCard = document.getElementById('contact-form-card');
+    const formUrl = contacts.contactFormUrl || config.urls?.contactForm;
+    if (formCard) {
+      if (!formUrl) {
+        formCard.classList.add('hidden');
+      } else {
+        formCard.classList.remove('hidden');
+        const linkBtn = formCard.querySelector('.link-contact-form, .link-feedback-form');
+        if (linkBtn) linkBtn.href = formUrl;
+      }
+    }
+
+    // Flexible Contacts Grid
+    const container = document.getElementById('contact-cards-container');
+    if (container) {
+      let items = contacts.items;
+      if (!items || !Array.isArray(items)) {
+        items = [];
+        if (contacts.pengerusi) {
+          items.push({
+            roleMs: contacts.pengerusi.title || 'Pengerusi',
+            roleEn: 'Chairman',
+            name: contacts.pengerusi.name,
+            type: 'phone',
+            value: contacts.pengerusi.phone,
+            phone: contacts.pengerusi.phone,
+            whatsapp: contacts.pengerusi.whatsapp
+          });
+        }
+        if (contacts.setiausaha) {
+          items.push({
+            roleMs: contacts.setiausaha.title || 'Setiausaha',
+            roleEn: 'Secretary',
+            name: contacts.setiausaha.name,
+            type: 'whatsapp',
+            value: contacts.setiausaha.phone,
+            phone: contacts.setiausaha.phone,
+            whatsapp: contacts.setiausaha.whatsapp
+          });
+        }
+        if (contacts.email) {
+          items.push({
+            roleMs: 'Emel Pentadbiran',
+            roleEn: 'Official Email',
+            name: contacts.email,
+            type: 'email',
+            value: contacts.email
+          });
+        }
+      }
+
+      container.innerHTML = items.map(c => {
+        const role = lang === 'en' ? (c.roleEn || c.roleMs) : (c.roleMs || c.roleEn);
+        const isEmail = c.type === 'email' || (c.value && c.value.includes('@'));
+        const isWa = c.type === 'whatsapp' || c.whatsapp;
+
+        let iconSvg = '';
+        if (isEmail) {
+          iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`;
+        } else if (c.type === 'whatsapp') {
+          iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.3-.777.98-1.028 1.28-.25.3-.501.35-.802.2-.3-.15-1.267-.468-2.414-1.49-1.024-.913-1.716-2.04-1.917-2.385-.2-.345-.021-.531.13-.68.135-.135.301-.35.451-.526.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.677-1.63-.928-2.234-.244-.588-.492-.508-.677-.518-.175-.009-.376-.011-.577-.011-.2 0-.526.075-.802.375-.276.3-1.053 1.03-1.053 2.511 0 1.48 1.078 2.91 1.228 3.11.15.2 2.122 3.24 5.141 4.544.718.31 1.279.495 1.716.634.721.23 1.378.197 1.9.12.58-.088 1.78-.727 2.03-1.43.25-.703.25-1.305.175-1.43-.075-.125-.275-.2-.576-.35zM12.04 2C6.51 2 2.02 6.49 2.02 12.02c0 1.93.55 3.73 1.5 5.26L2 22l4.87-1.49c1.47.88 3.19 1.4 5.17 1.4 5.53 0 10.02-4.49 10.02-10.02S17.57 2 12.04 2z"/></svg>`;
+        } else {
+          iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`;
+        }
+
+        let actionBtn = '';
+        if (isEmail) {
+          actionBtn = `
+            <a href="mailto:${c.value}" class="btn btn-outline btn-sm w-full gap-1.5 text-xs">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span>${lang === 'en' ? 'Send Email' : 'Hantar Emel'}</span>
+            </a>
+          `;
+        } else {
+          const callBtn = c.phone ? `
+            <a href="tel:${c.phone}" class="btn btn-outline btn-sm flex-1 gap-1 text-xs">
+              ${lang === 'en' ? 'Call' : 'Panggil'}
+            </a>
+          ` : '';
+          const waBtn = c.whatsapp ? `
+            <a href="https://wa.me/${c.whatsapp}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm flex-1 gap-1 text-xs bg-green-600 hover:bg-green-700 border-none">
+              WhatsApp
+            </a>
+          ` : '';
+          actionBtn = `<div class="flex items-center gap-2 w-full pt-1">${callBtn}${waBtn}</div>`;
+        }
+
+        return `
+          <div class="card p-5 flex flex-col justify-between items-center text-center space-y-3 border border-border bg-card">
+            <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+              ${iconSvg}
+            </div>
+            <div>
+              <span class="badge badge-primary text-[10px] mb-1.5">${role}</span>
+              <h4 class="font-bold text-foreground text-base truncate max-w-[200px]" title="${c.name}">${c.name}</h4>
+              <p class="text-xs font-semibold text-muted-foreground mt-0.5 font-mono">${c.value || ''}</p>
+            </div>
+            ${actionBtn}
+          </div>
+        `;
+      }).join('');
+    }
+  }
+
+  // ==================== DYNAMIC FAQ ACCORDION RENDERING ====================
+  function renderFaqSection(config, faqs) {
+    const section = document.getElementById('faq');
+    if (!section) return;
+
+    if (config?.sections?.faq === false) {
+      section.classList.add('hidden');
+      return;
+    }
+
+    const container = document.getElementById('faq-accordion-container');
+    const items = faqs || [];
+    if (!container || items.length === 0) {
+      section.classList.add('hidden');
+      return;
+    }
+    section.classList.remove('hidden');
+
+    const lang = window.i18n ? window.i18n.getLanguage() : 'ms';
+
+    container.innerHTML = items.map((item, idx) => {
+      const q = lang === 'en' ? (item.questionEn || item.questionMs) : (item.questionMs || item.questionEn);
+      const a = lang === 'en' ? (item.answerEn || item.answerMs) : (item.answerMs || item.answerEn);
+      const isOpen = idx === 0 ? 'open' : '';
+      return `
+        <div class="accordion-item ${isOpen} py-1">
+          <button class="accordion-trigger px-3 py-3.5 w-full flex items-center justify-between text-left font-bold text-sm sm:text-base text-foreground hover:text-primary transition-colors gap-3">
+            <span>${q}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon flex-shrink-0 transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="accordion-content px-3 pb-3.5 text-xs sm:text-sm text-muted-foreground leading-relaxed ${isOpen ? '' : 'hidden'}">
+            ${a}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    container.querySelectorAll('.accordion-trigger').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const content = item.querySelector('.accordion-content');
+        const isOpen = item.classList.contains('open');
+
+        // Close others
+        container.querySelectorAll('.accordion-item').forEach(other => {
+          if (other !== item) {
+            other.classList.remove('open');
+            const otherContent = other.querySelector('.accordion-content');
+            if (otherContent) otherContent.classList.add('hidden');
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('open');
+          content.classList.add('hidden');
+        } else {
+          item.classList.add('open');
+          content.classList.remove('hidden');
+        }
+      });
+    });
+  }
+
   function renderDynamicSocialMedia(socialList) {
     const footerContainer = document.getElementById('footer-social-container');
     if (footerContainer) {
@@ -727,19 +1160,33 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Re-render components on language toggle
   window.addEventListener('languageChanged', () => {
+    if (siteConfig) {
+      applySectionVisibility(siteConfig);
+      applyHeroVisibility(siteConfig);
+      renderKhairatSection(siteConfig);
+      renderContactsSection(siteConfig);
+      renderDynamicSocialMedia(siteConfig.socialMedia || []);
+    }
     renderAnnouncements();
     renderOrgChart();
-    renderActivities();
     renderFinancialReports();
-    if (siteConfig) renderDynamicSocialMedia(siteConfig.socialMedia || []);
+    renderFaqSection(siteConfig, faqData);
     if (window.BlogEngine) window.BlogEngine.renderHomepageWidget('homepage-blog-container', 3);
   });
 
-  // Initial renders
+  // Initial renders & Section Curation
+  if (siteConfig) {
+    applySectionVisibility(siteConfig);
+    applyHeroVisibility(siteConfig);
+    renderKhairatSection(siteConfig);
+    renderContactsSection(siteConfig);
+    renderDynamicSocialMedia(siteConfig.socialMedia || []);
+  }
   renderAnnouncements();
   renderOrgChart();
-  renderActivities();
   renderFinancialReports();
+  renderFaqSection(siteConfig, faqData);
+
   if (window.BlogEngine) {
     window.BlogEngine.renderHomepageWidget('homepage-blog-container', 3);
   }

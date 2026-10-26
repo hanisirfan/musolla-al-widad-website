@@ -5,9 +5,27 @@
   "registrationNumber": "JAIS/PDK/02/012/123",
   "logo": "assets/logo.png",
   "favicon": "assets/logo.png",
+  "sections": {
+    "announcements": true,
+    "visionMission": true,
+    "management": true,
+    "khairat": true,
+    "finance": true,
+    "constitution": true,
+    "donation": true,
+    "blog": true,
+    "faq": true,
+    "contact": true,
+    "map": true
+  },
+  "heroStats": {
+    "households": "1,000+",
+    "capacity": "~200",
+    "programs": "20+"
+  },
   "theme": {
     "preset": "teal-amber",
-    "notes": "Pilihan preset: teal-amber, emerald-gold, royal-blue, maroon-gold, custom",
+    "notes": "Presets: teal-amber, emerald-gold, royal-blue, maroon-gold, custom",
     "light": {
       "primary": "#116876",
       "primaryForeground": "#ffffff",
@@ -37,12 +55,57 @@
       "border": "#2f424f"
     }
   },
+  "khairat": {
+    "enabled": true,
+    "programType": "partnered",
+    "partnerName": "Masjid Al-Ilmi Dengkil",
+    "partnerPortalUrl": "https://www.e-khairat.com/al-ilmi",
+    "registrationUrl": "https://www.e-khairat.com/al-ilmi",
+    "contactNumber": "+6012-345 6789",
+    "fee": "RM 50.00 / setahun",
+    "coverageNoteMs": "Merangkumi ahli berdaftar, pasangan dan anak-anak tanggungan di bawah umur 21 tahun.",
+    "coverageNoteEn": "Covers registered member, spouse and dependent children under 21 years old.",
+    "benefits": [
+      {
+        "id": "pengurusan-jenazah",
+        "icon": "shield-check",
+        "nameMs": "Pengurusan Jenazah Lengkap",
+        "nameEn": "Complete Funeral Arrangement",
+        "descMs": "Khidmat pemandian, kafan, solat jenazah dan pengurusan kubur yang sempurna mengikut syariat.",
+        "descEn": "Complete bathing, shrouding, funeral prayer and burial management according to Islamic rites."
+      },
+      {
+        "id": "pengangkutan",
+        "icon": "truck",
+        "nameMs": "Pengangkutan Van Jenazah",
+        "nameEn": "Hearse Transportation",
+        "descMs": "Kemudahan van jenazah dari hospital atau kediaman ke tanah perkuburan Islam.",
+        "descEn": "Hearse transport service from hospital or residence to the Islamic cemetery."
+      },
+      {
+        "id": "kos-tanah-kubur",
+        "icon": "map-pin",
+        "nameMs": "Penyediaan Liang Lahat & Kubur",
+        "nameEn": "Grave Preparation & Plot",
+        "descMs": "Kos penggalian liang lahat, batu nisan asas dan urusan tapak tanah perkuburan.",
+        "descEn": "Grave excavation, basic tombstone and cemetery management fees covered."
+      },
+      {
+        "id": "wang-ihsan",
+        "icon": "heart-handshake",
+        "nameMs": "Sumbangan Wang Ihsan Waris",
+        "nameEn": "Bereavement Consolation Aid",
+        "descMs": "Bantuan kewangan segera kepada waris terdekat bagi meringankan beban keluarga.",
+        "descEn": "Immediate monetary assistance to immediate family to ease unexpected expenses."
+      }
+    ]
+  },
   "blog": {
     "enabled": true,
-    "titleMs": "Blog & Hebahan Terkini",
+    "titleMs": "Blog & Berita Terkini",
     "titleEn": "Latest Blog & News",
-    "descMs": "Perkongsian ilmu, tazkirah ringkas, laporan aktiviti dan panduan komuniti.",
-    "descEn": "Knowledge sharing, brief reminders, activity reports and community guides.",
+    "descMs": "Perkongsian ilmu, takwim kuliah, aktiviti komuniti dan panduan kariah.",
+    "descEn": "Knowledge sharing, lecture schedules, community events and guidance.",
     "postsPerPage": 6,
     "basePath": "/blog"
   },
@@ -51,7 +114,7 @@
     "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan",
     "coordinates": "2.876102, 101.646251",
     "googleMapsUrl": "https://www.google.com/maps?q=2.876102,101.646251",
-    "googleMapsShortUrl": "https://maps.app.goo.gl/9jPWqJ2ThMqtXptb9"
+    "embedUrl": "https://maps.google.com/maps?q=2.876102,101.646251&t=&z=16&ie=UTF8&iwloc=&output=embed"
   },
   "socialMedia": [
     {
@@ -96,25 +159,40 @@
     }
   ],
   "contacts": {
-    "email": "alwidad.kitasejati@gmail.com",
-    "pengerusi": {
-      "title": "Pengerusi Musolla",
-      "name": "Pengerusi Musolla",
-      "phone": "+6012-345 6789",
-      "phoneRaw": "+60123456789",
-      "whatsapp": "60123456789"
-    },
-    "setiausaha": {
-      "title": "Setiausaha Musolla",
-      "name": "Setiausaha Musolla",
-      "phone": "+6013-456 7890",
-      "phoneRaw": "+60134567890",
-      "whatsapp": "60134567890"
-    }
+    "contactFormUrl": "https://forms.gle/sampleFeedbackAlWidad",
+    "items": [
+      {
+        "id": "pengerusi",
+        "roleMs": "Pengerusi",
+        "roleEn": "Chairman",
+        "name": "Pengerusi Musolla",
+        "type": "phone",
+        "value": "+6012-345 6789",
+        "phone": "+6012-345 6789",
+        "whatsapp": "60123456789"
+      },
+      {
+        "id": "setiausaha",
+        "roleMs": "Setiausaha",
+        "roleEn": "Secretary",
+        "name": "Setiausaha Musolla",
+        "type": "whatsapp",
+        "value": "+6013-456 7890",
+        "phone": "+6013-456 7890",
+        "whatsapp": "60134567890"
+      },
+      {
+        "id": "emel",
+        "roleMs": "Emel Rasmi",
+        "roleEn": "Official Email",
+        "name": "alwidad.kitasejati@gmail.com",
+        "type": "email",
+        "value": "alwidad.kitasejati@gmail.com"
+      }
+    ]
   },
   "urls": {
-    "khairatMasjidAlIlmi": "https://www.e-khairat.com/al-ilmi",
-    "googleFormFeedback": "https://forms.gle/sampleFeedbackAlWidad",
+    "contactForm": "https://forms.gle/sampleFeedbackAlWidad",
     "perlembagaanPdf": "assets/perlembagaan/perlembagaan-musolla-al-widad.pdf"
   },
   "bankAccount": {

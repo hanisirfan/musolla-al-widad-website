@@ -240,6 +240,15 @@
   }
 
   /**
+   * Determine whether the current execution is within the /blog/ directory context
+   */
+  function isInsideBlog() {
+    if (typeof window === 'undefined') return false;
+    const path = window.location.pathname || '';
+    return /\/blog(\/|$)/i.test(path) || document.getElementById('catalog-view') !== null || document.getElementById('single-post-view') !== null;
+  }
+
+  /**
    * Load and render a single markdown post on the fly
    */
   async function loadPostBySlug(slugPath, containerEl) {
@@ -255,9 +264,17 @@
     // Normalize slugPath e.g. "2026/10/26/pelancaran-portal" or "blog/2026/10/26/pelancaran-portal"
     let cleanPath = slugPath.replace(/^blog\//, '').replace(/^\//, '').replace(/\/$/, '');
     const folderInfo = parseBlogPath('blog/' + cleanPath);
+    const insideBlog = isInsideBlog();
 
     // Candidates for markdown file name
-    const candidates = [
+    const candidates = insideBlog ? [
+      `${cleanPath}/post.md`,
+      `${cleanPath}/index.md`,
+      `${cleanPath}/content.md`,
+      `${cleanPath}/${folderInfo ? folderInfo.slug : 'post'}.md`,
+      `blog/${cleanPath}/post.md`,
+      `/blog/${cleanPath}/post.md`
+    ] : [
       `blog/${cleanPath}/post.md`,
       `blog/${cleanPath}/index.md`,
       `blog/${cleanPath}/content.md`,
@@ -278,6 +295,9 @@
       } catch (e) {}
     }
 
+    const blogCatalogUrl = insideBlog ? './' : 'blog/';
+    const homeUrl = insideBlog ? '../index.html' : 'index.html';
+
     if (!mdText) {
       containerEl.innerHTML = `
         <div class="py-16 text-center space-y-4">
@@ -289,7 +309,7 @@
             Fail Markdown (.md) tidak ditemui di laluan <code>/blog/${cleanPath}/</code>.
           </p>
           <div class="pt-4">
-            <a href="blog/" class="btn btn-primary btn-sm">Kembali ke Indeks Blog</a>
+            <a href="${blogCatalogUrl}" class="btn btn-primary btn-sm">Kembali ke Indeks Blog</a>
           </div>
         </div>
       `;
@@ -298,7 +318,7 @@
 
     // Extract frontmatter
     const { metadata, body } = extractFrontmatter(mdText);
-    const baseFolder = `blog/${cleanPath}/`;
+    const baseFolder = insideBlog ? `${cleanPath}/` : `blog/${cleanPath}/`;
 
     // Date computation: Folder path is primary source, fallback to frontmatter
     let displayDate = folderInfo ? folderInfo.dateFormatted : '';
@@ -321,7 +341,7 @@
     }
 
     // Author & category
-    const author = metadata.author || 'Pentadbiran Musolla';
+    const author = metadata.author || 'Pihak Pengurusan';
     const category = metadata.category || 'Umum';
     const readTime = estimateReadingTime(body);
 
@@ -338,19 +358,19 @@
     const tags = Array.isArray(metadata.tags) ? metadata.tags : (metadata.tags ? String(metadata.tags).split(',').map(t => t.trim()) : []);
 
     const pageUrl = window.location.href;
-    const shareText = encodeURIComponent(`${title} - Laman Web Rasmi Musolla`);
+    const shareText = encodeURIComponent(`${title} - Laman Web Rasmi`);
 
     // Render full post page
     containerEl.innerHTML = `
       <article class="max-w-4xl mx-auto space-y-8 animate-fadeIn">
         <!-- Navigation Breadcrumbs -->
         <div class="flex items-center gap-2 text-xs text-muted-foreground font-medium pb-2 border-b border-border">
-          <a href="index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+          <a href="${homeUrl}" class="hover:text-primary transition-colors flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             <span>Utama</span>
           </a>
           <span>/</span>
-          <a href="blog/" class="hover:text-primary transition-colors">Blog & Hebahan</a>
+          <a href="${blogCatalogUrl}" class="hover:text-primary transition-colors">Blog &amp; Hebahan</a>
           <span>/</span>
           <span class="text-foreground truncate max-w-[200px] sm:max-w-xs">${title}</span>
         </div>
@@ -429,11 +449,11 @@
         </div>
 
         <div class="pt-4 flex justify-between items-center">
-          <a href="blog/" class="btn btn-outline btn-sm gap-2">
+          <a href="${blogCatalogUrl}" class="btn btn-outline btn-sm gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
             <span>Semua Artikel Blog</span>
           </a>
-          <a href="index.html" class="btn btn-primary btn-sm gap-2">
+          <a href="${homeUrl}" class="btn btn-primary btn-sm gap-2">
             <span>Ke Laman Utama</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
           </a>
@@ -442,7 +462,8 @@
     `;
 
     // Update document title
-    document.title = `${title} | Musolla Al-Widad`;
+    const brandName = document.querySelector('.mosque-name-text')?.textContent || 'Laman Web Rasmi';
+    document.title = `${title} | ${brandName}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -450,7 +471,13 @@
    * Fetch list of posts from posts.json (generated by build or dev server)
    */
   async function fetchPostsIndex() {
-    const endpoints = [
+    const insideBlog = isInsideBlog();
+    const endpoints = insideBlog ? [
+      'posts.json',
+      './posts.json',
+      '/blog/posts.json',
+      '../blog/posts.json'
+    ] : [
       'blog/posts.json',
       'posts.json',
       '/api/blog/posts'
@@ -512,10 +539,21 @@
       return dateB.localeCompare(dateA);
     });
 
+    const insideBlog = isInsideBlog();
+
     containerEl.innerHTML = filtered.map(post => {
       const postSlug = post.slugPath || `${post.year}/${post.month}/${post.day}/${post.slug}`;
-      const postUrl = `blog/?post=${postSlug}`;
-      const cover = post.cover || 'assets/logo.png';
+      const postUrl = insideBlog ? `?post=${postSlug}` : `blog/?post=${postSlug}`;
+      let cover = post.cover || '';
+      if (!cover) {
+        cover = insideBlog ? '../assets/logo.png' : 'assets/logo.png';
+      } else if (insideBlog) {
+        if (cover.startsWith('blog/')) {
+          cover = cover.replace(/^blog\//, '');
+        } else if (cover.startsWith('assets/')) {
+          cover = '../' + cover;
+        }
+      }
       // Requirement: Display date formatting on page as <DD>/<MM>/<YYYY>
       const displayDate = post.dateFormatted || formatDateDMY(post.year, post.month, post.day);
       const category = post.category || 'Umum';
@@ -556,7 +594,7 @@
 
           <!-- Card Footer -->
           <div class="p-5 pt-0 mt-auto flex items-center justify-between border-t border-border/50 text-xs">
-            <span class="text-muted-foreground font-medium">${post.author || 'Pihak Musolla'}</span>
+            <span class="text-muted-foreground font-medium">${post.author || 'Pihak Pengurusan'}</span>
             <a href="${postUrl}" class="btn btn-outline btn-sm text-xs font-semibold gap-1.5">
               <span>Baca Penuh</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
@@ -576,7 +614,7 @@
 
     const posts = await fetchPostsIndex();
     if (!posts || posts.length === 0) {
-      const section = document.getElementById('blog-section');
+      const section = document.getElementById('blog') || document.getElementById('blog-section');
       if (section) section.classList.add('hidden');
       return;
     }
@@ -624,7 +662,7 @@
             </div>
           </div>
           <div class="p-5 pt-0 mt-auto flex items-center justify-between border-t border-border/50 text-xs">
-            <span class="text-muted-foreground font-medium">${post.author || 'Pihak Musolla'}</span>
+            <span class="text-muted-foreground font-medium">${post.author || 'Pihak Pengurusan'}</span>
             <a href="${postUrl}" class="btn btn-outline btn-sm text-xs font-semibold gap-1">
               <span>Baca</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
