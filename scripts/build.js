@@ -151,7 +151,7 @@ function scanBlogPosts() {
             dateFormatted: dateFormatted, // Strict <DD>/<MM>/<YYYY>
             rawDate: rawDate,
             title: title,
-            author: metadata.author || 'Pentadbiran Musolla',
+            author: metadata.author || 'Pihak Pengurusan',
             category: metadata.category || 'Umum',
             summary: summary,
             cover: cover || '',

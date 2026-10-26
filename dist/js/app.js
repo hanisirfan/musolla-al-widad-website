@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       finance: '#kewangan',
       constitution: '#tab-btn-constitution, #tab-constitution',
       donation: '#sumbangan',
-      blog: '#blog',
+      blog: '#blog, #aktiviti',
       faq: '#faq',
       contact: '#hubungi',
       map: '#location-map-container'
@@ -174,24 +174,49 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (const [secKey, sel] of Object.entries(sectionSelectors)) {
       const enabled = isEnabled(secKey);
       document.querySelectorAll(sel).forEach(el => {
-        el.classList.toggle('hidden', !enabled);
+        if (!enabled) {
+          el.style.setProperty('display', 'none', 'important');
+          el.classList.add('section-disabled');
+        } else {
+          el.style.removeProperty('display');
+          el.classList.remove('section-disabled');
+        }
       });
 
       if (navSelectors[secKey]) {
         document.querySelectorAll(navSelectors[secKey]).forEach(link => {
-          link.classList.toggle('hidden', !enabled);
-          if (link.parentElement && link.parentElement.tagName === 'LI') {
-            link.parentElement.classList.toggle('hidden', !enabled);
+          if (!enabled) {
+            link.style.setProperty('display', 'none', 'important');
+            link.classList.add('section-disabled');
+            const parentLi = link.closest('li');
+            if (parentLi) {
+              parentLi.style.setProperty('display', 'none', 'important');
+              parentLi.classList.add('section-disabled');
+            }
+          } else {
+            link.style.removeProperty('display');
+            link.classList.remove('section-disabled');
+            const parentLi = link.closest('li');
+            if (parentLi) {
+              parentLi.style.removeProperty('display');
+              parentLi.classList.remove('section-disabled');
+            }
           }
         });
       }
     }
 
-    // Infaq button in navbar
-    const navDonationBtn = document.querySelector('header a[href="#sumbangan"]');
-    if (navDonationBtn) {
-      navDonationBtn.classList.toggle('hidden', !isEnabled('donation'));
-    }
+    // Infaq button in navbar (desktop CTA & mobile drawer)
+    const navDonationBtns = document.querySelectorAll('header a[href="#sumbangan"], #mobile-sheet-panel a[href="#sumbangan"]');
+    navDonationBtns.forEach(btn => {
+      if (!isEnabled('donation')) {
+        btn.style.setProperty('display', 'none', 'important');
+        btn.classList.add('section-disabled');
+      } else {
+        btn.style.removeProperty('display');
+        btn.classList.remove('section-disabled');
+      }
+    });
 
     // If first tab in management is hidden, activate the next visible tab
     if (!isEnabled('visionMission')) {

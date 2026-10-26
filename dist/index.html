@@ -59,18 +59,18 @@
 
   <!-- ==================== HEADER & NAVBAR ==================== -->
   <header class="header-nav">
-    <div class="container flex items-center justify-between h-20">
+    <div class="container flex items-center justify-between h-16 sm:h-20 gap-2 sm:gap-4">
       
       <!-- Brand Logo & Name (Fixed 1:1 Logo) -->
-      <a href="#utama" class="flex items-center gap-3 group focus:outline-none">
-        <div class="w-12 h-12 rounded-2xl bg-card border border-border shadow-sm flex items-center justify-center p-1 group-hover:border-primary transition-all">
-          <img src="assets/logo.png" alt="Musolla Al-Widad Logo" class="w-full h-full logo-sq" width="48" height="48">
+      <a href="#utama" class="flex items-center gap-2.5 sm:gap-3 group focus:outline-none min-w-0 flex-shrink">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm flex items-center justify-center p-1 group-hover:border-primary transition-all flex-shrink-0">
+          <img src="assets/logo.png" alt="Musolla Al-Widad Logo" class="w-full h-full logo-sq object-contain" width="48" height="48">
         </div>
-        <div class="flex flex-col">
-          <span class="font-extrabold text-lg sm:text-xl tracking-tight text-foreground group-hover:text-primary transition-colors">Musolla Al-Widad</span>
-          <span class="text-xs text-muted-foreground font-medium flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block"></span>
-            Pangsapuri Kita Sejati Cybersouth
+        <div class="flex flex-col min-w-0">
+          <span class="font-extrabold text-base sm:text-lg lg:text-xl tracking-tight text-foreground group-hover:text-primary transition-colors truncate brand-mosque-name">Musolla Al-Widad</span>
+          <span class="text-[11px] sm:text-xs text-muted-foreground font-medium hidden sm:flex items-center gap-1.5 truncate">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary inline-block flex-shrink-0"></span>
+            <span class="brand-tagline truncate">Pangsapuri Kita Sejati Cybersouth</span>
           </span>
         </div>
       </a>
@@ -88,29 +88,29 @@
       </nav>
 
       <!-- Right Action Controls (Language, Theme Toggle, Infaq CTA) -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
         
         <!-- Language Switcher Button -->
-        <button id="lang-toggle-btn" onclick="window.i18n && window.i18n.toggleLanguage()" class="btn btn-outline btn-sm gap-1.5 border-border hover:border-primary" title="Tukar Bahasa / Change Language" aria-label="Tukar Bahasa">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        <button id="lang-toggle-btn" onclick="window.i18n && window.i18n.toggleLanguage()" class="btn btn-outline btn-sm gap-1 border-border hover:border-primary px-2 sm:px-2.5 py-1.5 text-xs" title="Tukar Bahasa / Change Language" aria-label="Tukar Bahasa">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary flex-shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
           <span class="current-lang-text font-bold text-xs uppercase">BM</span>
         </button>
 
         <!-- Theme Switcher Button (Light Mode by Default <-> Dark Mode) -->
-        <button id="theme-toggle-btn" onclick="window.ThemeManager && window.ThemeManager.toggle()" class="btn btn-outline btn-sm border-border hover:border-primary px-2.5" title="Tukar Mod Cerah / Gelap" aria-label="Tukar Mod Tema">
+        <button id="theme-toggle-btn" onclick="window.ThemeManager && window.ThemeManager.toggle()" class="btn btn-outline btn-sm border-border hover:border-primary p-2 sm:px-2.5" title="Tukar Mod Cerah / Gelap" aria-label="Tukar Mod Tema">
           <span class="theme-icon-active flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-foreground"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-foreground"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           </span>
         </button>
 
-        <!-- Infaq CTA Button (Desktop) -->
-        <a href="#sumbangan" class="btn btn-secondary btn-sm hidden sm:inline-flex gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <!-- Infaq CTA Button (Desktop & Tablet: hidden on mobile < 768px) -->
+        <a href="#sumbangan" id="nav-cta-donation" class="btn btn-secondary btn-sm hidden md:inline-flex gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
           <span data-i18n="nav.donateBtn">Infaq Sekarang</span>
         </a>
 
-        <!-- Mobile Menu Trigger -->
-        <button id="open-mobile-nav" class="btn btn-outline btn-sm lg:hidden border-border p-2" aria-label="Buka Menu">
+        <!-- Mobile Menu Trigger (Hamburger: visible on screens < 1024px) -->
+        <button id="open-mobile-nav" class="btn btn-outline btn-sm lg:hidden border-border p-2 flex-shrink-0" aria-label="Buka Menu">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
       </div>
@@ -573,7 +573,7 @@
         <!-- Quranic Quote Box -->
         <div class="max-w-2xl mx-auto mb-10 text-center p-5 rounded-2xl bg-card border border-border shadow-sm space-y-1.5">
           <p class="italic text-xs sm:text-sm text-foreground font-medium" data-i18n="donation.quote">
-            "Bandingan (derma) orang-orang yang membelanjakan hartanya pada jalan Allah, ialah sama seperti sebiji benih yang tumbuh menerbitkan tujuh tangkai; tiap-tiap tangkai itu pula mengandungi seratus biji."
+            "Bandingan pahala kepada orang yang menginfakkan hartanya di jalan Allah, ibarat sebiji benih yang menumbuhkan tujuh tangkai, dan tiap-tiap tangkai itu pula mengandungi 100 biji. Dan Allah melipat gandakan pahala bagi sesiapa yang Dia kehendaki dan Allah Maha Luas kurniaan-Nya, lagi Maha Mengetahui."
           </p>
           <span class="text-[11px] font-bold text-secondary uppercase tracking-wider" data-i18n="donation.quoteSource">Surah Al-Baqarah: 261</span>
         </div>
@@ -747,7 +747,7 @@
     </section>
 
     <!-- ==================== SOALAN LAZIM (FAQ) ==================== -->
-    <section class="section-spacing border-b border-border bg-muted/20">
+    <section id="faq" class="section-spacing border-b border-border bg-muted/20">
       <div class="container max-w-3xl">
         
         <div class="text-center mb-8 space-y-2">

@@ -749,3 +749,8 @@ a {
   box-shadow: 0 12px 30px -10px hsl(var(--primary) / 0.15);
   border-color: hsl(var(--primary) / 0.4);
 }
+
+/* Programmatically disabled sections & nav items */
+.section-disabled, [hidden] {
+  display: none !important;
+}
