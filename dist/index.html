@@ -52,10 +52,10 @@
     }
   </script>
 
-  <!-- Warm, Homey Community Stylesheet -->
+  <!-- Warm, Milky Solid Community Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-background text-foreground bg-islamic-pattern min-h-screen flex flex-col selection:bg-secondary selection:text-white">
+<body class="bg-background text-foreground min-h-screen flex flex-col selection:bg-secondary selection:text-white">
 
   <!-- ==================== HEADER & NAVBAR ==================== -->
   <header class="header-nav">
@@ -86,7 +86,7 @@
         <a href="#hubungi" class="nav-link" data-i18n="nav.contact">Hubungi</a>
       </nav>
 
-      <!-- Right Action Controls (Language, Theme, Infaq CTA) -->
+      <!-- Right Action Controls (Language, Theme Toggle, Infaq CTA) -->
       <div class="flex items-center gap-2 sm:gap-3">
         
         <!-- Language Switcher Button -->
@@ -95,10 +95,10 @@
           <span class="current-lang-text font-bold text-xs uppercase">BM</span>
         </button>
 
-        <!-- Theme Switcher Button (System Default -> Dark -> Light) -->
-        <button id="theme-toggle-btn" onclick="window.ThemeManager && window.ThemeManager.cycle()" class="btn btn-outline btn-sm border-border hover:border-primary px-2.5" title="Tukar Tema (Ikut Peranti / Gelap / Cerah)" aria-label="Tukar Tema">
+        <!-- Theme Switcher Button (Light Mode by Default <-> Dark Mode) -->
+        <button id="theme-toggle-btn" onclick="window.ThemeManager && window.ThemeManager.toggle()" class="btn btn-outline btn-sm border-border hover:border-primary px-2.5" title="Tukar Mod Cerah / Gelap" aria-label="Tukar Mod Tema">
           <span class="theme-icon-active flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-foreground"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           </span>
         </button>
 
@@ -121,7 +121,7 @@
   <main class="flex-1">
 
     <!-- HERO SECTION (Warm, Welcoming Community Atmosphere) -->
-    <section id="utama" class="relative pt-10 pb-14 md:pt-16 md:pb-20 overflow-hidden border-b border-border bg-gradient-to-b from-primary/5 via-background to-background">
+    <section id="utama" class="relative pt-10 pb-14 md:pt-16 md:pb-20 overflow-hidden border-b border-border bg-card/40">
       <div class="container relative z-10">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -160,19 +160,15 @@
               </a>
             </div>
 
-            <!-- Community Stats -->
-            <div class="grid grid-cols-3 gap-4 pt-4 border-t border-border w-full max-w-xl">
+            <!-- Community Stats (2 Balanced Counters) -->
+            <div class="grid grid-cols-2 gap-6 pt-4 border-t border-border w-full max-w-md">
               <div class="flex flex-col items-center lg:items-start">
                 <span class="text-2xl sm:text-3xl font-extrabold text-primary">1,000+</span>
                 <span class="text-xs text-muted-foreground font-medium" data-i18n="hero.statHouseholds">Keluarga Pangsapuri</span>
               </div>
-              <div class="flex flex-col items-center lg:items-start border-x border-border px-3">
-                <span class="text-2xl sm:text-3xl font-extrabold text-secondary">350+</span>
+              <div class="flex flex-col items-center lg:items-start border-l border-border pl-6">
+                <span class="text-2xl sm:text-3xl font-extrabold text-secondary">~200</span>
                 <span class="text-xs text-muted-foreground font-medium" data-i18n="hero.statCapacity">Kapasiti Jemaah</span>
-              </div>
-              <div class="flex flex-col items-center lg:items-start">
-                <span class="text-2xl sm:text-3xl font-extrabold text-foreground">Mingguan</span>
-                <span class="text-xs text-muted-foreground font-medium" data-i18n="hero.statPrograms">Program &amp; Pengajian</span>
               </div>
             </div>
 
@@ -180,7 +176,7 @@
 
           <!-- Hero Brand Showcase (Warm & Grounded Card) -->
           <div class="lg:col-span-5 flex justify-center">
-            <div class="card p-7 sm:p-9 flex flex-col items-center text-center max-w-md w-full border border-border shadow-lg bg-card">
+            <div class="card p-7 sm:p-9 flex flex-col items-center text-center max-w-md w-full border border-border shadow-md bg-card">
               <div class="w-40 h-40 sm:w-44 sm:h-44 rounded-2xl bg-muted/60 p-4 flex items-center justify-center mb-5 border border-border">
                 <img src="assets/logo.png" alt="Musolla Al-Widad Emblem" class="w-full h-full logo-sq" width="176" height="176">
               </div>
@@ -206,8 +202,8 @@
       </div>
     </section>
 
-    <!-- ==================== ANNOUNCEMENTS / CAROUSEL ==================== -->
-    <section class="py-10 bg-muted/40 border-b border-border">
+    <!-- ==================== ANNOUNCEMENTS / CAROUSEL (Dedicated JSON, Bilingual, Disappears if Empty) ==================== -->
+    <section id="announcements-section" class="py-10 bg-muted/30 border-b border-border">
       <div class="container">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3">
@@ -232,101 +228,9 @@
         </div>
 
         <!-- Carousel Wrapper -->
-        <div class="carousel-wrapper card border border-border shadow-md">
+        <div class="carousel-wrapper card border border-border shadow-sm">
           <div id="carousel-track" class="carousel-track">
-            
-            <!-- Slide 1: Khairat Kematian -->
-            <div class="carousel-slide p-6 sm:p-9 bg-card flex flex-col justify-between">
-              <div class="max-w-3xl space-y-3">
-                <div class="flex items-center gap-2.5">
-                  <span class="badge badge-primary">Khairat Kematian</span>
-                  <span class="text-xs text-muted-foreground font-semibold">Terkini</span>
-                </div>
-                <h3 class="text-lg sm:text-2xl font-bold text-foreground">
-                  Pendaftaran Program Khairat Kematian Bersama Masjid Al-Ilmi Dengkil
-                </h3>
-                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Musolla Al-Widad kini bernaung di bawah program rasmi e-Khairat Masjid Al-Ilmi Dengkil. Pendaftaran dibuka kepada semua penduduk Pangsapuri Kita Sejati bagi menjamin kebajikan urusan jenazah keluarga tercinta.
-                </p>
-              </div>
-              <div class="pt-5 flex flex-wrap items-center gap-3">
-                <a href="#khairat" class="btn btn-primary btn-sm gap-2">
-                  <span>Lihat Maklumat Khairat</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-                <a href="https://www.e-khairat.com/al-ilmi" target="_blank" rel="noopener noreferrer" class="link-khairat-portal btn btn-outline btn-sm gap-2">
-                  <span>Daftar di e-Khairat</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Slide 2: Infaq Dana Musolla -->
-            <div class="carousel-slide p-6 sm:p-9 bg-card flex flex-col justify-between">
-              <div class="max-w-3xl space-y-3">
-                <div class="flex items-center gap-2.5">
-                  <span class="badge badge-secondary">Dana Musolla</span>
-                  <span class="text-xs text-muted-foreground font-semibold">Berterusan</span>
-                </div>
-                <h3 class="text-lg sm:text-2xl font-bold text-foreground">
-                  Kempen Infaq Operasi &amp; Naik Taraf Musolla Al-Widad
-                </h3>
-                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Sumbangan ikhlas jemaah membantu membiayai penyelenggaraan pendingin hawa, kebersihan karpet, kelengkapan wuduk, dan program pengajian komuniti melalui akaun Bank Islam atau kod QR DuitNow.
-                </p>
-              </div>
-              <div class="pt-5 flex flex-wrap items-center gap-3">
-                <a href="#sumbangan" class="btn btn-secondary btn-sm gap-2">
-                  <span>Salurkan Infaq Sekarang</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Slide 3: Kuliah & Pengajian -->
-            <div class="carousel-slide p-6 sm:p-9 bg-card flex flex-col justify-between">
-              <div class="max-w-3xl space-y-3">
-                <div class="flex items-center gap-2.5">
-                  <span class="badge badge-accent">Aktiviti Dakwah</span>
-                  <span class="text-xs text-muted-foreground font-semibold">Setiap Minggu</span>
-                </div>
-                <h3 class="text-lg sm:text-2xl font-bold text-foreground">
-                  Kuliah Maghrib Mingguan &amp; Kelas Bimbingan Al-Quran
-                </h3>
-                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Imarahkan dewan solat bersama asatizah jemputan pada siri kuliah mingguan dan sertai kelas Al-Quran kanak-kanak serta seisi keluarga.
-                </p>
-              </div>
-              <div class="pt-5 flex flex-wrap items-center gap-3">
-                <a href="#aktiviti" class="btn btn-primary btn-sm gap-2">
-                  <span>Lihat Takwim Pengajian</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-              </div>
-            </div>
-
-            <!-- Slide 4: Google Form Maklum Balas -->
-            <div class="carousel-slide p-6 sm:p-9 bg-card flex flex-col justify-between">
-              <div class="max-w-3xl space-y-3">
-                <div class="flex items-center gap-2.5">
-                  <span class="badge badge-outline">Maklum Balas</span>
-                  <span class="text-xs text-muted-foreground font-semibold">Sentiasa Terbuka</span>
-                </div>
-                <h3 class="text-lg sm:text-2xl font-bold text-foreground">
-                  Borang Cadangan Penambahbaikan &amp; Aduan Penduduk
-                </h3>
-                <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  Pandangan anda amat berharga. Sila kemukakan cadangan penambahbaikan fasiliti atau sebarang aduan melalui Google Form rasmi musolla.
-                </p>
-              </div>
-              <div class="pt-5 flex flex-wrap items-center gap-3">
-                <a href="#hubungi" class="btn btn-outline btn-sm gap-2">
-                  <span>Isi Borang Maklum Balas</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                </a>
-              </div>
-            </div>
-
+            <!-- Populated dynamically from data/announcements.json via js/app.js -->
           </div>
 
           <!-- Dots -->
@@ -437,7 +341,7 @@
           </div>
         </div>
 
-        <!-- TAB 2: CARTA ORGANISASI (Clean, No dev/hint guidelines) -->
+        <!-- TAB 2: CARTA ORGANISASI -->
         <div id="tab-org" class="tab-panel">
           <div class="space-y-6">
             <div class="text-center max-w-xl mx-auto space-y-1">
@@ -447,7 +351,6 @@
               </p>
             </div>
 
-            <!-- Dynamic Organization Chart Cards Grid -->
             <div id="org-members-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-3">
               <!-- Rendered via js/app.js from data/organisasi.json -->
             </div>
@@ -481,7 +384,7 @@
               </div>
 
               <!-- Embedded PDF Viewer Frame -->
-              <div class="w-full rounded-xl overflow-hidden border border-border bg-muted/40 shadow-inner">
+              <div class="w-full rounded-xl overflow-hidden border border-border bg-muted/30 shadow-inner">
                 <iframe src="assets/perlembagaan/perlembagaan-musolla-al-widad.pdf" class="w-full h-[480px] sm:h-[580px] border-0" title="Pratonton Perlembagaan Musolla Al-Widad"></iframe>
               </div>
 
@@ -493,7 +396,7 @@
     </section>
 
     <!-- ==================== KHAIRAT KEMATIAN ==================== -->
-    <section id="khairat" class="section-spacing border-b border-border bg-gradient-to-b from-primary/5 to-transparent">
+    <section id="khairat" class="section-spacing border-b border-border bg-card/40">
       <div class="container">
         
         <div class="max-w-3xl mx-auto text-center mb-10 space-y-3">
@@ -554,8 +457,8 @@
 
         </div>
 
-        <!-- Registration Steps & Direct Action Card -->
-        <div class="card p-6 sm:p-8 border border-primary/30 bg-card shadow-lg max-w-3xl mx-auto">
+        <!-- Registration Action Card -->
+        <div class="card p-6 sm:p-8 border border-primary/30 bg-card shadow-md max-w-3xl mx-auto">
           <div class="text-center max-w-lg mx-auto mb-6 space-y-1.5">
             <h3 class="text-xl font-bold text-foreground" data-i18n="khairat.stepsTitle">Cara Pendaftaran Melalui Sistem e-Khairat</h3>
             <p class="text-xs text-muted-foreground">Pendaftaran dibuat secara terus melalui pautan sistem rasmi Masjid Al-Ilmi Dengkil.</p>
@@ -653,7 +556,7 @@
     </section>
 
     <!-- ==================== SUMBANGAN UNTUK MUSOLLA ==================== -->
-    <section id="sumbangan" class="section-spacing border-b border-border bg-gradient-to-b from-secondary/5 via-background to-background">
+    <section id="sumbangan" class="section-spacing border-b border-border bg-card/40">
       <div class="container">
         
         <div class="max-w-2xl mx-auto text-center mb-8 space-y-2.5">
@@ -677,7 +580,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center max-w-4xl mx-auto mb-14">
           
           <!-- Bank Transfer Card -->
-          <div class="lg:col-span-7 card p-6 space-y-4 shadow-md border border-border">
+          <div class="lg:col-span-7 card p-6 space-y-4 shadow-sm border border-border">
             <div class="flex items-center justify-between border-b border-border pb-3">
               <div class="space-y-0.5">
                 <span class="badge badge-primary text-[10px]">Pindahan Bank</span>
@@ -719,7 +622,7 @@
 
           <!-- DuitNow QR Card (Clean 1:1 without 'Nisbah 1:1' badge) -->
           <div class="lg:col-span-5 flex flex-col items-center">
-            <div class="card p-5 flex flex-col items-center text-center shadow-md border border-border w-full max-w-xs bg-card">
+            <div class="card p-5 flex flex-col items-center text-center shadow-sm border border-border w-full max-w-xs bg-card">
               <div class="w-56 h-56 rounded-2xl overflow-hidden bg-white p-2 border border-border shadow-inner mb-3">
                 <img src="assets/duitnow-qr.svg" alt="Kod QR DuitNow Musolla Al-Widad" class="w-full h-full logo-sq" width="224" height="224">
               </div>
@@ -738,7 +641,7 @@
 
         </div>
 
-        <!-- Fund Utilization Breakdown (Expanded as requested) -->
+        <!-- Fund Utilization Breakdown -->
         <div class="max-w-4xl mx-auto">
           <h4 class="text-lg font-bold text-foreground text-center mb-6" data-i18n="donation.utilization.title">Ke Mana Sumbangan Anda Disalurkan?</h4>
           
@@ -904,7 +807,7 @@
     </section>
 
     <!-- ==================== HUBUNGI KAMI ==================== -->
-    <section id="hubungi" class="section-spacing border-b border-border bg-gradient-to-b from-primary/5 via-background to-background">
+    <section id="hubungi" class="section-spacing border-b border-border bg-card/40">
       <div class="container">
         
         <div class="max-w-2xl mx-auto text-center mb-10 space-y-2.5">
@@ -918,7 +821,7 @@
         </div>
 
         <!-- Google Form Feedback Callout Card -->
-        <div class="max-w-3xl mx-auto card p-6 border border-primary/30 bg-card shadow-md mb-10">
+        <div class="max-w-3xl mx-auto card p-6 border border-primary/30 bg-card shadow-sm mb-10">
           <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5">
             <div class="space-y-1.5 text-center sm:text-left">
               <span class="badge badge-primary text-[10px]" data-i18n="contact.formSection.badge">Aduan &amp; Cadangan</span>
@@ -999,7 +902,7 @@
         </div>
 
         <!-- Google Maps Location & Direction with Accurate Coordinates -->
-        <div class="card max-w-3xl mx-auto overflow-hidden border border-border shadow-md">
+        <div class="card max-w-3xl mx-auto overflow-hidden border border-border shadow-sm">
           <div class="p-5 bg-card border-b border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
@@ -1101,7 +1004,7 @@
             </div>
           </div>
 
-          <!-- Dynamic Social Media Icons (Supports adding TikTok, YouTube, etc.) -->
+          <!-- Dynamic Social Media Icons -->
           <div class="pt-1">
             <span class="text-[11px] font-semibold text-foreground block mb-2" data-i18n="footer.socialTitle">Media Sosial Rasmi</span>
             <div id="footer-social-container" class="flex items-center gap-2">
@@ -1167,18 +1070,15 @@
         </div>
       </div>
 
-      <!-- Theme options -->
+      <!-- Theme options (Light Mode Default <-> Dark Mode) -->
       <div class="space-y-1.5">
         <span class="text-[11px] font-semibold text-muted-foreground uppercase" data-i18n="nav.theme">Tema</span>
-        <div class="grid grid-cols-3 gap-1.5">
-          <button data-theme-option="system" onclick="window.ThemeManager && window.ThemeManager.set('system')" class="btn btn-outline btn-sm text-xs">
-            Peranti
+        <div class="grid grid-cols-2 gap-2">
+          <button data-theme-option="light" onclick="window.ThemeManager && window.ThemeManager.set('light')" class="btn btn-outline btn-sm text-xs">
+            Mod Cerah (Lalai)
           </button>
           <button data-theme-option="dark" onclick="window.ThemeManager && window.ThemeManager.set('dark')" class="btn btn-outline btn-sm text-xs">
-            Gelap
-          </button>
-          <button data-theme-option="light" onclick="window.ThemeManager && window.ThemeManager.set('light')" class="btn btn-outline btn-sm text-xs">
-            Cerah
+            Mod Gelap
           </button>
         </div>
       </div>
@@ -1235,7 +1135,7 @@
 
       <div class="p-6 overflow-y-auto space-y-5 text-xs sm:text-sm text-muted-foreground">
         <p data-i18n="credits.lead">
-          Laman web rasmi Musolla Al-Widad Kita Sejati ini dibangunkan secara sumber terbuka (open source) menggunakan pustaka dan teknologi moden berikut:
+          Laman web rasmi Musolla Al-Widad Kita Sejati ini dibangunkan secara sumber terbuka (open source) berlesenkan MIT menggunakan pustaka dan teknologi moden berikut:
         </p>
 
         <!-- Frameworks & Libraries Table -->
@@ -1283,6 +1183,14 @@
           <span class="font-bold text-xs uppercase tracking-wider text-primary">Penjanaan &amp; Senibina Laman Web</span>
           <p class="text-xs sm:text-sm font-medium" data-i18n="credits.aiAttribution">
             Laman web ini dijana menggunakan Google Gemini dan Google Antigravity dengan arahan (prompt) daripada Hanis Irfan.
+          </p>
+        </div>
+
+        <!-- PDPA & Open Source Disclaimer -->
+        <div class="p-3.5 rounded-xl bg-muted/60 border border-border text-[11px] text-muted-foreground space-y-1">
+          <span class="font-bold text-foreground uppercase tracking-wider">Perlindungan Data Peribadi (PDPA)</span>
+          <p>
+            Kod sumber laman web ini adalah sumber terbuka di bawah Lesen MIT. Walau bagaimanapun, sebarang data peribadi (nama dan nombor perhubungan barisan AJK) adalah dilindungi di bawah Akta Perlindungan Data Peribadi 2010 (Akta 709).
           </p>
         </div>
 

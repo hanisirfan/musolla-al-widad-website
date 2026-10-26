@@ -21,6 +21,7 @@ Laman web ini direka khusus dengan tema mesra komuniti (*homey and community vib
    - [F. Menukar Maklumat Hubungan & Pautan Luar (`site.config.json`)](#f-menukar-maklumat-hubungan--pautan-luar-siteconfigjson)
    - [G. Menukar Logo & Favicon (Nisbah 1:1)](#g-menukar-logo--favicon-nisbah-11)
    - [H. Mengemaskini Teks & Dwi-Bahasa i18n (`lang/`)](#h-mengemaskini-teks--dwi-bahasa-i18n-lang)
+   - [I. Mengemaskini Pengumuman & Hebahan Semasa (`data/announcements.json`)](#i-mengemaskini-pengumuman--hebahan-semasa-dataannouncementsjson)
 6. [Panduan Deployment ke Cloudflare Pages](#-panduan-deployment-ke-cloudflare-pages)
 7. [Kredit, Hak Cipta & Sumber Terbuka](#-kredit-hak-cipta--sumber-terbuka)
 
@@ -28,14 +29,19 @@ Laman web ini direka khusus dengan tema mesra komuniti (*homey and community vib
 
 ## ✨ Ciri-Ciri Utama & Identiti Komuniti
 
-- **Suasana Hangat Komuniti (*Homey & Welcoming*)**: Latar belakang krim lembut (*warm linen* `#faf8f5`), permukaan kad selesa, bayang-bayang semulajadi, dan corak arabes halus berbanding gaya futuristik/neon yang kaku.
+- **Suasana Hangat Komuniti (*Homey & Welcoming*)**: Latar belakang krim lembut (*warm linen / milky tone* `#f6f4ef` & kad `#faf8f5`) yang tidak menyilaukan mata berbanding warna putih tulen (#ffffff).
 - **Identiti Warna Berasaskan Logo**:
   - *Primary Teal* (`#116876` / `#21b8cc`): Melambangkan kedamaian rohani dan masjid.
   - *Secondary Amber* (`#eb7713` / `#f68928`): Melambangkan kemesraan ukhuwah dan kejiranan.
   - *Accent Gold* (`#f1a91e` / `#f5b72e`): Melambangkan keberkatan dan syiar Islam.
 - **Nisbah Logo Tetap 1:1**: Dipelihara pada semua peranti (`logo-sq`).
 - **Sokongan Dwi-Bahasa (i18n)**: Bahasa Melayu (Lalai) dan Bahasa Inggeris di dalam folder `lang/`.
-- **Mod Gelap & Cerah Pintar**: Bermula dengan tetapan peranti jemaah (*Device Default*), diikuti Mod Gelap, kemudian Mod Cerah.
+- **Mod Cerah Lembut Lalai (Default) & Mod Gelap Pejal**:
+  - Laman dimuatkan secara automatik dalam **Mod Cerah Lembut** (*milky ivory*).
+  - Pilihan butang togol membolehkan jemaah beralih ke **Mod Gelap Pejal** (*solid comfortable dark mode* `#101c23`) yang tenang tanpa sebarang corak bintik (*dotted pattern*) yang memenatkan mata.
+- **Hebahan & Pengumuman Dwi-Bahasa Pintar (`data/announcements.json`)**:
+  - Konfigurasi khusus dwi-bahasa (BM & EN) dalam satu fail berpusat.
+  - Sekiranya senarai pengumuman kosong atau semua pengumuman tidak aktif, keseluruhan seksyen pengumuman akan disembunyikan secara automatik tanpa mencacatkan susun atur.
 - **Navigasi Modal Mesra Telefon & Papan Kekunci**:
   - Modal PDF dan Kredit boleh ditutup dengan menekan kekunci **ESC** di komputer.
   - Pada telefon pintar (Android / iOS), menekan butang **Back** atau *swipe gesture* akan menutup modal secara lancar tanpa keluar dari laman web.
@@ -50,7 +56,7 @@ Laman web ini direka khusus dengan tema mesra komuniti (*homey and community vib
   - Pecahan penyaluran dana merangkumi: *Utiliti & Bil (Jika Diperlukan)*, *Naik Taraf & Fasiliti Musolla*, *Program Dakwah*, *Aktiviti Komuniti*, dan *Pembersihan Persekitaran*.
 - **Media Sosial Fleksibel**: Boleh menambah atau membuang platform media sosial baharu (Facebook, Instagram, TikTok, YouTube, Telegram, WhatsApp) hanya melalui `site.config.json`.
 - **Aktiviti Responsif**: Sekiranya tiada aktiviti dijadualkan, seksyen memaparkan mesej komuniti yang mesra tanpa mencacatkan susun atur.
-- **Pautan Kredit & Penghargaan**: Modal menyenaraikan pustaka sumber terbuka dan atribusi penjanaan AI (Google Gemini & Antigravity).
+- **Pautan Kredit, Sumber Terbuka (MIT) & Notis PDPA**: Modal menyenaraikan pustaka sumber terbuka serta perlindungan data peribadi AJK di bawah Akta Perlindungan Data Peribadi 2010.
 
 ---
 
@@ -87,8 +93,9 @@ musolla-al-widad-website/
 │       └── 2025/                 # Laporan tahun 2025
 │           └── penyata-kewangan-tahunan-2025.pdf
 ├── css/
-│   └── style.css                 # Tema hangat komuniti & token Shadcn UI
+│   └── style.css                 # Tema hangat komuniti & token Shadcn UI (Solid Colors)
 ├── data/
+│   ├── announcements.json        # Pengumuman dwi-bahasa (Auto-hide jika kosong)
 │   ├── organisasi.json           # Senarai ahli jawatankuasa
 │   ├── activities.json           # Takwim aktiviti & pengajian
 │   └── reports.json              # Indeks fail penyata kewangan & tahun
@@ -96,16 +103,17 @@ musolla-al-widad-website/
 │   ├── ms.json                   # Terjemahan Bahasa Melayu (Lalai)
 │   └── en.json                   # Terjemahan English
 ├── js/
-│   ├── theme.js                  # Mod tema (Peranti -> Gelap -> Cerah)
+│   ├── theme.js                  # Mod tema (Mod Cerah Lembut Lalai -> Gelap Pejal)
 │   ├── i18n.js                   # Enjin penterjemahan dwi-bahasa
-│   └── app.js                    # Logik pagination, modal, sosial & render
+│   └── app.js                    # Logik carousel, pagination, modal & sosial
 ├── scripts/
 │   ├── build.js                  # Skrip pembinaan untuk Cloudflare Pages
 │   ├── generate-sample-pdfs.js   # Skrip penjana PDF contoh
-│   └── test-server.js            # Ujian automatik 12 laluan pelayan
+│   └── test-server.js            # Ujian automatik 14 laluan pelayan
 ├── site.config.json              # Konfigurasi media sosial, no telefon & pautan
 ├── server.js                     # Pelayan ujian tempatan (Zero Dependencies)
 ├── index.html                    # Laman web utama
+├── LICENSE                       # Lesen MIT & Notis PDPA Malaysia
 ├── package.json                  # Konfigurasi npm
 └── README.md                     # Dokumentasi projek
 ```
@@ -253,6 +261,40 @@ Gantikan fail `assets/logo.png` dengan logo baharu anda. Pastikan imej mempunyai
 
 ---
 
+### I. Mengemaskini Pengumuman & Hebahan Semasa (`data/announcements.json`)
+
+Hebahan dan pengumuman dipusatkan di dalam fail [`data/announcements.json`](data/announcements.json). Setiap pengumuman menyokong teks Bahasa Melayu dan Bahasa Inggeris secara serentak:
+
+```json
+[
+  {
+    "id": 1,
+    "active": true,
+    "tagMs": "Khairat Kematian",
+    "tagEn": "Funeral Welfare Fund",
+    "dateMs": "Terkini",
+    "dateEn": "Latest",
+    "titleMs": "Pendaftaran Program Khairat Kematian Bersama Masjid Al-Ilmi Dengkil",
+    "titleEn": "Funeral Fund Registration with Masjid Al-Ilmi Dengkil",
+    "descMs": "Musolla Al-Widad kini bernaung secara rasmi di bawah program e-Khairat Masjid Al-Ilmi Dengkil...",
+    "descEn": "Musolla Al-Widad is officially partnered under the e-Khairat program of Masjid Al-Ilmi Dengkil...",
+    "link": "https://www.e-khairat.com/al-ilmi",
+    "buttonMs": "Daftar di Portal e-Khairat",
+    "buttonEn": "Register at e-Khairat Portal",
+    "isExternal": true
+  }
+]
+```
+
+**Petua Penting:**
+1. **Sembunyikan Pengumuman Tertentu**: Tukar `"active": false` untuk mematikan paparan pengumuman tersebut tanpa perlu memadam datanya.
+2. **Sembunyikan Keseluruhan Seksyen**: Sekiranya tiada sebarang hebahan aktif atau senarai dikosongkan (`[]`), seksyen Pengumuman & Hebahan Semasa pada laman web akan **disembunyikan secara automatik** (*gracefully hidden*) tanpa merosakkan susun atur laman web!
+3. **Pautan Luar vs Pautan Dalaman**:
+   - Jika pautan menuju ke laman luar (seperti portal e-Khairat), tetapkan `"isExternal": true` (dibuka di tab baharu).
+   - Jika pautan merujuk ke seksyen laman web (seperti `"#sumbangan"` atau `"#hubungi"`), tetapkan `"isExternal": false`.
+
+---
+
 ## 🚀 Panduan Deployment ke Cloudflare Pages
 
 ### Kaedah A: Sambungan Automatik melalui GitHub (Disyorkan)
@@ -260,7 +302,7 @@ Gantikan fail `assets/logo.png` dengan logo baharu anda. Pastikan imej mempunyai
 1. Tolak kod terkini ke GitHub:
    ```bash
    git add .
-   git commit -m "feat: kemaskini tema komuniti dan struktur perlembagaan"
+   git commit -m "feat: kemaskini tema komuniti, kapasiti dan perlembagaan"
    git push origin main
    ```
 2. Di papan pemuka **Cloudflare Pages**:
@@ -275,11 +317,17 @@ Gantikan fail `assets/logo.png` dengan logo baharu anda. Pastikan imej mempunyai
 
 ## 📜 Kredit, Hak Cipta & Sumber Terbuka
 
-Laman web ini dibina menggunakan komponen sumber terbuka berikut:
+Laman web ini adalah projek **sumber terbuka (Open Source)** yang dilesenkan di bawah [Lesen MIT (MIT License)](LICENSE).
+
+### Notis Akta Perlindungan Data Peribadi 2010 (PDPA)
+Walaupun keseluruhan kod sumber web ini adalah sumber terbuka di bawah Lesen MIT, sebarang data dan maklumat peribadi barisan ahli jawatankuasa pentadbiran—termasuk nombor telefon bimbit, alamat emel dan foto—adalah dilindungi di bawah **Akta Perlindungan Data Peribadi 2010 (Akta 709 / PDPA Malaysia)**. Sebarang penggunaan untuk tujuan komersial, pemasaran tanpa kebenaran, spam atau pengiklanan adalah dilarang sama sekali.
+
+### Komponen Sumber Terbuka
+Laman web ini dibina menggunakan komponen berkualiti tinggi:
 - **Tailwind CSS** (MIT License)
-- **Shadcn UI** (MIT License)
+- **Shadcn UI Design System** (MIT License)
 - **Plus Jakarta Sans** (SIL Open Font License 1.1) oleh Tokotype
-- **Amiri Calligraphy Font** (SIL Open Font License 1.1) oleh Khaled Hosny
+- **Amiri Calligraphy Arabic Font** (SIL Open Font License 1.1) oleh Khaled Hosny
 - **Lucide Icons** (ISC / MIT License)
 
 **Penjanaan & Senibina Laman Web:**

@@ -1,44 +1,44 @@
-/* Musolla Al-Widad Kita Sejati - Warm, Homey Community Design System */
+/* Musolla Al-Widad Kita Sejati - Warm, Milky Community Design System (Solid Colors) */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap');
 
 :root {
-  /* Warm, welcoming, earthy community tones aligned with mosque logo */
-  --background: 38 30% 98%;      /* Soft warm cream / linen #FAF8F5 */
-  --foreground: 202 38% 18%;     /* Deep soothing slate-teal #1c2e36 */
-  --card: 0 0% 100%;             /* Pure clean card */
-  --card-foreground: 202 38% 18%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 202 38% 18%;
+  /* Warm Milky / Non-Irritating Light Mode (Zero Pure White) */
+  --background: 40 25% 96%;      /* Soft warm milky ivory #F6F4EF */
+  --foreground: 204 36% 18%;     /* Deep soothing slate-teal #1c2d36 */
+  --card: 40 20% 98.5%;          /* Gentle milky off-white #FAF8F5 (NOT pure white) */
+  --card-foreground: 204 36% 18%;
+  --popover: 40 20% 98.5%;
+  --popover-foreground: 204 36% 18%;
   
   --primary: 188 76% 28%;        /* Calming Mosque Deep Teal #116876 */
-  --primary-foreground: 0 0% 100%;
+  --primary-foreground: 40 25% 98%;
   
   --secondary: 27 88% 50%;       /* Warm Amber / Terracotta #eb7713 */
-  --secondary-foreground: 0 0% 100%;
+  --secondary-foreground: 40 25% 98%;
   
   --accent: 38 88% 50%;          /* Warm Crescent Gold #f1a91e */
-  --accent-foreground: 202 45% 14%;
+  --accent-foreground: 204 45% 14%;
   
-  --muted: 36 28% 94%;           /* Soft warm beige #f4f0e8 */
-  --muted-foreground: 202 18% 44%;/* Muted warm slate #5d717b */
+  --muted: 38 20% 92%;           /* Warm soft beige #ECE7DE */
+  --muted-foreground: 204 18% 44%;/* Muted warm slate #5c707a */
   
-  --border: 36 24% 88%;          /* Gentle warm border #e6e0d3 */
-  --input: 36 24% 88%;
+  --border: 38 18% 86%;          /* Gentle warm border #DDD7CA */
+  --input: 38 18% 86%;
   --ring: 188 76% 28%;
-  --radius: 1rem;                /* Softer, friendly rounded corners */
+  --radius: 1rem;
 
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-arabic: 'Amiri', serif;
 }
 
 .dark {
-  /* Warm, serene night aesthetic (not harsh futuristic black) */
-  --background: 204 36% 9%;      /* Deep midnight teal-charcoal #0f1c23 */
-  --foreground: 40 25% 94%;      /* Warm gentle cream text #f6f3ee */
-  --card: 204 30% 13%;           /* Cozy dark card #17262f */
-  --card-foreground: 40 25% 94%;
-  --popover: 204 30% 13%;
-  --popover-foreground: 40 25% 94%;
+  /* Soothing Solid Dark Mode (Clean, Solid, No Dotted Patterns) */
+  --background: 204 35% 10%;     /* Solid deep midnight slate-teal #101c23 */
+  --foreground: 40 22% 93%;      /* Soft milky warm cream text #f4f1ec */
+  --card: 204 28% 14.5%;         /* Solid comfortable dark card #1a2932 */
+  --card-foreground: 40 22% 93%;
+  --popover: 204 28% 14.5%;
+  --popover-foreground: 40 22% 93%;
   
   --primary: 186 72% 46%;        /* Soothing bright teal #21b8cc */
   --primary-foreground: 204 45% 8%;
@@ -49,11 +49,11 @@
   --accent: 38 90% 55%;          /* Warm gold #f5b72e */
   --accent-foreground: 204 45% 8%;
   
-  --muted: 204 22% 18%;          /* Soft dark slate #23343e */
+  --muted: 204 22% 19%;          /* Solid soft dark slate #253641 */
   --muted-foreground: 200 16% 68%;/* Softer text #9caeb8 */
   
-  --border: 204 20% 22%;         /* Subtle dark border #2c3f4b */
-  --input: 204 20% 22%;
+  --border: 204 20% 23%;         /* Subtle dark border #2f424f */
+  --input: 204 20% 23%;
   --ring: 186 72% 46%;
 }
 
@@ -77,21 +77,6 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
-}
-
-/* Subtle, Warm Community Arabesque Texture */
-.bg-islamic-pattern {
-  background-image: 
-    radial-gradient(hsl(var(--primary) / 0.05) 1.5px, transparent 1.5px),
-    radial-gradient(hsl(var(--secondary) / 0.04) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
-  background-position: 0 0, 14px 14px;
-}
-
-.dark .bg-islamic-pattern {
-  background-image: 
-    radial-gradient(hsl(var(--primary) / 0.08) 1.5px, transparent 1.5px),
-    radial-gradient(hsl(var(--secondary) / 0.06) 1.5px, transparent 1.5px);
 }
 
 /* Container */
@@ -129,7 +114,7 @@ a {
   text-decoration: none;
 }
 
-/* Friendly, Community Button System */
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -160,35 +145,35 @@ a {
 .btn-primary {
   background-color: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
-  box-shadow: 0 4px 14px -3px hsl(var(--primary) / 0.35);
+  box-shadow: 0 3px 10px -2px hsl(var(--primary) / 0.3);
 }
 
 .btn-primary:hover {
   filter: brightness(1.08);
-  box-shadow: 0 6px 18px -4px hsl(var(--primary) / 0.45);
+  box-shadow: 0 5px 14px -3px hsl(var(--primary) / 0.4);
 }
 
 .btn-secondary {
   background-color: hsl(var(--secondary));
   color: hsl(var(--secondary-foreground));
-  box-shadow: 0 4px 14px -3px hsl(var(--secondary) / 0.35);
+  box-shadow: 0 3px 10px -2px hsl(var(--secondary) / 0.3);
 }
 
 .btn-secondary:hover {
   filter: brightness(1.08);
-  box-shadow: 0 6px 18px -4px hsl(var(--secondary) / 0.45);
+  box-shadow: 0 5px 14px -3px hsl(var(--secondary) / 0.4);
 }
 
 .btn-outline {
   background-color: hsl(var(--card));
   border-color: hsl(var(--border));
   color: hsl(var(--foreground));
-  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
 }
 
 .btn-outline:hover {
   background-color: hsl(var(--muted));
-  border-color: hsl(var(--primary) / 0.5);
+  border-color: hsl(var(--primary) / 0.4);
   color: hsl(var(--primary));
 }
 
@@ -214,20 +199,20 @@ a {
   font-size: 0.975rem;
 }
 
-/* Homey Card System (Soft, rounded, natural warmth) */
+/* Homey Card (Soft milky surface, natural warmth) */
 .card {
   background-color: hsl(var(--card));
   color: hsl(var(--card-foreground));
   border: 1px solid hsl(var(--border));
   border-radius: var(--radius);
-  box-shadow: 0 2px 8px -2px rgba(28, 46, 54, 0.05), 0 8px 20px -6px rgba(28, 46, 54, 0.04);
+  box-shadow: 0 2px 6px -2px rgba(28, 45, 54, 0.04), 0 6px 16px -4px rgba(28, 45, 54, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   overflow: hidden;
 }
 
 .card-hoverable:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(28, 46, 54, 0.09);
+  box-shadow: 0 8px 20px -4px rgba(28, 45, 54, 0.08);
   border-color: hsl(var(--primary) / 0.35);
 }
 
@@ -285,7 +270,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: hsl(var(--background) / 0.92);
+  background-color: hsl(var(--background) / 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid hsl(var(--border));
@@ -330,7 +315,7 @@ a {
   background-color: hsl(var(--card));
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -351,7 +336,7 @@ a {
   transform: translateX(-50%);
   display: flex;
   gap: 0.5rem;
-  background-color: hsl(var(--card) / 0.8);
+  background-color: hsl(var(--card) / 0.85);
   backdrop-filter: blur(6px);
   padding: 0.35rem 0.65rem;
   border-radius: 9999px;
@@ -362,7 +347,7 @@ a {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 9999px;
-  background-color: hsl(var(--muted-foreground) / 0.3);
+  background-color: hsl(var(--muted-foreground) / 0.35);
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -400,7 +385,7 @@ a {
 .tab-btn.active {
   background-color: hsl(var(--card));
   color: hsl(var(--primary));
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .tab-panel {
@@ -460,11 +445,11 @@ a {
   padding-bottom: 1.25rem;
 }
 
-/* Modal Backdrop */
+/* Modal */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 28, 35, 0.65);
+  background-color: rgba(15, 26, 33, 0.65);
   backdrop-filter: blur(4px);
   z-index: 100;
   display: flex;
@@ -492,7 +477,7 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
   transform: scale(0.96);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -505,7 +490,7 @@ a {
 .sheet-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 28, 35, 0.65);
+  background-color: rgba(15, 26, 33, 0.65);
   backdrop-filter: blur(4px);
   z-index: 90;
   opacity: 0;
@@ -560,7 +545,7 @@ a {
   border-left: 4px solid hsl(var(--primary));
   padding: 0.75rem 1.125rem;
   border-radius: calc(var(--radius) - 4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
   gap: 0.75rem;

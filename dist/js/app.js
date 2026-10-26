@@ -1,7 +1,8 @@
 /**
  * Main Application Logic for Musolla Al-Widad Kita Sejati
- * Warm, Homey Community Vibe
- * Dynamic Social Media, Year-Based Financial Reports with Pagination,
+ * Warm, Milky Community Vibe (Light Mode Default)
+ * Dynamic Social Media, Dedicated Bilingual Announcements,
+ * Year-Based Financial Reports with Pagination,
  * History-Aware PDF & Credits Modals, and Clean State Management.
  */
 
@@ -46,19 +47,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   let orgData = null;
   let activitiesData = null;
   let reportsData = null;
+  let announcementsData = null;
 
   // 1. Fetch Configuration & Data Files
   try {
-    const [cfgRes, orgRes, actRes, repRes] = await Promise.all([
+    const [cfgRes, orgRes, actRes, repRes, annRes] = await Promise.all([
       fetch('site.config.json'),
       fetch('data/organisasi.json'),
       fetch('data/activities.json'),
-      fetch('data/reports.json')
+      fetch('data/reports.json'),
+      fetch('data/announcements.json')
     ]);
     if (cfgRes.ok) siteConfig = await cfgRes.json();
     if (orgRes.ok) orgData = await orgRes.json();
     if (actRes.ok) activitiesData = await actRes.json();
     if (repRes.ok) reportsData = await repRes.json();
+    if (annRes.ok) announcementsData = await annRes.json();
   } catch (err) {
     console.error('Error fetching data files:', err);
   }
@@ -95,9 +99,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderDynamicSocialMedia(siteConfig.socialMedia || []);
   }
 
-  // 3. Dynamic Social Media Rendering (Supports adding/removing accounts easily)
+  // 3. Dynamic Social Media Rendering
   function renderDynamicSocialMedia(socialList) {
-    // Footer social icons container
     const footerContainer = document.getElementById('footer-social-container');
     if (footerContainer) {
       footerContainer.innerHTML = '';
@@ -115,7 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
 
-    // Activities section social cards container
     const activitySocialContainer = document.getElementById('activity-social-container');
     if (activitySocialContainer) {
       activitySocialContainer.innerHTML = '';
@@ -151,7 +153,127 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // 4. Organization Chart Rendering (Guidelines removed)
+  // 4. Announcements Rendering (Dedicated JSON, Bilingual, Disappears if Empty)
+  let carouselInterval = null;
+  function renderAnnouncements() {
+    const section = document.getElementById('announcements-section');
+    const track = document.getElementById('carousel-track');
+    const dotsContainer = document.getElementById('carousel-dots');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+
+    if (!section || !track) return;
+
+    // Filter active announcements
+    const activeList = (announcementsData || []).filter(a => a.active !== false);
+
+    // If no announcements, hide the entire section gracefully!
+    if (activeList.length === 0) {
+      section.classList.add('hidden');
+      if (carouselInterval) clearInterval(carouselInterval);
+      return;
+    }
+
+    section.classList.remove('hidden');
+    track.innerHTML = '';
+    const lang = window.i18n ? window.i18n.getLanguage() : 'ms';
+
+    activeList.forEach(item => {
+      const tag = lang === 'en' ? item.tagEn : item.tagMs;
+      const date = lang === 'en' ? item.dateEn : item.dateMs;
+      const title = lang === 'en' ? item.titleEn : item.titleMs;
+      const desc = lang === 'en' ? item.descEn : item.descMs;
+      const btnText = lang === 'en' ? item.buttonEn : item.buttonMs;
+      const targetAttr = item.isExternal ? 'target="_blank" rel="noopener noreferrer"' : '';
+
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide p-6 sm:p-9 bg-card flex flex-col justify-between';
+      slide.innerHTML = `
+        <div class="max-w-3xl space-y-3">
+          <div class="flex items-center gap-2.5">
+            <span class="badge badge-primary">${tag}</span>
+            <span class="text-xs text-muted-foreground font-semibold">${date}</span>
+          </div>
+          <h3 class="text-lg sm:text-2xl font-bold text-foreground">
+            ${title}
+          </h3>
+          <p class="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            ${desc}
+          </p>
+        </div>
+        <div class="pt-5 flex flex-wrap items-center gap-3">
+          <a href="${item.link}" ${targetAttr} class="btn btn-primary btn-sm gap-2">
+            <span>${btnText}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      `;
+      track.appendChild(slide);
+    });
+
+    // Initialize carousel dots and movement
+    const totalSlides = activeList.length;
+    let currentSlide = 0;
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((d, idx) => {
+          if (idx === currentSlide) d.classList.add('active');
+          else d.classList.remove('active');
+        });
+      }
+    }
+
+    function goToSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    if (nextBtn) nextBtn.onclick = () => { nextSlide(); resetAutoplay(); };
+    if (prevBtn) prevBtn.onclick = () => { prevSlide(); resetAutoplay(); };
+
+    function startAutoplay() {
+      if (carouselInterval) clearInterval(carouselInterval);
+      if (totalSlides > 1) {
+        carouselInterval = setInterval(nextSlide, 5500);
+      }
+    }
+
+    function resetAutoplay() {
+      if (carouselInterval) clearInterval(carouselInterval);
+      startAutoplay();
+    }
+
+    const wrapper = track.closest('.carousel-wrapper');
+    if (wrapper) {
+      wrapper.onmouseenter = () => { if (carouselInterval) clearInterval(carouselInterval); };
+      wrapper.onmouseleave = startAutoplay;
+    }
+
+    startAutoplay();
+  }
+
+  // 5. Organization Chart Rendering
   function renderOrgChart() {
     const container = document.getElementById('org-members-grid');
     if (!container || !orgData || !orgData.members) return;
@@ -188,7 +310,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // 5. Activities Rendering with Empty-State Handling
+  // 6. Activities Rendering with Empty-State Handling
   let currentCategory = 'all';
   function renderActivities() {
     const container = document.getElementById('activities-grid');
@@ -199,7 +321,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const lang = window.i18n ? window.i18n.getLanguage() : 'ms';
     container.innerHTML = '';
 
-    // If no activities at all, show friendly empty notice and hide filters
     if (!activitiesData || activitiesData.length === 0) {
       if (filterContainer) filterContainer.style.display = 'none';
       if (emptyNotice) emptyNotice.classList.remove('hidden');
@@ -276,7 +397,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
-  // 6. Financial Reports with Year Selection & Pagination (5 per page)
+  // 7. Financial Reports with Year Selection & Pagination
   let selectedReportYear = '2026';
   let reportCurrentPage = 1;
   const reportsPerPage = 5;
@@ -291,7 +412,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!listContainer || !reportsData) return;
 
-    // Render Year Selector Tabs
     if (yearNav && reportsData.years) {
       yearNav.innerHTML = '';
       reportsData.years.forEach(yr => {
@@ -307,7 +427,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     }
 
-    // Filter reports by selected year
     const allForYear = (reportsData.reports || []).filter(r => r.year === selectedReportYear);
     const totalPages = Math.ceil(allForYear.length / reportsPerPage) || 1;
     if (reportCurrentPage > totalPages) reportCurrentPage = totalPages;
@@ -362,7 +481,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Pagination click handlers
   const prevPageBtn = document.getElementById('finance-prev-btn');
   const nextPageBtn = document.getElementById('finance-next-btn');
   if (prevPageBtn) {
@@ -378,75 +496,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       reportCurrentPage++;
       renderFinancialReports();
     });
-  }
-
-  // 7. Announcements Carousel Engine
-  const track = document.getElementById('carousel-track');
-  const prevCarouselBtn = document.getElementById('carousel-prev');
-  const nextCarouselBtn = document.getElementById('carousel-next');
-  const dotsContainer = document.getElementById('carousel-dots');
-  let currentSlide = 0;
-  let carouselInterval = null;
-
-  function initCarousel() {
-    if (!track) return;
-    const slides = track.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
-    if (totalSlides === 0) return;
-
-    if (dotsContainer) {
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateCarousel() {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-      if (dotsContainer) {
-        const dots = dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach((d, idx) => {
-          if (idx === currentSlide) d.classList.add('active');
-          else d.classList.remove('active');
-        });
-      }
-    }
-
-    function goToSlide(index) {
-      currentSlide = (index + totalSlides) % totalSlides;
-      updateCarousel();
-    }
-
-    function nextSlide() {
-      goToSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-      goToSlide(currentSlide - 1);
-    }
-
-    if (nextCarouselBtn) nextCarouselBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
-    if (prevCarouselBtn) prevCarouselBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
-
-    function startAutoplay() {
-      carouselInterval = setInterval(nextSlide, 5500);
-    }
-
-    function resetAutoplay() {
-      clearInterval(carouselInterval);
-      startAutoplay();
-    }
-
-    const wrapper = track.closest('.carousel-wrapper');
-    if (wrapper) {
-      wrapper.addEventListener('mouseenter', () => clearInterval(carouselInterval));
-      wrapper.addEventListener('mouseleave', startAutoplay);
-    }
-
-    startAutoplay();
   }
 
   // 8. Tabs for Pengurusan Musolla
@@ -550,7 +599,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     link.addEventListener('click', closeMobileNav);
   });
 
-  // 12. History-Aware PDF Viewer Modal (Closes on ESC and Phone Back)
+  // 12. History-Aware PDF Viewer Modal (Closes on ESC & Phone Back)
   const pdfModal = document.getElementById('pdf-modal-backdrop');
   const pdfIframe = document.getElementById('pdf-modal-iframe');
   const pdfTitleEl = document.getElementById('pdf-modal-title');
@@ -569,7 +618,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     pdfModal.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    // Push history state so mobile back button closes modal
     try {
       history.pushState({ modalOpen: 'pdf' }, '');
     } catch (_) {}
@@ -626,7 +674,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Handle ESC on desktop keyboard
+  // Keyboard Escape Handler
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (pdfModal && pdfModal.classList.contains('open')) closePdfModal(true);
@@ -635,7 +683,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  // Handle Mobile / Phone Back button (popstate)
+  // Mobile Back Button Handler
   window.addEventListener('popstate', () => {
     if (pdfModal && pdfModal.classList.contains('open')) closePdfModal(false);
     if (creditsModal && creditsModal.classList.contains('open')) closeCreditsModal(false);
@@ -643,6 +691,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Re-render components on language toggle
   window.addEventListener('languageChanged', () => {
+    renderAnnouncements();
     renderOrgChart();
     renderActivities();
     renderFinancialReports();
@@ -650,8 +699,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // Initial renders
+  renderAnnouncements();
   renderOrgChart();
   renderActivities();
   renderFinancialReports();
-  initCarousel();
 });

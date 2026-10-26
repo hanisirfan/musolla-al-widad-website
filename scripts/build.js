@@ -40,6 +40,7 @@ fs.mkdirSync(DIST_DIR, { recursive: true });
 const itemsToCopy = [
   'index.html',
   'site.config.json',
+  'LICENSE',
   'css',
   'js',
   'lang',

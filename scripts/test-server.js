@@ -42,6 +42,7 @@ server.listen(0, '127.0.0.1', async () => {
     '/lang/ms.json',
     '/lang/en.json',
     '/site.config.json',
+    '/data/announcements.json',
     '/data/organisasi.json',
     '/data/activities.json',
     '/data/reports.json',
@@ -49,7 +50,8 @@ server.listen(0, '127.0.0.1', async () => {
     '/assets/duitnow-qr.svg',
     '/assets/perlembagaan/perlembagaan-musolla-al-widad.pdf',
     '/assets/reports/2026/penyata-kewangan-2026-09.pdf',
-    '/assets/reports/2025/penyata-kewangan-tahunan-2025.pdf'
+    '/assets/reports/2025/penyata-kewangan-tahunan-2025.pdf',
+    '/LICENSE'
   ];
 
   function fetchUrl(url) {
@@ -68,7 +70,7 @@ server.listen(0, '127.0.0.1', async () => {
       console.log(`[PASS] ${result.status} ${result.url} (${result.size} bytes, ${result.type})`);
       if (result.status !== 200) throw new Error(`Status ${result.status} on ${result.url}`);
     }
-    console.log('\nAll 12 endpoints verified successfully! 100% PASS.');
+    console.log('\nAll 14 endpoints verified successfully! 100% PASS.');
     server.close();
     process.exit(0);
   } catch (err) {
