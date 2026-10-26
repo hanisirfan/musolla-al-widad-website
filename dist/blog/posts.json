@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "pelancaran-portal-rasmi-masjid",
+    "slugPath": "2026/10/26/pelancaran-portal-rasmi-masjid",
+    "year": "2026",
+    "month": "10",
+    "day": "26",
+    "dateFormatted": "26/10/2026",
+    "rawDate": "2026-10-26",
+    "title": "Pelancaran Portal Digital Rasmi & Sistem Pengurusan Komuniti",
+    "author": "Jawatankuasa Musolla",
+    "category": "Pengumuman",
+    "summary": "Alhamdulillah, portal rasmi musolla kini beroperasi sepenuhnya bagi memudahkan kariah mengakses takwim kuliah, penyata kewangan telus dan pendaftaran khairat.",
+    "cover": "blog/2026/10/26/pelancaran-portal-rasmi-masjid/banner.svg",
+    "tags": [
+      "portal",
+      "komuniti",
+      "pengumuman",
+      "digital"
+    ],
+    "readTime": 2
+  },
+  {
+    "slug": "program-kuliah-maghrib-dan-pengajian-kitab",
+    "slugPath": "2026/10/20/program-kuliah-maghrib-dan-pengajian-kitab",
+    "year": "2026",
+    "month": "10",
+    "day": "20",
+    "dateFormatted": "20/10/2026",
+    "rawDate": "2026-10-20",
+    "title": "Takwim Pengajian Kitab & Kuliah Maghrib Berkala Musolla",
+    "author": "Biro Dakwah & Tarbiah",
+    "category": "Kuliah",
+    "summary": "Jadual lengkap siri kuliah Maghrib mingguan merangkumi bidang Fiqh, Tauhid dan Akhlak bersama para asatizah bertauliah JAIS.",
+    "cover": "blog/2026/10/20/program-kuliah-maghrib-dan-pengajian-kitab/kuliah.svg",
+    "tags": [
+      "kuliah",
+      "pengajian",
+      "ilmu",
+      "dakwah"
+    ],
+    "readTime": 1
+  },
+  {
+    "slug": "kempen-kebersihan-gotong-royong-perdana",
+    "slugPath": "2026/10/15/kempen-kebersihan-gotong-royong-perdana",
+    "year": "2026",
+    "month": "10",
+    "day": "15",
+    "dateFormatted": "15/10/2026",
+    "rawDate": "2026-10-15",
+    "title": "Laporan Kempen Gotong-Royong Kebersihan Perdana & Keceriaan Musolla",
+    "author": "Biro Kebajikan & Sosial",
+    "category": "Komuniti",
+    "summary": "Penyertaan membanggakan lebih 60 orang penduduk dalam aktiviti gotong-royong membersihkan ruang solat, bilik wuduk dan persekitaran musolla.",
+    "cover": "blog/2026/10/15/kempen-kebersihan-gotong-royong-perdana/gotong-royong.svg",
+    "tags": [
+      "gotong-royong",
+      "sukarelawan",
+      "komuniti",
+      "kebersihan"
+    ],
+    "readTime": 1
+  }
+]

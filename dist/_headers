@@ -7,5 +7,17 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/blog/*/*.svg
+  Cache-Control: public, max-age=604800
+
+/blog/*/*.png
+  Cache-Control: public, max-age=604800
+
+/blog/*/*.jpg
+  Cache-Control: public, max-age=604800
+
+/blog/posts.json
+  Cache-Control: public, max-age=300, must-revalidate
+
 /lang/*
   Cache-Control: public, max-age=3600

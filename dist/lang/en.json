@@ -18,7 +18,8 @@
     "donateBtn": "Donate Now",
     "language": "Language",
     "theme": "Theme",
-    "menu": "Menu"
+    "menu": "Menu",
+    "blog": "Blog & News"
   },
   "theme": {
     "system": "System Default",
@@ -105,10 +106,22 @@
       ],
       "coreValuesTitle": "Our Core Values",
       "values": [
-        { "title": "Brotherhood", "desc": "Fostering strong ukhuwah across all backgrounds." },
-        { "title": "Integrity (Amanah)", "desc": "Transparent and accountable management of community funds." },
-        { "title": "Excellence (Ihsan)", "desc": "Striving for sincere perfection seeking Allah's pleasure." },
-        { "title": "Inclusivity", "desc": "Welcoming families, children, senior citizens, and people with disabilities." }
+        {
+          "title": "Brotherhood",
+          "desc": "Fostering strong ukhuwah across all backgrounds."
+        },
+        {
+          "title": "Integrity (Amanah)",
+          "desc": "Transparent and accountable management of community funds."
+        },
+        {
+          "title": "Excellence (Ihsan)",
+          "desc": "Striving for sincere perfection seeking Allah's pleasure."
+        },
+        {
+          "title": "Inclusivity",
+          "desc": "Welcoming families, children, senior citizens, and people with disabilities."
+        }
       ]
     },
     "org": {
@@ -322,7 +335,7 @@
   },
   "credits": {
     "title": "Credits & Attributions",
-    "lead": "This official web portal for Musolla Al-Widad Kita Sejati is built using open-source, modern web technologies and libraries:",
+    "lead": "This official website is built using an open source (MIT licensed) mosque template with the following modern technologies:",
     "aiAttribution": "This website was generated using Google Gemini and Google Antigravity with prompts from Hanis Irfan.",
     "feedbackWelcome": "Comments, constructive feedback, and suggestions for improvement for this website are warmly welcomed through our official feedback form.",
     "close": "Close"
@@ -337,5 +350,14 @@
     "backToTop": "Back to Top",
     "externalLink": "External Link",
     "allRightsReserved": "All rights reserved."
+  },
+  "blog": {
+    "badge": "Articles & News",
+    "title": "Latest Blog & Articles",
+    "desc": "Religious reflections, lecture schedules, Islamic guides and community event updates.",
+    "readMore": "Read Article",
+    "viewAll": "View All Blog Posts",
+    "readTime": "min read",
+    "empty": "No articles published yet."
   }
 }

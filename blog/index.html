@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Hebahan | Musolla Al-Widad</title>
+  <meta name="description" content="Arkib artikel, tazkirah, hebahan program dan laporan aktiviti rasmi musolla.">
+  <link rel="icon" type="image/png" href="../assets/logo.png" id="site-favicon">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            card: {
+              DEFAULT: 'hsl(var(--card))',
+              foreground: 'hsl(var(--card-foreground))'
+            },
+            primary: {
+              DEFAULT: 'hsl(var(--primary))',
+              foreground: 'hsl(var(--primary-foreground))'
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary))',
+              foreground: 'hsl(var(--secondary-foreground))'
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent))',
+              foreground: 'hsl(var(--accent-foreground))'
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted))',
+              foreground: 'hsl(var(--muted-foreground))'
+            },
+            border: 'hsl(var(--border))'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-background text-foreground antialiased min-h-screen flex flex-col transition-colors duration-200">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div class="container flex h-16 items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="flex items-center gap-2.5 group">
+          <img src="../assets/logo.png" alt="Logo" class="w-9 h-9 rounded-lg object-contain shadow-sm border border-border group-hover:border-primary transition-all logo-img">
+          <div>
+            <span class="font-extrabold text-sm sm:text-base tracking-tight text-foreground group-hover:text-primary transition-colors mosque-name-text">Musolla Al-Widad</span>
+            <span class="hidden sm:block text-[10px] text-muted-foreground uppercase font-bold tracking-widest">Portal Blog &amp; Hebahan</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="flex items-center gap-2 sm:gap-3">
+        <a href="../index.html" class="btn btn-outline btn-sm text-xs gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="hidden sm:inline">Laman Utama</span>
+        </a>
+
+        <!-- Dark / Light Mode Toggle Button -->
+        <button onclick="window.ThemeManager && window.ThemeManager.toggle()" aria-label="Tukar Mod Tema" class="w-9 h-9 rounded-lg border border-border flex items-center justify-center bg-card hover:bg-muted text-foreground transition-all">
+          <span class="theme-icon-active flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 py-8 sm:py-12">
+    <div class="container" id="blog-main-content">
+
+      <!-- Catalog View (Visible when no ?post= param) -->
+      <div id="catalog-view" class="space-y-8">
+        <!-- Hero Header -->
+        <div class="text-center max-w-2xl mx-auto space-y-3">
+          <span class="badge badge-primary text-xs font-bold uppercase tracking-wider">Arkib Penulisan &amp; Hebahan</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight" id="blog-page-title">
+            Blog &amp; Berita Terkini
+          </h1>
+          <p class="text-sm text-muted-foreground" id="blog-page-desc">
+            Perkongsian ilmu agama, takwim kuliah, laporan aktiviti komuniti dan panduan bermanfaat untuk seluruh kariah.
+          </p>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="card p-4 sm:p-5 border border-border bg-card flex flex-col md:flex-row items-center justify-between gap-4">
+          <!-- Category Filter Pills -->
+          <div class="flex flex-wrap items-center gap-1.5 w-full md:w-auto" id="category-filter-buttons">
+            <button data-cat="all" class="btn btn-primary btn-sm text-xs font-semibold px-3 py-1.5 rounded-lg active">Semua</button>
+            <button data-cat="pengumuman" class="btn btn-outline btn-sm text-xs font-semibold px-3 py-1.5 rounded-lg">Pengumuman</button>
+            <button data-cat="kuliah" class="btn btn-outline btn-sm text-xs font-semibold px-3 py-1.5 rounded-lg">Kuliah</button>
+            <button data-cat="komuniti" class="btn btn-outline btn-sm text-xs font-semibold px-3 py-1.5 rounded-lg">Komuniti</button>
+          </div>
+
+          <!-- Search Input -->
+          <div class="relative w-full md:w-72">
+            <input type="text" id="blog-search-input" placeholder="Cari tajuk atau topik..." class="input pr-9 text-xs w-full">
+            <div class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Cards Grid -->
+        <div id="blog-posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Loaded dynamically via BlogEngine -->
+          <div class="col-span-full py-16 text-center text-muted-foreground text-sm">
+            Memuatkan senarai artikel...
+          </div>
+        </div>
+      </div>
+
+      <!-- Single Post View Container (Rendered dynamically when ?post= or ?p= is given) -->
+      <div id="single-post-view" class="hidden">
+        <!-- Rendered by BlogEngine.loadPostBySlug -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border bg-card/60 py-8 text-xs text-muted-foreground">
+    <div class="container flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <img src="../assets/logo.png" alt="Logo" class="w-6 h-6 rounded object-contain logo-img">
+        <span class="font-semibold text-foreground mosque-name-text">Musolla Al-Widad</span>
+        <span>•</span>
+        <span>Sistem Blog Markdown Tanpa Kompilasi</span>
+      </div>
+      <div>
+        <span>Format Tarikh Halaman: <strong>&lt;DD&gt;/&lt;MM&gt;/&lt;YYYY&gt;</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/theme.js"></script>
+  <script src="../js/blog.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Fetch site.config.json for dynamic mosque branding & theme
+      try {
+        const res = await fetch('../site.config.json?v=' + Date.now());
+        if (res.ok) {
+          const config = await res.json();
+          if (config.siteName) {
+            document.querySelectorAll('.mosque-name-text').forEach(el => el.textContent = config.siteName);
+            document.title = (config.shortName || config.siteName) + ' | Blog & Hebahan';
+          }
+          if (config.logo) {
+            document.querySelectorAll('.logo-img').forEach(el => el.src = '../' + config.logo);
+          }
+          if (config.theme && window.ThemeManager) {
+            window.ThemeManager.applyPalette(config.theme);
+          }
+          if (config.blog) {
+            if (config.blog.titleMs) document.getElementById('blog-page-title').textContent = config.blog.titleMs;
+            if (config.blog.descMs) document.getElementById('blog-page-desc').textContent = config.blog.descMs;
+          }
+        }
+      } catch (e) {
+        console.warn('Could not load site.config.json:', e);
+      }
+
+      // 2. Check if a single post is requested in URL query params: ?post=... or ?p=...
+      const urlParams = new URLSearchParams(window.location.search);
+      const postSlug = urlParams.get('post') || urlParams.get('p');
+
+      const catalogView = document.getElementById('catalog-view');
+      const singlePostView = document.getElementById('single-post-view');
+
+      if (postSlug) {
+        catalogView.classList.add('hidden');
+        singlePostView.classList.remove('hidden');
+        // Load post by slug on the fly!
+        await window.BlogEngine.loadPostBySlug(postSlug, singlePostView);
+      } else {
+        catalogView.classList.remove('hidden');
+        singlePostView.classList.add('hidden');
+
+        // Fetch posts index
+        const posts = await window.BlogEngine.fetchPostsIndex();
+        const grid = document.getElementById('blog-posts-grid');
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        function refreshCatalog() {
+          window.BlogEngine.renderBlogCatalog(posts, grid, currentCategory, currentSearch);
+        }
+
+        refreshCatalog();
+
+        // Search Input event
+        const searchInput = document.getElementById('blog-search-input');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            refreshCatalog();
+          });
+        }
+
+        // Category Filter Buttons
+        document.querySelectorAll('#category-filter-buttons button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#category-filter-buttons button').forEach(b => {
+              b.classList.remove('btn-primary', 'active');
+              b.classList.add('btn-outline');
+            });
+            btn.classList.add('btn-primary', 'active');
+            btn.classList.remove('btn-outline');
+
+            currentCategory = btn.getAttribute('data-cat') || 'all';
+            refreshCatalog();
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

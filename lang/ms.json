@@ -18,7 +18,8 @@
     "donateBtn": "Infaq Sekarang",
     "language": "Bahasa",
     "theme": "Tema",
-    "menu": "Menu"
+    "menu": "Menu",
+    "blog": "Blog & Hebahan"
   },
   "theme": {
     "system": "Ikut Peranti",
@@ -105,10 +106,22 @@
       ],
       "coreValuesTitle": "Nilai Teras Kami",
       "values": [
-        { "title": "Ukhuwah", "desc": "Menjalin persaudaraan erat tanpa mengira latar belakang." },
-        { "title": "Amanah", "desc": "Pengurusan dana dan fasiliti yang telus serta dipertanggungjawabkan." },
-        { "title": "Ihsan", "desc": "Beramal dengan kesungguhan terbaik demi keredhaan Allah SWT." },
-        { "title": "Inklusif", "desc": "Mesra keluarga, kanak-kanak, warga emas dan warga OKU." }
+        {
+          "title": "Ukhuwah",
+          "desc": "Menjalin persaudaraan erat tanpa mengira latar belakang."
+        },
+        {
+          "title": "Amanah",
+          "desc": "Pengurusan dana dan fasiliti yang telus serta dipertanggungjawabkan."
+        },
+        {
+          "title": "Ihsan",
+          "desc": "Beramal dengan kesungguhan terbaik demi keredhaan Allah SWT."
+        },
+        {
+          "title": "Inklusif",
+          "desc": "Mesra keluarga, kanak-kanak, warga emas dan warga OKU."
+        }
       ]
     },
     "org": {
@@ -322,7 +335,7 @@
   },
   "credits": {
     "title": "Kredit & Penghargaan",
-    "lead": "Laman web rasmi Musolla Al-Widad Kita Sejati ini dibangunkan secara sumber terbuka (open source) menggunakan pustaka dan teknologi moden berikut:",
+    "lead": "Laman web rasmi ini dibangunkan menggunakan templat sumber terbuka (open source) berlesenkan MIT dengan teknologi moden berikut:",
     "aiAttribution": "Laman web ini dijana menggunakan Google Gemini dan Google Antigravity dengan arahan (prompt) daripada Hanis Irfan.",
     "feedbackWelcome": "Sebarang cadangan penambahbaikan, komen atau aduan berkaitan laman web ini amat dialu-alukan melalui borang maklum balas rasmi kami.",
     "close": "Tutup"
@@ -337,5 +350,14 @@
     "backToTop": "Ke Atas",
     "externalLink": "Pautan Luar",
     "allRightsReserved": "Hak cipta terpelihara."
+  },
+  "blog": {
+    "badge": "Penulisan & Hebahan",
+    "title": "Blog & Artikel Terkini",
+    "desc": "Perkongsian ilmu agama, takwim kuliah, panduan ibadah dan laporan aktiviti komuniti.",
+    "readMore": "Baca Penuh",
+    "viewAll": "Lihat Semua Artikel",
+    "readTime": "min baca",
+    "empty": "Tiada artikel diterbitkan setakat ini."
   }
 }

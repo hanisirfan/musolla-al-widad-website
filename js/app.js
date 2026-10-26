@@ -96,6 +96,42 @@ document.addEventListener('DOMContentLoaded', async () => {
       link.href = perlembagaanPdf;
     });
 
+    // Apply Mosque Theme Palette (Light & Dark modes)
+    if (siteConfig.theme && window.ThemeManager) {
+      window.ThemeManager.applyPalette(siteConfig.theme);
+    }
+
+    // Dynamic Mosque Name & Branding
+    if (siteConfig.siteName) {
+      document.querySelectorAll('.brand-mosque-name, [data-config="siteName"]').forEach(el => el.textContent = siteConfig.siteName);
+      document.title = `${siteConfig.siteName} - Laman Web Rasmi`;
+    }
+    if (siteConfig.shortName) {
+      document.querySelectorAll('.brand-short-name, [data-config="shortName"]').forEach(el => el.textContent = siteConfig.shortName);
+    }
+    if (siteConfig.tagline) {
+      document.querySelectorAll('.brand-tagline, [data-config="tagline"]').forEach(el => el.textContent = siteConfig.tagline);
+    }
+    if (siteConfig.logo) {
+      document.querySelectorAll('.logo-sq, .logo-img').forEach(el => el.src = siteConfig.logo);
+    }
+
+    // Dynamic Bank Info
+    if (siteConfig.bankAccount) {
+      if (siteConfig.bankAccount.accountNumber) {
+        document.querySelectorAll('.bank-account-num').forEach(el => el.textContent = siteConfig.bankAccount.accountNumber);
+      }
+      if (siteConfig.bankAccount.bankName) {
+        document.querySelectorAll('.bank-name').forEach(el => el.textContent = siteConfig.bankAccount.bankName);
+      }
+      if (siteConfig.bankAccount.accountName) {
+        document.querySelectorAll('.bank-account-name').forEach(el => el.textContent = siteConfig.bankAccount.accountName);
+      }
+      if (siteConfig.bankAccount.qrImage) {
+        document.querySelectorAll('.qr-code-img').forEach(el => el.src = siteConfig.bankAccount.qrImage);
+      }
+    }
+
     renderDynamicSocialMedia(siteConfig.socialMedia || []);
   }
 
@@ -696,6 +732,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderActivities();
     renderFinancialReports();
     if (siteConfig) renderDynamicSocialMedia(siteConfig.socialMedia || []);
+    if (window.BlogEngine) window.BlogEngine.renderHomepageWidget('homepage-blog-container', 3);
   });
 
   // Initial renders
@@ -703,4 +740,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderOrgChart();
   renderActivities();
   renderFinancialReports();
+  if (window.BlogEngine) {
+    window.BlogEngine.renderHomepageWidget('homepage-blog-container', 3);
+  }
 });

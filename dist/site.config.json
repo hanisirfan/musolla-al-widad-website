@@ -2,8 +2,50 @@
   "siteName": "Musolla Al-Widad Kita Sejati",
   "shortName": "Musolla Al-Widad",
   "tagline": "Pusat Ibadah, Ukhuwah & Kebajikan Komuniti Pangsapuri Kita Sejati Cybersouth",
+  "registrationNumber": "JAIS/PDK/02/012/123",
   "logo": "assets/logo.png",
   "favicon": "assets/logo.png",
+  "theme": {
+    "preset": "teal-amber",
+    "notes": "Pilihan preset: teal-amber, emerald-gold, royal-blue, maroon-gold, custom",
+    "light": {
+      "primary": "#116876",
+      "primaryForeground": "#ffffff",
+      "secondary": "#eb7713",
+      "secondaryForeground": "#ffffff",
+      "accent": "#f1a91e",
+      "accentForeground": "#1c2d36",
+      "background": "#f6f4ef",
+      "card": "#faf8f5",
+      "foreground": "#1c2d36",
+      "muted": "#ece7de",
+      "mutedForeground": "#5c707a",
+      "border": "#ddd7ca"
+    },
+    "dark": {
+      "primary": "#21b8cc",
+      "primaryForeground": "#0e1a1f",
+      "secondary": "#f68928",
+      "secondaryForeground": "#ffffff",
+      "accent": "#f5b72e",
+      "accentForeground": "#0e1a1f",
+      "background": "#101c23",
+      "card": "#1a2932",
+      "foreground": "#f4f1ec",
+      "muted": "#253641",
+      "mutedForeground": "#9caeb8",
+      "border": "#2f424f"
+    }
+  },
+  "blog": {
+    "enabled": true,
+    "titleMs": "Blog & Hebahan Terkini",
+    "titleEn": "Latest Blog & News",
+    "descMs": "Perkongsian ilmu, tazkirah ringkas, laporan aktiviti dan panduan komuniti.",
+    "descEn": "Knowledge sharing, brief reminders, activity reports and community guides.",
+    "postsPerPage": 6,
+    "basePath": "/blog"
+  },
   "location": {
     "name": "Pangsapuri Kita Sejati Cybersouth",
     "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan",

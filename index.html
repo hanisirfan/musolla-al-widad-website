@@ -83,6 +83,7 @@
         <a href="#kewangan" class="nav-link" data-i18n="nav.finance">Kewangan</a>
         <a href="#sumbangan" class="nav-link" data-i18n="nav.donation">Sumbangan</a>
         <a href="#aktiviti" class="nav-link" data-i18n="nav.activities">Aktiviti</a>
+        <a href="#blog" class="nav-link" data-i18n="nav.blog">Blog</a>
         <a href="#hubungi" class="nav-link" data-i18n="nav.contact">Hubungi</a>
       </nav>
 
@@ -806,6 +807,39 @@
       </div>
     </section>
 
+    
+    <!-- ==================== BLOG & HEBAHAN TERKINI ==================== -->
+    <section id="blog" class="section-spacing border-b border-border">
+      <div class="container">
+        
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-10 gap-4">
+          <div class="max-w-2xl space-y-2.5">
+            <div class="badge badge-primary" data-i18n="blog.badge">Penulisan &amp; Hebahan</div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-foreground" data-i18n="blog.title">
+              Blog &amp; Artikel Terkini
+            </h2>
+            <p class="text-muted-foreground text-xs sm:text-sm" data-i18n="blog.desc">
+              Perkongsian ilmu agama, takwim kuliah, laporan aktiviti komuniti dan panduan bermanfaat untuk seluruh kariah.
+            </p>
+          </div>
+          <div>
+            <a href="blog/" class="btn btn-outline btn-sm gap-2 font-semibold text-xs whitespace-nowrap">
+              <span data-i18n="blog.viewAll">Lihat Semua Artikel</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Dynamic Blog Cards Grid (Homepage 3 Latest Posts) -->
+        <div id="homepage-blog-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="col-span-full py-12 text-center text-muted-foreground text-xs">
+            Memuatkan artikel terkini...
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ==================== HUBUNGI KAMI ==================== -->
     <section id="hubungi" class="section-spacing border-b border-border bg-card/40">
       <div class="container">
@@ -980,6 +1014,7 @@
             <li><a href="#kewangan" class="hover:text-primary transition-colors" data-i18n="nav.finance">Penyata Kewangan</a></li>
             <li><a href="#sumbangan" class="hover:text-primary transition-colors" data-i18n="nav.donation">Infaq &amp; Sumbangan</a></li>
             <li><a href="#aktiviti" class="hover:text-primary transition-colors" data-i18n="nav.activities">Aktiviti &amp; Takwim</a></li>
+            <li><a href="blog/" class="hover:text-primary transition-colors" data-i18n="nav.blog">Blog &amp; Hebahan</a></li>
           </ul>
         </div>
 
@@ -1052,6 +1087,7 @@
       <a href="#kewangan" class="mobile-nav-link nav-link" data-i18n="nav.finance">Kewangan</a>
       <a href="#sumbangan" class="mobile-nav-link nav-link" data-i18n="nav.donation">Sumbangan</a>
       <a href="#aktiviti" class="mobile-nav-link nav-link" data-i18n="nav.activities">Aktiviti</a>
+      <a href="#blog" class="mobile-nav-link nav-link" data-i18n="nav.blog">Blog</a>
       <a href="#hubungi" class="mobile-nav-link nav-link" data-i18n="nav.contact">Hubungi</a>
     </div>
 
@@ -1186,11 +1222,11 @@
           </p>
         </div>
 
-        <!-- PDPA & Open Source Disclaimer -->
+        <!-- Open Source Mosque Template Note -->
         <div class="p-3.5 rounded-xl bg-muted/60 border border-border text-[11px] text-muted-foreground space-y-1">
-          <span class="font-bold text-foreground uppercase tracking-wider">Perlindungan Data Peribadi (PDPA)</span>
+          <span class="font-bold text-foreground uppercase tracking-wider">Templat Sumber Terbuka (MIT License)</span>
           <p>
-            Kod sumber laman web ini adalah sumber terbuka di bawah Lesen MIT. Walau bagaimanapun, sebarang data peribadi (nama dan nombor perhubungan barisan AJK) adalah dilindungi di bawah Akta Perlindungan Data Peribadi 2010 (Akta 709).
+            Kod sumber laman web ini diedarkan di bawah Lesen MIT sebagai templat rasmi untuk mana-mana masjid atau musolla. Bebas diubah suai mengikut identiti dan keperluan komuniti setempat.
           </p>
         </div>
 
@@ -1208,6 +1244,7 @@
   <!-- JavaScript Modules -->
   <script src="js/theme.js"></script>
   <script src="js/i18n.js"></script>
+  <script src="js/blog.js"></script>
   <script src="js/app.js"></script>
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();

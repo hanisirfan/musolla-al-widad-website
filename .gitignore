@@ -5,8 +5,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build output (optional if deploying root directly or using Cloudflare build)
-# dist/
+# Template backups
+.backup/
+.backup*/
 
 # OS metadata
 .DS_Store
