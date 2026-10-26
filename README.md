@@ -1,268 +1,350 @@
-# 🕌 Templat Laman Web Rasmi Masjid & Musolla Moden
-### Modern Mosque & Musolla Landing Page Template (Cloudflare Pages Ready)
+# 🕌 Modern Mosque & Musolla Landing Page Template
+### Zero-Dependency, Cloudflare Pages Ready, On-The-Fly Markdown Blog
 
-Selamat datang ke repositori rasmi **Templat Laman Web Masjid & Musolla Moden** (pelaksanaan rujukan: **Musolla Al-Widad Kita Sejati**, Cybersouth, Dengkil, Selangor).
+Welcome to the official repository for the **Modern Mosque & Musolla Landing Page Template**.
 
-Templat ini direka khusus untuk mana-mana jawatankuasa masjid, musolla, surau atau pusat komuniti Islam yang menginginkan portal rasmi yang anggun, pantas, telus dan mudah diselenggara. Dibina dengan seni bina **Zero Runtime Dependencies** (HTML5, Tailwind CSS, Shadcn UI Design System, dan JavaScript tulen), laman web ini boleh dihoskan secara **percuma di Cloudflare Pages** tanpa memerlukan pangkalan data (*database-free*) mahupun pelayan berbayar.
+This project provides a clean, fast, and respectful digital landing page template designed for any Islamic institution—**Masjid (Cathedral Mosque)**, **Surau / Surau Jumaat (Community Mosque)**, or **Musolla (Prayer Hall)**.
 
----
-
-## 📋 Isi Kandungan
-
-1. [Ciri-Ciri Utama & Keistimewaan Templat](#-ciri-ciri-utama--keistimewaan-templat)
-2. [Sistem Blog Markdown Tanpa Kompilasi Terminal](#-sistem-blog-markdown-tanpa-kompilasi-terminal)
-3. [Penyesuaian Tema Warna (Mod Cerah & Mod Gelap)](#-penyesuaian-tema-warna-mod-cerah--mod-gelap)
-4. [Strategi Pemeliharaan Fail & Konfigurasi (Persistence Architecture)](#-strategi-pemeliharaan-fail--konfigurasi-persistence-architecture)
-5. [Struktur Direktori Projek](#-struktur-direktori-projek)
-6. [Panduan Ujian Tempatan (Local Testing)](#-panduan-ujian-tempatan-local-testing)
-7. [Panduan Menyunting & Menyelenggara Kandungan](#-panduan-menyunting--menyelenggara-kandungan)
-8. [Utiliti Kemaskini Templat (`npm run template:*`)](#-utiliti-kemaskini-templat-npm-run-template)
-9. [Panduan Deployment ke Cloudflare Pages](#-panduan-deployment-ke-cloudflare-pages)
-10. [Lesen & Sumber Terbuka (MIT License)](#-lesen--sumber-terbuka-mit-license)
+Built with **Zero External Build Tooling or Runtime Dependencies** (pure semantic HTML5, modern Tailwind CSS, and vanilla JavaScript), it is optimized for free static hosting on **Cloudflare Pages** without requiring a database, servers, or ongoing hosting fees.
 
 ---
 
-## ✨ Ciri-Ciri Utama & Keistimewaan Templat
+## 📋 Table of Contents
 
-- **Suasana Hangat Komuniti (*Homey & Welcoming*)**: Latar belakang krim lembut (*warm milky ivory* `#f6f4ef` & kad `#faf8f5`) yang tidak menyilaukan mata berbanding warna putih tulen (#ffffff).
-- **Tema Boleh Ubah Suai Penuh (Mod Cerah & Mod Gelap)**:
-  - Disokong dengan 4 preset warna masjid: `teal-amber` (Al-Widad), `emerald-gold` (Masjid Klasik), `royal-blue` (Moden Nilam), dan `maroon-gold` (Warisan Uthmaniyyah).
-  - Pilihan kod Hex tersuai sepenuhnya bagi kedua-dua mod tanpa memerlukan kompilasi CSS luaran.
-  - Mod Gelap Pejal (*solid dark mode*) yang tenang tanpa sebarang corak bintik (*dotted pattern*) yang memenatkan pandangan.
-- **Sistem Blog Markdown On-The-Fly**:
-  - Admin hanya meletakkan fail `.md` dan imej di dalam folder tarikh `/blog/<year>/<month>/<day>/<post_folder>/`.
-  - Halaman blog dipaparkan secara langsung tanpa memerlukan kompilasi terminal.
-  - Format tarikh pada paparan HTML diselaraskan mengikut piawaian: `<DD>/<MM>/<YYYY>` (contoh: `26/10/2026`).
-- **Pengurusan Fail Kekal Semasa Kemaskini Templat (Persistence Overlay)**:
-  - Menyokong folder hamparan `content/`. Fail konfigurasi, logo, PDF perlembagaan, dan penyata kewangan anda terasing daripada kod induk templat, mengelakkan sebarang konflik Git (*merge conflict*) apabila menarik kemaskini templat (*pull upstream*).
-- **Penyata Kewangan Mengikut Tahun & Pagination**:
-  - Penyata bulanan dan tahunan diasingkan mengikut folder tahunan (`assets/reports/2026/`) dengan kawalan halaman (5 penyata setiap halaman).
-- **Infaq & Sumbangan Terperinci**:
-  - Butang 1-klik salin no akaun bank dengan notifikasi toast.
-  - Kod QR DuitNow kemas nisbah 1:1.
-- **Sokongan Dwi-Bahasa (i18n)**: Bahasa Melayu (Lalai) dan Bahasa Inggeris.
-- **Pengumuman Pintar Automatik (`data/announcements.json`)**: Seksyen disembunyikan secara automatik sekiranya tiada pengumuman aktif.
-- **Navigasi Modal Sejarah Pelayar**: Modal PDF laporan dan kredit mesra kekunci ESC serta butang *Back* telefon pintar.
+1. [Key Features](#-key-features)
+2. [Quick Start & Local Testing](#-quick-start--local-testing)
+3. [Site Customization (`site.config.json`)](#-site-customization-siteconfigjson)
+   - [A. Mosque Branding & General Information](#a-mosque-branding--general-information)
+   - [B. Theme & Color Palettes (Light & Dark Modes)](#b-theme--color-palettes-light--dark-modes)
+   - [C. Optional Sections & Feature Toggles](#c-optional-sections--feature-toggles)
+   - [D. Conditional Hero Buttons & Statistics](#d-conditional-hero-buttons--statistics)
+   - [E. Khairat Kematian (Funeral Welfare Fund) Curation](#e-khairat-kematian-funeral-welfare-fund-curation)
+   - [F. Flexible Contacts & Contact Form](#f-flexible-contacts--contact-form)
+   - [G. Location & Google Maps](#g-location--google-maps)
+4. [On-The-Fly Markdown Blogging System](#-on-the-fly-markdown-blogging-system)
+   - [Folder Hierarchy: `/blog/<year>/<month>/<day>/<post_folder>/`](#folder-hierarchy-blogyearmonthdaypost_folder)
+   - [Page Date Formatting: `<DD>/<MM>/<YYYY>`](#page-date-formatting-ddmmyyyy)
+   - [Writing Markdown Posts with Frontmatter](#writing-markdown-posts-with-frontmatter)
+   - [Relative Images & Companion Assets](#relative-images--companion-assets)
+5. [Data Persistence & Upstream Template Updates](#-data-persistence--upstream-template-updates)
+   - [The `content/` Overlay Pattern](#the-content-overlay-pattern)
+   - [The Template Sync Utility (`npm run template:*`)](#the-template-sync-utility-npm-run-template)
+6. [Cloudflare Pages Deployment Guide](#-cloudflare-pages-deployment-guide)
+7. [Open Source License (MIT)](#-open-source-license-mit)
 
 ---
 
-## 📝 Sistem Blog Markdown Tanpa Kompilasi Terminal
+## ✨ Key Features
 
-Templat ini menyertakan sistem blog ringan berkuasa tinggi. Admin boleh menulis artikel dalam format Markdown ringkas tanpa perlu mempelajari sebarang sintaks rumit.
+- **Inclusive Institutional Support**: Pre-configured for all tiers of Islamic prayer centers (Masjid, Surau, Musolla) with customizable institutional identity.
+- **Warm & Welcoming Community Aesthetic**: A gentle milky tone (`#f6f4ef` background & `#faf8f5` cards) that avoids harsh pure whites, combined with a comfortable solid dark mode (`#101c23`).
+- **Fully Customizable Themes**: 4 built-in curated presets (`teal-amber`, `emerald-gold`, `royal-blue`, `maroon-gold`) or custom hex codes for both Light and Dark modes.
+- **On-The-Fly Markdown Blogging**: Drop Markdown (`.md`) files and companion images into date-based folders; the website renders them on the fly without any terminal compilation.
+- **Strict `<DD>/<MM>/<YYYY>` Date Formatting**: Automatically maps `<year>/<month>/<day>` folders into formatted `<DD>/<MM>/<YYYY>` dates across the user interface.
+- **All Sections Optional & Modular**: Every section (Announcements, Vision & Mission, Management Org Chart, Funeral Fund, Financial Reports, Constitution PDF, Donations, Blog & News, FAQ, Contact Cards, and Google Maps) can be toggled on/off in `site.config.json`.
+- **Flexible Contact Directory**: Add any number of contacts (Phone, WhatsApp, Email, Custom) plus an optional online Contact Form (Google Forms or any external link).
+- **Curated Funeral Fund (Khairat Kematian)**: Supports both independent in-house funds and partnered programs (e.g. under an apex district mosque) with admin-defined benefits.
+- **Zero Git Merge Conflict Persistence**: Store custom logos, PDFs, reports, and configs in the `content/` directory so pulling updates from the upstream template will never overwrite your mosque's data.
 
-### 1. Struktur Direktori Pos
+---
 
-Admin hanya perlu menambah fail mengikut struktur direktori tarikh:
+## 💻 Quick Start & Local Testing
 
-```text
-/blog/<year>/<month>/<day>/<post_folder>/<markdown_file_and_other_files>
+You can run and test the website locally with zero npm dependencies installed:
+
+1. **Start the local server**:
+   ```bash
+   node server.js
+   # Or using Google Antigravity / Node:
+   agy-node server.js
+   ```
+2. **Open in browser**:
+   - Main Landing Page: `http://localhost:3000`
+   - Blog Catalog: `http://localhost:3000/blog/`
+   - Test Article: `http://localhost:3000/blog/?post=2026/10/26/pelancaran-portal-rasmi-masjid`
+
+---
+
+## ⚙️ Site Customization (`site.config.json`)
+
+All configuration is centralized in [`site.config.json`](site.config.json) (or in the persistent [`content/site.config.json`](content/site.config.json) overlay).
+
+### A. Mosque Branding & General Information
+
+```json
+{
+  "siteName": "Masjid Jamek An-Nur",
+  "shortName": "Masjid An-Nur",
+  "tagline": "Center of Worship, Knowledge & Community Solidarity",
+  "registrationNumber": "JAIS/PDK/03/044/2026",
+  "logo": "assets/logo.png",
+  "favicon": "assets/logo.png"
+}
 ```
 
-**Contoh:**
+### B. Theme & Color Palettes (Light & Dark Modes)
+
+Choose from 4 pre-built presets or enter custom Hex codes:
+
+| Preset Name | Visual Palette | Suggested For |
+| :--- | :--- | :--- |
+| `teal-amber` | Calming Deep Teal & Warm Amber | Modern musolla, serene coastal tones |
+| `emerald-gold` | Classic Emerald Green & Crescent Gold | Traditional mosques, dome-inspired elegance |
+| `royal-blue` | Sapphire Blue & Desert Sand | Urban mosques, clean minimalist vibe |
+| `maroon-gold` | Heritage Ottoman Velvet & Amber Gold | Historic architecture, warm classic feel |
+
+```json
+"theme": {
+  "preset": "emerald-gold"
+}
+```
+
+To define custom hex colors for both modes, set `"preset": "custom"` and provide `light` and `dark` hex objects. The template's theme engine automatically computes space-separated HSL values for seamless CSS variable support.
+
+### C. Optional Sections & Feature Toggles
+
+Every section is enabled by default, but can be cleanly disabled by setting its key to `false`:
+
+```json
+"sections": {
+  "announcements": true,
+  "visionMission": true,
+  "management": true,
+  "khairat": true,
+  "finance": true,
+  "constitution": true,
+  "donation": true,
+  "blog": true,
+  "faq": true,
+  "contact": true,
+  "map": true
+}
+```
+When a section is set to `false`, the website automatically hides the section and removes its link from the desktop navbar, mobile drawer, and footer.
+
+### D. Conditional Hero Buttons & Statistics
+
+- **Hero Buttons**:
+  - `Hulurkan Infaq / Donate`: Displayed only if `sections.donation !== false` and `bankAccount` is configured.
+  - `Daftar Khairat / Funeral Fund`: Displayed only if `sections.khairat !== false`.
+  - `Panduan Lokasi / Location Guide`: Displayed only if `location.address` and `location.googleMapsUrl` are both defined.
+- **Hero Statistics**:
+  Defined under `"heroStats"`:
+  ```json
+  "heroStats": {
+    "households": "1,000+",
+    "capacity": "~200",
+    "programs": "20+"
+  }
+  ```
+  If `households` is empty or omitted, its counter is hidden. If `capacity` is empty, its counter is hidden. If all stats are empty, the entire stats bar is gracefully hidden.
+
+### E. Khairat Kematian (Funeral Welfare Fund) Curation
+
+A mosque's funeral welfare program may be **independent** (in-house) or **partnered** with a neighboring apex mosque (e.g. under an e-Khairat portal).
+
+```json
+"khairat": {
+  "enabled": true,
+  "programType": "partnered",
+  "partnerName": "Masjid Al-Ilmi Dengkil",
+  "partnerPortalUrl": "https://www.e-khairat.com/al-ilmi",
+  "registrationUrl": "https://www.e-khairat.com/al-ilmi",
+  "contactNumber": "+6012-345 6789",
+  "fee": "RM 50.00 / year",
+  "coverageNoteMs": "Merangkumi ahli berdaftar, pasangan dan anak-anak tanggungan di bawah 21 tahun.",
+  "coverageNoteEn": "Covers registered member, spouse and dependent children under 21 years old.",
+  "benefits": [
+    {
+      "id": "pengurusan-jenazah",
+      "icon": "shield-check",
+      "nameMs": "Pengurusan Jenazah Lengkap",
+      "nameEn": "Complete Funeral Arrangement",
+      "descMs": "Khidmat pemandian, kafan, solat jenazah dan pengurusan kubur yang sempurna mengikut syariat.",
+      "descEn": "Complete bathing, shrouding, funeral prayer and burial management according to Islamic rites."
+    },
+    {
+      "id": "wang-ihsan",
+      "icon": "heart-handshake",
+      "nameMs": "Sumbangan Wang Ihsan Waris",
+      "nameEn": "Bereavement Consolation Aid",
+      "descMs": "Bantuan kewangan segera kepada waris terdekat bagi meringankan beban keluarga.",
+      "descEn": "Immediate monetary assistance to immediate family to ease unexpected expenses."
+    }
+  ]
+}
+```
+*Note: If `benefits` is empty `[]`, the benefits grid is hidden automatically while keeping the registration details card.*
+
+### F. Flexible Contacts & Contact Form
+
+Provide any number of contact cards with custom roles and channels (phone, WhatsApp, email):
+
+```json
+"contacts": {
+  "contactFormUrl": "https://forms.gle/sampleFeedbackAlWidad",
+  "items": [
+    {
+      "roleMs": "Pengerusi",
+      "roleEn": "Chairman",
+      "name": "Haji Mohd Salleh",
+      "type": "phone",
+      "value": "+6012-345 6789",
+      "phone": "+6012-345 6789",
+      "whatsapp": "60123456789"
+    },
+    {
+      "roleMs": "Setiausaha",
+      "roleEn": "Secretary",
+      "name": "Ustaz Ahmad Farhan",
+      "type": "whatsapp",
+      "value": "+6013-456 7890",
+      "phone": "+6013-456 7890",
+      "whatsapp": "60134567890"
+    },
+    {
+      "roleMs": "Emel Pentadbiran",
+      "roleEn": "Official Email",
+      "name": "pentadbiran@masjid.org",
+      "type": "email",
+      "value": "pentadbiran@masjid.org"
+    }
+  ]
+}
+```
+- **Contact Form**: The `contactFormUrl` allows admins to connect a Google Form or custom contact form. If left empty, the Contact Form callout card is hidden.
+
+### G. Location & Google Maps
+
+```json
+"location": {
+  "name": "Cybersouth Community",
+  "address": "Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor",
+  "coordinates": "2.876102, 101.646251",
+  "googleMapsUrl": "https://www.google.com/maps?q=2.876102,101.646251",
+  "embedUrl": "https://maps.google.com/maps?q=2.876102,101.646251&t=&z=16&ie=UTF8&iwloc=&output=embed"
+}
+```
+*If `address` or `googleMapsUrl` is empty, the Google Maps section and the Hero Location button are hidden automatically.*
+
+---
+
+## 📝 On-The-Fly Markdown Blogging System
+
+Admins can post articles, lecture schedules, and activity reports simply by creating Markdown files in date-structured folders.
+
+### Folder Hierarchy: `/blog/<year>/<month>/<day>/<post_folder>/`
+
 ```text
 blog/
 └── 2026/
     └── 10/
         └── 26/
             └── pelancaran-portal-rasmi-masjid/
-                ├── post.md          # Kandungan artikel (Markdown)
-                └── banner.svg       # Poster atau imej berkaitan
+                ├── post.md          # Markdown article content
+                └── banner.svg       # Companion image
 ```
 
-### 2. Format Tarikh Piawai Pada Halaman: `<DD>/<MM>/<YYYY>`
-Matematik folder tarikh `<year>/<month>/<day>` (`2026/10/26`) ditukar secara automatik oleh enjin blog kepada format paparan:
+### Page Date Formatting: `<DD>/<MM>/<YYYY>`
+
+While folders are organized by computer-friendly `<year>/<month>/<day>` (`2026/10/26`), the frontend blogging engine extracts the date and displays it on the HTML page formatted strictly as:
 ```html
 <time class="blog-badge-date">26/10/2026</time>
 ```
 
-### 3. Contoh Kandungan `post.md`
+### Writing Markdown Posts with Frontmatter
+
+Create `post.md` (or `index.md`) with optional YAML frontmatter:
 
 ```markdown
 ---
-title: "Majlis Sambutan Maulidur Rasul & Tazkirah Khas"
-author: "Biro Dakwah & Tarbiah"
-category: "Kuliah"
-summary: "Jemputan kepada seluruh jemaah kariah hadir mengimarahkan majlis sambutan Maulidur Rasul 1448H."
+title: "Maulidur Rasul Celebration & Special Tazkirah"
+author: "Islamic Affairs Bureau"
+category: "Lectures"
+summary: "An invitation to all congregation members to attend our upcoming Maulidur Rasul talk and congregational prayer."
 cover: "banner.svg"
-tags: [kuliah, maulidur-rasul, dakwah]
+tags: [lectures, maulidur-rasul, community]
 ---
 
-# Majlis Sambutan Maulidur Rasul & Tazkirah Khas
+# Maulidur Rasul Celebration & Special Tazkirah
 
-Segala puji bagi Allah SWT. Selawat dan salam ke atas junjungan besar Nabi Muhammad SAW.
+All praise is due to Allah. We warmly welcome our neighborhood community to attend.
 
-![Poster Majlis](banner.svg)
+![Event Poster](banner.svg)
 
-## Atur Cara Majlis
+## Event Schedule
 
-- **6:45 Petang**: Ketibaan kariah & solat Maghrib berjemaah.
-- **7:30 Malam**: Tazkirah Khas Sirah Nabawiyyah.
-- **8:15 Malam**: Solat Isyak & jamuan ukhuwah.
+- **6:45 PM**: Arrival & Maghrib prayer.
+- **7:30 PM**: Special Lecture on the Prophet's Biography.
+- **8:15 PM**: Isyak prayer & community dinner.
 ```
 
-### 4. Paparan Langsung Tanpa Terminal
-- **Ujian Tempatan (`node server.js`)**: Pelayan pembangunan secara automatik mengimbas direktori `/blog/` secara langsung (*on-the-fly*). Sebaik sahaja anda menyimpan fail `.md`, ia boleh terus diakses di pelayar web.
-- **Cloudflare Pages**: Apabila anda menolak (*push*) ke GitHub, skrip pembinaan secara automatik membina indeks artikel di `blog/posts.json`.
+### Relative Images & Companion Assets
+Any image referenced in the post (e.g. `![Poster](banner.svg)`) is automatically resolved relative to that specific post's folder. No absolute URL gymnastics required!
 
 ---
 
-## 🎨 Penyesuaian Tema Warna (Mod Cerah & Mod Gelap)
+## 🛡️ Data Persistence & Upstream Template Updates
 
-Buka fail [`site.config.json`](site.config.json) dan tetapkan tema pilihan anda:
+When pulling new updates, bug fixes, or enhancements from the upstream template, you never want your mosque's custom logos, financial PDFs, or configuration to be overwritten.
 
-### Pilihan Preset Siap Pakai:
-1. `"preset": "teal-amber"`: Hijau laut menenangkan & jingga hangat (Lalai / Musolla Al-Widad).
-2. `"preset": "emerald-gold"`: Hijau zamrud klasik & emas bulan sabit (Masjid Tradisi).
-3. `"preset": "royal-blue"`: Biru nilam & warna pasir hangat (Masjid Moden).
-4. `"preset": "maroon-gold"`: Merah hati baldu & emas (Masjid Warisan Uthmaniyyah).
+### The `content/` Overlay Pattern
 
-### Tetapan Warna Hex Tersuai Penuh (`custom`):
-```json
-"theme": {
-  "preset": "custom",
-  "light": {
-    "primary": "#047857",
-    "secondary": "#d97706",
-    "accent": "#f59e0b",
-    "background": "#f5f7f5",
-    "card": "#fafbfa",
-    "foreground": "#142820",
-    "border": "#d7e2d8"
-  },
-  "dark": {
-    "primary": "#10b981",
-    "secondary": "#f59e0b",
-    "accent": "#fbbf24",
-    "background": "#0a1912",
-    "card": "#12261d",
-    "foreground": "#edf7f1",
-    "border": "#244838"
-  }
-}
-```
-
----
-
-## 🛡️ Strategi Pemeliharaan Fail & Konfigurasi (Persistence Architecture)
-
-Untuk memastikan fail-fail kekal selamat apabila anda menarik kemaskini baharu daripada repositori templat induk (*upstream git*):
-
-### Kaedah A: Hamparan Direktori `content/` (Disyorkan)
-Letakkan fail-fail unik masjid anda di dalam folder `content/`:
-- `content/site.config.json` -> Menggantikan konfigurasi lalai.
-- `content/logo.png` -> Logo rasmi masjid anda.
-- `content/duitnow-qr.svg` -> Kod QR DuitNow masjid anda.
-- `content/perlembagaan/` -> PDF Perlembagaan masjid.
-- `content/reports/` -> Laporan kewangan tahunan.
-- `content/data/` -> Fail JSON aktiviti & AJK.
-
-Semasa `node scripts/build.js` dijalankan di Cloudflare Pages, folder `content/` akan dihampar secara automatik mengatasi fail asal templat. Git *pull* tidak akan sesekali menyentuh folder `content/` anda!
-
-### Kaedah B: Utiliti Sinkronisasi Automatik
-Templat menyediakan perintah terbina dalam:
-```bash
-npm run template:backup   # Cipta salinan keselamatan bertarikh di .backup/
-npm run template:update   # Gabungkan kemaskini templat dengan tetapan masjid anda
-npm run template:verify   # Semak kesahihan konfigurasi & fail
-```
-
----
-
-## 📁 Struktur Direktori Projek
+Place your custom mosque files in an optional `content/` directory at the project root:
 
 ```text
-mosque-landing-page-template/
-├── assets/                       # Aset grafik, logo & ikon
-│   ├── logo.png                  # Logo rasmi masjid (nisbah 1:1)
-│   ├── duitnow-qr.svg            # Kod QR DuitNow (nisbah 1:1)
-│   ├── perlembagaan/             # Fail PDF Perlembagaan masjid
-│   └── reports/                  # Penyata kewangan mengikut tahun (2026/, 2025/)
-├── blog/                         # Direktori Sistem Blog Markdown
-│   ├── 2026/
-│   │   └── 10/
-│   │       ├── 26/pelancaran-portal-rasmi-masjid/post.md
-│   │       ├── 20/program-kuliah-maghrib-dan-pengajian-kitab/post.md
-│   │       └── 15/kempen-kebersihan-gotong-royong-perdana/post.md
-│   ├── posts.json                # Indeks artikel blog auto-dijana
-│   └── index.html                # Portal & Pembaca Blog On-The-Fly
-├── content/                      # (Pilihan) Hamparan fail kekal masjid
-├── css/
-│   └── style.css                 # Sistem reka bentuk Shadcn UI & tipografi blog
-├── data/
-│   ├── announcements.json        # Pengumuman dwi-bahasa
-│   ├── organisasi.json           # Carta organisasi AJK
-│   ├── activities.json           # Takwim pengajian & aktiviti
-│   └── reports.json              # Indeks fail penyata kewangan
-├── js/
-│   ├── theme.js                  # Enjin palet tema (Preset & Custom Hex)
-│   ├── blog.js                   # Enjin pemproses Markdown & tarikh on-the-fly
-│   ├── i18n.js                   # Enjin penterjemahan dwi-bahasa
-│   └── app.js                    # Logik carousel, modal & penjenamaan dinamik
-├── lang/
-│   ├── ms.json                   # Terjemahan Bahasa Melayu (Lalai)
-│   └── en.json                   # Terjemahan English
-├── scripts/
-│   ├── build.js                  # Skrip pembinaan untuk Cloudflare Pages
-│   ├── template-sync.js          # Skrip keselamatan & kemaskini templat
-│   └── test-server.js            # Ujian automatik pelayan tempatan
-├── site.config.json              # Fail konfigurasi utama masjid
-├── site.config.defaults.json     # Rujukan konfigurasi lalai templat
-├── server.js                     # Pelayan pembangunan tempatan (Zero Dependencies)
-├── index.html                    # Laman web utama
-├── TEMPLATE_GUIDE.md             # Panduan terperinci templat
-├── LICENSE                       # Lesen Sumber Terbuka MIT Standard
-├── package.json                  # Konfigurasi skrip npm
-└── README.md                     # Dokumentasi projek
+content/
+├── site.config.json       # Your mosque's custom configuration
+├── logo.png               # Your official logo (1:1 aspect ratio)
+├── duitnow-qr.svg         # Your DuitNow QR Code
+├── perlembagaan/          # Your constitution PDF
+└── reports/               # Your financial PDFs by year (2026/, 2025/)
+```
+During local testing (`server.js`) and production builds (`scripts/build.js`), the build system automatically overlays files in `content/` on top of the base template. Because the upstream git repository only maintains default placeholders, `git pull upstream main` will **never conflict** with your `content/` directory!
+
+### The Template Sync Utility (`npm run template:*`)
+
+For admins who prefer editing root files directly:
+```bash
+npm run template:backup   # Creates a timestamped backup in .backup/
+npm run template:update   # Performs a smart deep-merge of configs and pulls upstream updates safely
+npm run template:verify   # Validates that all critical assets, JSON files, and paths exist
 ```
 
 ---
 
-## 💻 Panduan Ujian Tempatan (Local Testing)
+## 🚀 Cloudflare Pages Deployment Guide
 
-Anda boleh menguji laman web secara terus di komputer anda:
+Deploy your mosque's website globally with free SSL and unlimited bandwidth:
 
-1. Jalankan pelayan pembangunan tempatan:
-   ```bash
-   node server.js
-   # atau jika menggunakan Antigravity:
-   agy-node server.js
-   ```
-2. Buka pelayar web:
-   - Laman Utama: `http://localhost:3000`
-   - Portal Blog: `http://localhost:3000/blog/`
-   - Artikel Ujian: `http://localhost:3000/blog/?post=2026/10/26/pelancaran-portal-rasmi-masjid`
-
----
-
-## 🚀 Panduan Deployment ke Cloudflare Pages
-
-1. Tolak kod ke repositori GitHub anda:
+1. Push this repository to your GitHub account:
    ```bash
    git add .
-   git commit -m "feat: inisialisasi templat laman web masjid"
+   git commit -m "feat: initialize mosque website"
    git push origin main
    ```
-2. Di papan pemuka **Cloudflare Pages**:
-   - Pilih **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
-   - Pilih repositori anda.
-   - **Framework preset**: `None`
-   - **Build command**: `node scripts/build.js`
-   - **Build output directory**: `dist`
-3. Klik **Save and Deploy**. Laman web anda akan beroperasi secara global dengan sijil SSL percuma!
+2. In the [Cloudflare Dashboard](https://dash.cloudflare.com/):
+   - Navigate to **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
+   - Select your repository.
+   - Configure build settings:
+     - **Framework preset**: `None`
+     - **Build command**: `node scripts/build.js`
+     - **Build output directory**: `dist`
+3. Click **Save and Deploy**. Your site will be live across Cloudflare's global edge network in ~20 seconds!
 
 ---
 
-## 📜 Lesen & Sumber Terbuka (MIT License)
+## 📜 Open Source License (MIT)
 
-Laman web ini adalah projek **sumber terbuka (Open Source)** yang dilesenkan di bawah [Lesen MIT (MIT License)](LICENSE).
+This project is licensed under the **[MIT License](LICENSE)**:
 
 ```text
 MIT License
 Copyright (c) 2026 The Project Contributors
 ```
 
-Anda bebas menggunakan, menyalin, mengubah suai, menggabungkan dan menyesuaikan templat ini untuk mana-mana masjid, surau, musolla atau badan kebajikan tanpa sebarang sekatan ataupun bayaran royalti.
+You are free to use, modify, distribute, and customize this template for any mosque, surau, or community organization without royalty or restriction.
 
 ---
 
-*Untuk panduan lengkap langkah demi langkah, sila rujuk [TEMPLATE_GUIDE.md](TEMPLATE_GUIDE.md).*
+*For detailed instructions and advanced setups, refer to [TEMPLATE_GUIDE.md](TEMPLATE_GUIDE.md).*

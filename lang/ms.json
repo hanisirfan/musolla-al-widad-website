@@ -8,18 +8,18 @@
   },
   "nav": {
     "home": "Utama",
-    "management": "Pengurusan Musolla",
+    "management": "Pengurusan",
     "khairat": "Khairat Kematian",
     "finance": "Kewangan",
     "donation": "Sumbangan",
-    "activities": "Aktiviti & Berita",
     "faq": "Soalan Lazim",
     "contact": "Hubungi Kami",
     "donateBtn": "Infaq Sekarang",
     "language": "Bahasa",
     "theme": "Tema",
     "menu": "Menu",
-    "blog": "Blog & Hebahan"
+    "blog": "Blog & Berita",
+    "constitution": "Perlembagaan"
   },
   "theme": {
     "system": "Ikut Peranti",
@@ -28,14 +28,14 @@
     "toggle": "Tukar Tema"
   },
   "hero": {
-    "badge": "Laman Rasmi Komuniti Musolla",
+    "badge": "Laman Rasmi Komuniti",
     "title": "Musolla Al-Widad Kita Sejati",
     "subtitle": "Pusat penyatuan ibadah, penyubur ukhuwah kejiranan, dan kebajikan bersama demi membina komuniti Pangsapuri Kita Sejati yang diberkati dan harmoni.",
     "ctaDonation": "Hulurkan Infaq",
     "ctaKhairat": "Daftar Khairat Kematian",
-    "ctaLocation": "Panduan Lokasi Musolla",
+    "ctaLocation": "Panduan Lokasi",
     "ctaAnnouncement": "Pengumuman Terkini",
-    "statHouseholds": "Keluarga Pangsapuri",
+    "statHouseholds": "Keluarga Kariah",
     "statCapacity": "Kapasiti Jemaah",
     "statPrograms": "Program & Pengajian"
   },
@@ -84,12 +84,12 @@
     ]
   },
   "management": {
-    "title": "Pengurusan Musolla",
-    "subtitle": "Struktur kepimpinan dan tadbir urus telus berteraskan syarak dan perlembagaan demi kemaslahatan jemaah.",
+    "title": "Pengurusan & Pentadbiran",
+    "subtitle": "Struktur kepimpinan dan tadbir urus telus berteraskan syarak demi kemaslahatan kariah.",
     "tabs": {
       "vision": "Visi & Misi",
       "org": "Carta Organisasi",
-      "constitution": "Perlembagaan Musolla"
+      "constitution": "Perlembagaan"
     },
     "vision": {
       "title": "Visi & Misi Musolla Al-Widad",
@@ -143,7 +143,7 @@
     "subtitle": "Penyertaan Rasmi di Bawah Naungan Masjid Al-Ilmi Dengkil",
     "lead": "Bagi memastikan urusan fardu kifayah terlaksana dengan sempurna, pantas dan teratur, Musolla Al-Widad Kita Sejati telah bergabung dan bernaung di bawah program Khairat Kematian Masjid Al-Ilmi Dengkil.",
     "highlight": "Semua penduduk beragama Islam di Pangsapuri Kita Sejati disarankan untuk mendaftar sebagai ahli khairat bagi perlindungan dan kebajikan keluarga tercinta.",
-    "benefitsTitle": "Kelebihan & Perlindungan Menjadi Ahli",
+    "benefitsTitle": "Manfaat & Liputan Khairat Kematian",
     "benefits": [
       {
         "title": "Pengurusan Jenazah Lengkap",
@@ -185,7 +185,12 @@
       "desc": "Daftar awal demi ketenangan minda dan kebajikan waris. Anda akan dialihkan ke sistem e-Khairat Masjid Al-Ilmi Dengkil.",
       "button": "Daftar Khairat Sekarang (Masjid Al-Ilmi)",
       "whatsappInquiry": "Pertanyaan Khairat (WhatsApp)"
-    }
+    },
+    "badgePartnered": "Program Kerjasama Kariah",
+    "badgeIndependent": "Program Khairat Rasmi",
+    "benefitsSubtitle": "Manfaat utama yang disediakan bagi menjamin kebajikan dan pengurusan jenazah yang sempurna.",
+    "registerPartner": "Daftar di Portal Rasmi",
+    "registerIndependent": "Daftar Keahlian Khairat"
   },
   "finance": {
     "title": "Penyata Kewangan & Ketelusan",
@@ -269,26 +274,10 @@
     "locationLabel": "Tempat"
   },
   "faq": {
-    "title": "Soalan Lazim (FAQ)",
-    "subtitle": "Jawapan bagi persoalan lazim jemaah dan penduduk Pangsapuri Kita Sejati Cybersouth.",
-    "items": [
-      {
-        "q": "Adakah solat Jumaat didirikan di Musolla Al-Widad?",
-        "a": "Pada masa ini, Musolla Al-Widad mendirikan solat fardu lima waktu berjemaah, solat sunat tarawih dan qiamullail. Solat Jumaat didirikan di Masjid Al-Ilmi Dengkil dan masjid kariah berdekatan sehingga mendapat kelulusan rasmi daripada pihak berkuasa agama."
-      },
-      {
-        "q": "Bagaimana cara menyertai Khairat Kematian?",
-        "a": "Musolla Al-Widad bernaung di bawah program Khairat Kematian Masjid Al-Ilmi Dengkil. Anda hanya perlu menekan butang 'Daftar Khairat' di laman web ini untuk dialihkan ke portal rasmi e-Khairat Masjid Al-Ilmi Dengkil (https://www.e-khairat.com/al-ilmi)."
-      },
-      {
-        "q": "Bagaimana saya boleh menyumbang tenaga sebagai sukarelawan (AJK / Biro)?",
-        "a": "Kami sentiasa mengalu-alukan penglibatan warga penduduk, khususnya golongan muda dan profesional, untuk menyumbang kepakaran dalam biro dakwah, media, kebajikan atau penyelenggaraan. Sila hubungi pihak jawatankuasa melalui nombor tertera."
-      },
-      {
-        "q": "Di manakah saya boleh menyemak penyata kewangan musolla?",
-        "a": "Penyata kewangan bulanan dan tahunan sentiasa dimuat naik mengikut tahun di bahagian 'Kewangan' di laman web ini dalam format PDF untuk disemak oleh seluruh jemaah."
-      }
-    ]
+    "badge": "Soalan Lazim",
+    "title": "Soalan Lazim Komuniti",
+    "subtitle": "Jawapan pantas bagi persoalan lazim mengenai pendaftaran khairat, infaq dan urusan pengimarahan.",
+    "empty": "Tiada soalan lazim disenaraikan setakat ini."
   },
   "contact": {
     "title": "Hubungi Kami",
@@ -321,7 +310,10 @@
       "openGoogleMaps": "Buka di Google Maps",
       "copyAddress": "Salin Alamat Penuh",
       "copiedAddressToast": "Alamat berjaya disalin!"
-    }
+    },
+    "formTitle": "Borang Hubungi",
+    "formSubtitle": "Salurkan sebarang pertanyaan, maklum balas atau urusan pentadbiran secara dalam talian.",
+    "formBtn": "Buka Borang Hubungi"
   },
   "footer": {
     "aboutTitle": "Musolla Al-Widad",
@@ -352,9 +344,9 @@
     "allRightsReserved": "Hak cipta terpelihara."
   },
   "blog": {
-    "badge": "Penulisan & Hebahan",
-    "title": "Blog & Artikel Terkini",
-    "desc": "Perkongsian ilmu agama, takwim kuliah, panduan ibadah dan laporan aktiviti komuniti.",
+    "badge": "Penulisan & Berita",
+    "title": "Blog & Berita Terkini",
+    "desc": "Perkongsian ilmu agama, takwim kuliah, aktiviti komuniti dan panduan kariah.",
     "readMore": "Baca Penuh",
     "viewAll": "Lihat Semua Artikel",
     "readTime": "min baca",

@@ -82,8 +82,8 @@
         <a href="#khairat" class="nav-link" data-i18n="nav.khairat">Khairat Kematian</a>
         <a href="#kewangan" class="nav-link" data-i18n="nav.finance">Kewangan</a>
         <a href="#sumbangan" class="nav-link" data-i18n="nav.donation">Sumbangan</a>
-        <a href="#aktiviti" class="nav-link" data-i18n="nav.activities">Aktiviti</a>
-        <a href="#blog" class="nav-link" data-i18n="nav.blog">Blog</a>
+        <a href="#blog" class="nav-link" data-i18n="nav.blog">Blog &amp; Berita</a>
+        <a href="#faq" class="nav-link" data-i18n="nav.faq">Soalan Lazim</a>
         <a href="#hubungi" class="nav-link" data-i18n="nav.contact">Hubungi</a>
       </nav>
 
@@ -143,32 +143,32 @@
               Pusat penyatuan ibadah, penyubur ukhuwah kejiranan, dan kebajikan bersama demi membina komuniti Pangsapuri Kita Sejati yang diberkati dan harmoni.
             </p>
 
-            <!-- Quick Action Buttons -->
+            <!-- Quick Action Buttons (Only visible if corresponding features are defined/enabled) -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 w-full sm:w-auto">
-              <a href="#sumbangan" class="btn btn-secondary btn-lg shadow-md gap-2">
+              <a href="#sumbangan" id="hero-btn-donation" class="btn btn-secondary btn-lg shadow-md gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                 <span data-i18n="hero.ctaDonation">Hulurkan Infaq</span>
               </a>
 
-              <a href="#khairat" class="btn btn-primary btn-lg shadow-md gap-2">
+              <a href="#khairat" id="hero-btn-khairat" class="btn btn-primary btn-lg shadow-md gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 <span data-i18n="hero.ctaKhairat">Daftar Khairat Kematian</span>
               </a>
 
-              <a href="https://www.google.com/maps?q=2.876102,101.646251" target="_blank" rel="noopener noreferrer" class="link-maps btn btn-outline btn-lg gap-2">
+              <a href="#" id="hero-btn-location" target="_blank" rel="noopener noreferrer" class="link-maps btn btn-outline btn-lg gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-secondary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span data-i18n="hero.ctaLocation">Panduan Lokasi Musolla</span>
+                <span data-i18n="hero.ctaLocation">Panduan Lokasi</span>
               </a>
             </div>
 
-            <!-- Community Stats (2 Balanced Counters) -->
-            <div class="grid grid-cols-2 gap-6 pt-4 border-t border-border w-full max-w-md">
-              <div class="flex flex-col items-center lg:items-start">
-                <span class="text-2xl sm:text-3xl font-extrabold text-primary">1,000+</span>
-                <span class="text-xs text-muted-foreground font-medium" data-i18n="hero.statHouseholds">Keluarga Pangsapuri</span>
+            <!-- Community Stats (Only visible if defined in config) -->
+            <div id="hero-stats-container" class="grid grid-cols-2 gap-6 pt-4 border-t border-border w-full max-w-md">
+              <div id="hero-stat-households" class="flex flex-col items-center lg:items-start">
+                <span class="stat-value text-2xl sm:text-3xl font-extrabold text-primary">1,000+</span>
+                <span class="text-xs text-muted-foreground font-medium" data-i18n="hero.statHouseholds">Keluarga Kariah</span>
               </div>
-              <div class="flex flex-col items-center lg:items-start border-l border-border pl-6">
-                <span class="text-2xl sm:text-3xl font-extrabold text-secondary">~200</span>
+              <div id="hero-stat-capacity" class="flex flex-col items-center lg:items-start border-l border-border pl-6">
+                <span class="stat-value text-2xl sm:text-3xl font-extrabold text-secondary">~200</span>
                 <span class="text-xs text-muted-foreground font-medium" data-i18n="hero.statCapacity">Kapasiti Jemaah</span>
               </div>
             </div>
@@ -258,9 +258,9 @@
         <!-- Tabs Navigation -->
         <div class="max-w-md mx-auto mb-9">
           <div class="tabs-nav border border-border">
-            <button class="tab-btn active" data-tab-target="tab-vision" data-i18n="management.tabs.vision">Visi &amp; Misi</button>
+            <button id="tab-btn-vision" class="tab-btn active" data-tab-target="tab-vision" data-i18n="management.tabs.vision">Visi &amp; Misi</button>
             <button class="tab-btn" data-tab-target="tab-org" data-i18n="management.tabs.org">Carta Organisasi</button>
-            <button class="tab-btn" data-tab-target="tab-constitution" data-i18n="management.tabs.constitution">Perlembagaan Musolla</button>
+            <button id="tab-btn-constitution" class="tab-btn" data-tab-target="tab-constitution" data-i18n="management.tabs.constitution">Perlembagaan</button>
           </div>
         </div>
 
@@ -850,101 +850,44 @@
             Hubungi Kami
           </h2>
           <p class="text-muted-foreground text-xs sm:text-sm" data-i18n="contact.subtitle">
-            Sebarang maklum balas, cadangan penambahbaikan, aduan atau pertanyaan amat dialu-alukan.
+            Sebarang maklum balas, pertanyaan pentadbiran atau urusan kebajikan kariah amat dialu-alukan.
           </p>
         </div>
 
-        <!-- Google Form Feedback Callout Card -->
-        <div class="max-w-3xl mx-auto card p-6 border border-primary/30 bg-card shadow-sm mb-10">
+        <!-- Optional Online Contact Form (Google Form or Custom Form) -->
+        <div id="contact-form-card" class="max-w-3xl mx-auto card p-6 border border-primary/30 bg-card shadow-sm mb-10">
           <div class="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5">
             <div class="space-y-1.5 text-center sm:text-left">
-              <span class="badge badge-primary text-[10px]" data-i18n="contact.formSection.badge">Aduan &amp; Cadangan</span>
-              <h3 class="text-xl font-bold text-foreground" data-i18n="contact.formSection.title">Borang Maklum Balas Penduduk (Google Form)</h3>
-              <p class="text-xs text-muted-foreground max-w-lg leading-relaxed" data-i18n="contact.formSection.desc">
-                Sila isi borang Google Form rasmi kami untuk sebarang cadangan penambahbaikan kemudahan, aduan kebersihan, atau permohonan penganjuran program musolla.
+              <span class="badge badge-primary text-[10px]" data-i18n="contact.formTitle">Borang Hubungi</span>
+              <h3 class="text-xl font-bold text-foreground" data-i18n="contact.formTitle">Borang Hubungi Dalam Talian</h3>
+              <p class="text-xs text-muted-foreground max-w-lg leading-relaxed" data-i18n="contact.formSubtitle">
+                Salurkan sebarang pertanyaan, maklum balas atau urusan pentadbiran secara dalam talian melalui borang rasmi kami.
               </p>
             </div>
             <div class="flex-shrink-0">
-              <a href="https://forms.gle/sampleFeedbackAlWidad" target="_blank" rel="noopener noreferrer" class="link-feedback-form btn btn-primary btn-md shadow-sm gap-2 text-xs sm:text-sm">
-                <span data-i18n="contact.formSection.button">Buka Google Form</span>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="link-contact-form link-feedback-form btn btn-primary btn-md shadow-sm gap-2 text-xs sm:text-sm">
+                <span data-i18n="contact.formBtn">Buka Borang Hubungi</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Key Contacts (Pengerusi, Setiausaha, Emel) -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-3xl mx-auto mb-10">
-          
-          <!-- Pengerusi -->
-          <div class="card p-5 flex flex-col justify-between items-center text-center space-y-3">
-            <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            </div>
-            <div>
-              <span class="badge badge-primary text-[10px] mb-1.5" data-i18n="contact.pengerusi.role">Pengerusi Musolla</span>
-              <h4 class="font-bold text-foreground text-base">Pengerusi Musolla</h4>
-              <p class="text-xs font-semibold text-primary mt-0.5 font-mono">012-345 6789</p>
-            </div>
-            <div class="flex items-center gap-2 w-full pt-1">
-              <a href="tel:+60123456789" class="link-pengerusi-call btn btn-outline btn-sm flex-1 gap-1 text-xs">
-                Panggil
-              </a>
-              <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer" class="link-pengerusi-wa btn btn-primary btn-sm flex-1 gap-1 text-xs bg-green-600 hover:bg-green-700 border-none">
-                WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <!-- Setiausaha -->
-          <div class="card p-5 flex flex-col justify-between items-center text-center space-y-3">
-            <div class="w-12 h-12 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div>
-              <span class="badge badge-secondary text-[10px] mb-1.5" data-i18n="contact.setiausaha.role">Setiausaha Musolla</span>
-              <h4 class="font-bold text-foreground text-base">Setiausaha Musolla</h4>
-              <p class="text-xs font-semibold text-secondary mt-0.5 font-mono">013-456 7890</p>
-            </div>
-            <div class="flex items-center gap-2 w-full pt-1">
-              <a href="tel:+60134567890" class="link-setiausaha-call btn btn-outline btn-sm flex-1 gap-1 text-xs">
-                Panggil
-              </a>
-              <a href="https://wa.me/60134567890" target="_blank" rel="noopener noreferrer" class="link-setiausaha-wa btn btn-primary btn-sm flex-1 gap-1 text-xs bg-green-600 hover:bg-green-700 border-none">
-                WhatsApp
-              </a>
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="card p-5 flex flex-col justify-between items-center text-center space-y-3">
-            <div class="w-12 h-12 rounded-2xl bg-accent/20 text-accent-foreground flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </div>
-            <div>
-              <span class="badge badge-outline text-[10px] mb-1.5" data-i18n="contact.email.role">Emel Rasmi</span>
-              <h4 class="font-bold text-foreground text-xs truncate max-w-[190px]" title="alwidad.kitasejati@gmail.com">alwidad.kitasejati</h4>
-              <p class="text-[11px] font-semibold text-primary mt-0.5">@gmail.com</p>
-            </div>
-            <div class="w-full pt-1">
-              <a href="mailto:alwidad.kitasejati@gmail.com" class="link-email btn btn-outline btn-sm w-full gap-1.5 text-xs">
-                Hantar Emel
-              </a>
-            </div>
-          </div>
-
+        <!-- Flexible Contacts Grid (Populated dynamically from site.config.json) -->
+        <div id="contact-cards-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto mb-10">
+          <!-- Dynamic contact cards rendered via js/app.js -->
         </div>
 
-        <!-- Google Maps Location & Direction with Accurate Coordinates -->
-        <div class="card max-w-3xl mx-auto overflow-hidden border border-border shadow-sm">
+        <!-- Conditional Google Maps & Address (Only visible if address and maps URL are defined) -->
+        <div id="location-map-container" class="card max-w-3xl mx-auto overflow-hidden border border-border shadow-sm">
           <div class="p-5 bg-card border-b border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div class="space-y-0.5">
               <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-secondary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                <h4 class="font-bold text-foreground text-base" data-i18n="contact.locationSection.title">Lokasi &amp; Navigasi Musolla</h4>
+                <h4 class="font-bold text-foreground text-base" data-i18n="contact.locationSection.title">Lokasi &amp; Navigasi</h4>
               </div>
-              <p class="text-xs text-muted-foreground" data-i18n="contact.locationSection.address">
-                Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan
+              <p class="location-address-text text-xs text-muted-foreground" data-i18n="contact.locationSection.address">
+                Alamat Rasmi Institusi
               </p>
             </div>
             <div class="flex items-center gap-2">
@@ -952,24 +895,22 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 <span>Salin Alamat</span>
               </button>
-              <a href="https://www.google.com/maps?q=2.876102,101.646251" target="_blank" rel="noopener noreferrer" class="link-maps btn btn-primary btn-sm gap-1 text-xs">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="link-maps btn btn-primary btn-sm gap-1 text-xs">
                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
                 <span>Buka Google Maps</span>
               </a>
             </div>
           </div>
 
-          <!-- Maps Embed at Coordinates 2.876102, 101.646251 -->
+          <!-- Maps Embed -->
           <div class="relative h-64 sm:h-80 w-full bg-muted">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.8123!2d101.646251!3d2.876102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwNTInMzQuMCJOIDEwMcKwMzgnNDYuNSJF!5e0!3m2!1sen!2smy!4v1700000000000!5m2!1sen!2smy" 
-              width="100%" 
-              height="100%" 
-              style="border:0;" 
+              src="about:blank" 
+              class="w-full h-full border-0" 
               allowfullscreen="" 
               loading="lazy" 
               referrerpolicy="no-referrer-when-downgrade"
-              title="Peta Lokasi Musolla Al-Widad Kita Sejati Cybersouth">
+              title="Peta Lokasi Google Maps">
             </iframe>
           </div>
         </div>
@@ -977,9 +918,7 @@
       </div>
     </section>
 
-  </main>
-
-  <!-- ==================== FOOTER ==================== -->
+    <!-- ==================== FOOTER ==================== -->
   <footer class="bg-card border-t border-border pt-10 pb-7">
     <div class="container space-y-8">
       
@@ -1009,12 +948,13 @@
           <h5 class="text-xs font-bold text-foreground tracking-wider uppercase" data-i18n="footer.quickLinksTitle">Pautan Pantas</h5>
           <ul class="space-y-1.5 text-xs text-muted-foreground">
             <li><a href="#utama" class="hover:text-primary transition-colors" data-i18n="nav.home">Utama</a></li>
-            <li><a href="#pengurusan" class="hover:text-primary transition-colors" data-i18n="nav.management">Pengurusan Musolla</a></li>
+            <li><a href="#pengurusan" class="hover:text-primary transition-colors" data-i18n="nav.management">Pengurusan</a></li>
             <li><a href="#khairat" class="hover:text-primary transition-colors" data-i18n="nav.khairat">Khairat Kematian</a></li>
             <li><a href="#kewangan" class="hover:text-primary transition-colors" data-i18n="nav.finance">Penyata Kewangan</a></li>
             <li><a href="#sumbangan" class="hover:text-primary transition-colors" data-i18n="nav.donation">Infaq &amp; Sumbangan</a></li>
-            <li><a href="#aktiviti" class="hover:text-primary transition-colors" data-i18n="nav.activities">Aktiviti &amp; Takwim</a></li>
-            <li><a href="blog/" class="hover:text-primary transition-colors" data-i18n="nav.blog">Blog &amp; Hebahan</a></li>
+            <li><a href="#blog" class="hover:text-primary transition-colors" data-i18n="nav.blog">Blog &amp; Berita</a></li>
+            <li><a href="#faq" class="hover:text-primary transition-colors" data-i18n="nav.faq">Soalan Lazim</a></li>
+            <li><a href="#hubungi" class="hover:text-primary transition-colors" data-i18n="nav.contact">Hubungi</a></li>
           </ul>
         </div>
 
@@ -1086,8 +1026,8 @@
       <a href="#khairat" class="mobile-nav-link nav-link" data-i18n="nav.khairat">Khairat Kematian</a>
       <a href="#kewangan" class="mobile-nav-link nav-link" data-i18n="nav.finance">Kewangan</a>
       <a href="#sumbangan" class="mobile-nav-link nav-link" data-i18n="nav.donation">Sumbangan</a>
-      <a href="#aktiviti" class="mobile-nav-link nav-link" data-i18n="nav.activities">Aktiviti</a>
-      <a href="#blog" class="mobile-nav-link nav-link" data-i18n="nav.blog">Blog</a>
+      <a href="#blog" class="mobile-nav-link nav-link" data-i18n="nav.blog">Blog &amp; Berita</a>
+      <a href="#faq" class="mobile-nav-link nav-link" data-i18n="nav.faq">Soalan Lazim</a>
       <a href="#hubungi" class="mobile-nav-link nav-link" data-i18n="nav.contact">Hubungi</a>
     </div>
 

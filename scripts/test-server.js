@@ -73,6 +73,7 @@ server.listen(0, '127.0.0.1', async () => {
     '/data/organisasi.json',
     '/data/activities.json',
     '/data/reports.json',
+    '/data/faq.json',
     '/assets/logo.png',
     '/assets/duitnow-qr.svg',
     '/assets/perlembagaan/perlembagaan-musolla-al-widad.pdf',

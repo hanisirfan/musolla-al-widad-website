@@ -8,18 +8,18 @@
   },
   "nav": {
     "home": "Home",
-    "management": "Management",
+    "management": "Administration",
     "khairat": "Khairat Kematian",
     "finance": "Finance",
     "donation": "Donations",
-    "activities": "Activities & News",
     "faq": "FAQ",
     "contact": "Contact Us",
     "donateBtn": "Donate Now",
     "language": "Language",
     "theme": "Theme",
     "menu": "Menu",
-    "blog": "Blog & News"
+    "blog": "Blog & News",
+    "constitution": "Constitution"
   },
   "theme": {
     "system": "System Default",
@@ -33,9 +33,9 @@
     "subtitle": "A center for congregational worship, fostering neighborhood ties, and mutual welfare to build a harmonious and blessed community at Pangsapuri Kita Sejati.",
     "ctaDonation": "Make a Donation",
     "ctaKhairat": "Register Khairat Kematian",
-    "ctaLocation": "Get Musolla Directions",
+    "ctaLocation": "Location Guide",
     "ctaAnnouncement": "Latest Announcements",
-    "statHouseholds": "Apartment Families",
+    "statHouseholds": "Community Households",
     "statCapacity": "Congregation Capacity",
     "statPrograms": "Programs & Classes"
   },
@@ -84,8 +84,8 @@
     ]
   },
   "management": {
-    "title": "Mosque Management",
-    "subtitle": "Committed leadership and transparent governance based on Islamic values and our constitution for the congregation's welfare.",
+    "title": "Management & Administration",
+    "subtitle": "Transparent leadership and governance for the welfare of the community.",
     "tabs": {
       "vision": "Vision & Mission",
       "org": "Organization Chart",
@@ -143,7 +143,7 @@
     "subtitle": "Officially Affiliated Under Masjid Al-Ilmi Dengkil",
     "lead": "To ensure that funeral management (fardhu kifayah) is carried out smoothly, respectfully, and without financial distress to grieving families, Musolla Al-Widad Kita Sejati has joined under the Khairat Kematian program of Masjid Al-Ilmi Dengkil.",
     "highlight": "All Muslim residents of Pangsapuri Kita Sejati are strongly encouraged to register as khairat members to secure peace of mind and protection for their beloved families.",
-    "benefitsTitle": "Membership Benefits & Coverage",
+    "benefitsTitle": "Funeral Fund Benefits & Coverage",
     "benefits": [
       {
         "title": "Complete Funeral Management",
@@ -185,7 +185,12 @@
       "desc": "Register early for family peace of mind. You will be redirected to the official Masjid Al-Ilmi e-Khairat system.",
       "button": "Register Khairat Now (Masjid Al-Ilmi)",
       "whatsappInquiry": "Khairat Inquiry (WhatsApp)"
-    }
+    },
+    "badgePartnered": "Partnered Welfare Program",
+    "badgeIndependent": "Official Funeral Welfare Fund",
+    "benefitsSubtitle": "Core welfare arrangements ensuring dignified Islamic funeral and burial management.",
+    "registerPartner": "Register on Official Portal",
+    "registerIndependent": "Register Fund Membership"
   },
   "finance": {
     "title": "Financial Reports & Transparency",
@@ -269,26 +274,10 @@
     "locationLabel": "Venue"
   },
   "faq": {
-    "title": "Frequently Asked Questions (FAQ)",
-    "subtitle": "Helpful answers to common questions asked by Pangsapuri Kita Sejati residents.",
-    "items": [
-      {
-        "q": "Is Friday congregational prayer (Solat Jumaat) held at Musolla Al-Widad?",
-        "a": "Currently, Musolla Al-Widad hosts the daily five prayers, Tarawih prayers in Ramadan, and special qiyamullail. Friday prayers are performed at Masjid Al-Ilmi Dengkil and neighboring kariah mosques until official approval is granted."
-      },
-      {
-        "q": "How can residents enroll in the Khairat Kematian program?",
-        "a": "Musolla Al-Widad participates under the official Khairat Kematian program of Masjid Al-Ilmi Dengkil. Simply click the 'Register Khairat' button on this portal to access the Masjid Al-Ilmi e-Khairat system (https://www.e-khairat.com/al-ilmi)."
-      },
-      {
-        "q": "How can I volunteer to support musolla initiatives?",
-        "a": "We welcome enthusiastic residents, particularly youth and working professionals, to contribute skills in our dakwah, media, welfare, or technical maintenance teams. Contact any committee member to get involved."
-      },
-      {
-        "q": "Where can I review the musolla's financial statements?",
-        "a": "All audited monthly and annual financial statements are regularly published categorized by year under the 'Finance' section of this portal in PDF format for public transparency."
-      }
-    ]
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Quick answers regarding funeral fund registration, donations and mosque administration.",
+    "empty": "No FAQ items listed at this time."
   },
   "contact": {
     "title": "Contact Us",
@@ -321,7 +310,10 @@
       "openGoogleMaps": "Open in Google Maps",
       "copyAddress": "Copy Full Address",
       "copiedAddressToast": "Address copied to clipboard!"
-    }
+    },
+    "formTitle": "Contact Form",
+    "formSubtitle": "Submit any inquiry, community feedback or administrative requests online.",
+    "formBtn": "Open Contact Form"
   },
   "footer": {
     "aboutTitle": "Musolla Al-Widad",
@@ -353,8 +345,8 @@
   },
   "blog": {
     "badge": "Articles & News",
-    "title": "Latest Blog & Articles",
-    "desc": "Religious reflections, lecture schedules, Islamic guides and community event updates.",
+    "title": "Blog & Latest News",
+    "desc": "Religious reflections, lecture schedules, community activities and guidance.",
     "readMore": "Read Article",
     "viewAll": "View All Blog Posts",
     "readTime": "min read",
