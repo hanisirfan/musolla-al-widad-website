@@ -1,0 +1,341 @@
+{
+  "site": {
+    "name": "Musolla Al-Widad Kita Sejati",
+    "shortName": "Musolla Al-Widad",
+    "tagline": "Pusat Ibadah, Ukhuwah & Kebajikan Komuniti Pangsapuri Kita Sejati Cybersouth",
+    "residency": "Pangsapuri Kita Sejati Cybersouth, Dengkil, Selangor",
+    "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan"
+  },
+  "nav": {
+    "home": "Utama",
+    "management": "Pengurusan Musolla",
+    "khairat": "Khairat Kematian",
+    "finance": "Kewangan",
+    "donation": "Sumbangan",
+    "activities": "Aktiviti & Berita",
+    "faq": "Soalan Lazim",
+    "contact": "Hubungi Kami",
+    "donateBtn": "Infaq Sekarang",
+    "language": "Bahasa",
+    "theme": "Tema",
+    "menu": "Menu"
+  },
+  "theme": {
+    "system": "Ikut Peranti",
+    "dark": "Mod Gelap",
+    "light": "Mod Cerah",
+    "toggle": "Tukar Tema"
+  },
+  "hero": {
+    "badge": "Laman Rasmi Komuniti Musolla",
+    "title": "Musolla Al-Widad Kita Sejati",
+    "subtitle": "Pusat penyatuan ibadah, penyubur ukhuwah kejiranan, dan kebajikan bersama demi membina komuniti Pangsapuri Kita Sejati yang diberkati dan harmoni.",
+    "ctaDonation": "Hulurkan Infaq",
+    "ctaKhairat": "Daftar Khairat Kematian",
+    "ctaLocation": "Panduan Lokasi Musolla",
+    "ctaAnnouncement": "Pengumuman Terkini",
+    "statHouseholds": "Keluarga Pangsapuri",
+    "statCapacity": "Kapasiti Jemaah",
+    "statPrograms": "Program & Pengajian"
+  },
+  "announcements": {
+    "sectionTitle": "Pengumuman & Hebahan Semasa",
+    "sectionSubtitle": "Maklumat terkini untuk perhatian seluruh warga jemaah dan penduduk Kita Sejati.",
+    "badge": "Terkini",
+    "readMore": "Ketahui Lanjut",
+    "slides": [
+      {
+        "id": 1,
+        "tag": "Khairat Kematian",
+        "date": "Terkini",
+        "title": "Pendaftaran Program Khairat Kematian Bersama Masjid Al-Ilmi",
+        "desc": "Musolla Al-Widad kini bekerjasama di bawah program rasmi e-Khairat Masjid Al-Ilmi Dengkil. Pendaftaran dibuka kepada semua penduduk Pangsapuri Kita Sejati untuk menjamin kebajikan waris.",
+        "link": "#khairat",
+        "button": "Lihat Maklumat Khairat"
+      },
+      {
+        "id": 2,
+        "tag": "Dana Musolla",
+        "date": "Berterusan",
+        "title": "Kempen Infaq Operasi & Naik Taraf Musolla Al-Widad",
+        "desc": "Sumbangan ikhlas jemaah membantu menampung pembersihan, aktiviti dakwah serta naik taraf kemudahan ruang solat untuk keselesaan bersama.",
+        "link": "#sumbangan",
+        "button": "Salurkan Sumbangan"
+      },
+      {
+        "id": 3,
+        "tag": "Aktiviti Dakwah",
+        "date": "Setiap Minggu",
+        "title": "Jadual Kuliah Maghrib Mingguan & Kelas Pengajian",
+        "desc": "Sertai siri kuliah mingguan bersama asatizah jemputan dan program tadarus/pengajian Al-Quran untuk seisi keluarga di dewan solat musolla.",
+        "link": "#aktiviti",
+        "button": "Lihat Jadual Aktiviti"
+      },
+      {
+        "id": 4,
+        "tag": "Maklum Balas",
+        "date": "Buka Sentiasa",
+        "title": "Borang Maklum Balas, Aduan & Cadangan Penambahbaikan",
+        "desc": "Jawatankuasa musolla sentiasa mendengar pandangan anda. Sila kemukakan cadangan atau aduan melalui Google Form rasmi kami.",
+        "link": "#hubungi",
+        "button": "Isi Borang Maklum Balas"
+      }
+    ]
+  },
+  "management": {
+    "title": "Pengurusan Musolla",
+    "subtitle": "Struktur kepimpinan dan tadbir urus telus berteraskan syarak dan perlembagaan demi kemaslahatan jemaah.",
+    "tabs": {
+      "vision": "Visi & Misi",
+      "org": "Carta Organisasi",
+      "constitution": "Perlembagaan Musolla"
+    },
+    "vision": {
+      "title": "Visi & Misi Musolla Al-Widad",
+      "statusBadge": "Akan Dikemaskini Sepenuhnya",
+      "statusNote": "Kenyataan rasmi visi & misi penuh kini dalam fasa pemurnian akhir oleh Jawatankuasa Penaja Musolla Al-Widad Kita Sejati.",
+      "visionTitle": "Visi (Draf Rujukan)",
+      "visionText": "Menjadikan Musolla Al-Widad Kita Sejati sebagai pusat ibadah yang makmur, melahirkan warga yang berilmu, bersatu hati dan bertakwa, serta menjadi model kerukunan komuniti perumahan.",
+      "missionTitle": "Misi (Draf Rujukan)",
+      "missionList": [
+        "Menyediakan kemudahan dan persekitaran ibadah yang bersih, selamat dan selesa bagi semua lapisan jemaah.",
+        "Menganjurkan program pengajian agama, kelas Al-Quran dan tazkirah berkualiti untuk membina sahsiah komuniti.",
+        "Memupuk semangat kejiranan, persaudaraan dan gotong-royong dalam kalangan penduduk pangsapuri.",
+        "Menguruskan dana infaq dan wakaf secara telus, berintegriti dan berhemah tinggi."
+      ],
+      "coreValuesTitle": "Nilai Teras Kami",
+      "values": [
+        { "title": "Ukhuwah", "desc": "Menjalin persaudaraan erat tanpa mengira latar belakang." },
+        { "title": "Amanah", "desc": "Pengurusan dana dan fasiliti yang telus serta dipertanggungjawabkan." },
+        { "title": "Ihsan", "desc": "Beramal dengan kesungguhan terbaik demi keredhaan Allah SWT." },
+        { "title": "Inklusif", "desc": "Mesra keluarga, kanak-kanak, warga emas dan warga OKU." }
+      ]
+    },
+    "org": {
+      "title": "Carta Organisasi Jawatankuasa",
+      "desc": "Barisan kepimpinan Jawatankuasa Musolla Al-Widad Kita Sejati bagi sesi pentadbiran semasa.",
+      "viewProfile": "Hubungi"
+    },
+    "constitution": {
+      "title": "Perlembagaan Musolla Al-Widad",
+      "desc": "Dokumen rasmi perlembagaan yang menggariskan tatacara pentadbiran, bidang kuasa jawatankuasa dan pengurusan kewangan musolla.",
+      "badge": "Salinan Rasmi",
+      "viewPdf": "Papar PDF Penuh",
+      "download": "Muat Turun PDF"
+    }
+  },
+  "khairat": {
+    "badge": "Kerjasama Naungan Rasmi",
+    "title": "Program Khairat Kematian",
+    "subtitle": "Penyertaan Rasmi di Bawah Naungan Masjid Al-Ilmi Dengkil",
+    "lead": "Bagi memastikan urusan fardu kifayah terlaksana dengan sempurna, pantas dan teratur, Musolla Al-Widad Kita Sejati telah bergabung dan bernaung di bawah program Khairat Kematian Masjid Al-Ilmi Dengkil.",
+    "highlight": "Semua penduduk beragama Islam di Pangsapuri Kita Sejati disarankan untuk mendaftar sebagai ahli khairat bagi perlindungan dan kebajikan keluarga tercinta.",
+    "benefitsTitle": "Kelebihan & Perlindungan Menjadi Ahli",
+    "benefits": [
+      {
+        "title": "Pengurusan Jenazah Lengkap",
+        "desc": "Menampung urusan mandi, kain kafan, solat jenazah sehingga ke pengebumian di tanah perkuburan Islam yang ditetapkan."
+      },
+      {
+        "title": "Bantuan Pengangkutan Van Jenazah",
+        "desc": "Kemudahan logistik van jenazah disediakan daripada hospital/rumah ke musolla dan tanah perkuburan."
+      },
+      {
+        "title": "Sumbangan Ihsan Kepada Waris",
+        "desc": "Bantuan wang saguhati kematian disalurkan kepada waris terdekat bagi meringankan beban perbelanjaan serta-merta."
+      },
+      {
+        "title": "Pakej Satu Keluarga (Isi Rumah)",
+        "desc": "Keahlian meliputi ahli utama, pasangan serta anak-anak tanggungan di bawah had umur yang ditetapkan perlembagaan."
+      }
+    ],
+    "stepsTitle": "Cara Pendaftaran Melalui Sistem e-Khairat",
+    "steps": [
+      {
+        "step": "1",
+        "title": "Buka Portal e-Khairat",
+        "desc": "Klik butang 'Daftar Khairat Sekarang' untuk terus ke portal rasmi e-Khairat Masjid Al-Ilmi Dengkil."
+      },
+      {
+        "step": "2",
+        "title": "Isi Maklumat Keluarga",
+        "desc": "Lengkapkan butiran ketua keluarga, pasangan, nombor telefon, alamat unit Kita Sejati dan nama tanggungan."
+      },
+      {
+        "step": "3",
+        "title": "Yuran & Pengesahan",
+        "desc": "Lakukan bayaran yuran pendaftaran / tahunan secara dalam talian (FPX) dan simpan resit pengesahan."
+      }
+    ],
+    "cta": {
+      "title": "Sedia Untuk Mendaftar?",
+      "desc": "Daftar awal demi ketenangan minda dan kebajikan waris. Anda akan dialihkan ke sistem e-Khairat Masjid Al-Ilmi Dengkil.",
+      "button": "Daftar Khairat Sekarang (Masjid Al-Ilmi)",
+      "whatsappInquiry": "Pertanyaan Khairat (WhatsApp)"
+    }
+  },
+  "finance": {
+    "title": "Penyata Kewangan & Ketelusan",
+    "subtitle": "Laporan penerimaan dana infaq dan rekod perbelanjaan bulanan dipaparkan secara telus untuk semakan jemaah mengikut tahun.",
+    "transparencyTitle": "Prinsip Amanah & Ketelusan Kami",
+    "transparencyDesc": "Setiap sen sumbangan jemaah direkodkan dan diaudit. Wang infaq digunakan khusus untuk membiayai operasi, penyelenggaraan kemudahan, program dakwah serta kebajikan komuniti Kita Sejati.",
+    "selectYear": "Pilih Tahun Laporan",
+    "viewPdf": "Papar PDF",
+    "downloadPdf": "Muat Turun",
+    "prevPage": "Sebelum",
+    "nextPage": "Seterusnya",
+    "pageIndicator": "Halaman {current} daripada {total}",
+    "noReports": "Tiada laporan kewangan direkodkan untuk tahun ini lagi.",
+    "notice": "Ingin mendapatkan perincian resit atau mengemukakan pertanyaan berkaitan kewangan? Sila hubungi Bendahari Musolla melalui borang maklum balas atau WhatsApp rasmi."
+  },
+  "donation": {
+    "title": "Sumbangan & Infaq Musolla",
+    "subtitle": "Salurkan sedekah jariah anda untuk mengimarahkan rumah Allah dan menyokong aktiviti komuniti.",
+    "quote": "Bandingan (derma) orang-orang yang membelanjakan hartanya pada jalan Allah, ialah sama seperti sebiji benih yang tumbuh menerbitkan tujuh tangkai; tiap-tiap tangkai itu pula mengandungi seratus biji.",
+    "quoteSource": "Surah Al-Baqarah: 261",
+    "bankCard": {
+      "title": "Pindahan Perbankan Dalam Talian",
+      "bankLabel": "Nama Bank",
+      "bankName": "Bank Islam Malaysia Berhad",
+      "accountNameLabel": "Nama Akaun",
+      "accountName": "Musolla Al-Widad Kita Sejati",
+      "accountNumberLabel": "Nombor Akaun",
+      "accountNumber": "12038010098765",
+      "referenceLabel": "Rujukan Pindahan",
+      "reference": "Infaq Musolla",
+      "copyBtn": "Salin No. Akaun",
+      "copiedToast": "Nombor akaun berjaya disalin!"
+    },
+    "qrCard": {
+      "title": "Kod QR DuitNow (Semua Bank & e-Dompet)",
+      "desc": "Imbas menggunakan aplikasi perbankan (Maybank2u, CIMB Clicks, Bank Islam, MAE, TNG eWallet, dll.)",
+      "downloadQr": "Muat Turun Imej Kod QR"
+    },
+    "utilization": {
+      "title": "Ke Mana Sumbangan Anda Disalurkan?",
+      "items": [
+        {
+          "title": "Utiliti & Bil (Jika Diperlukan)",
+          "desc": "Membantu menampung kos elektrik pendingin hawa, bekalan air, dan utiliti operasi jika diperlukan."
+        },
+        {
+          "title": "Naik Taraf & Fasiliti Musolla",
+          "desc": "Memperbaiki dan menaik taraf prasarana ruang solat, sistem pembesar suara, pendingin hawa serta kelengkapan wuduk."
+        },
+        {
+          "title": "Program Dakwah & Keagamaan",
+          "desc": "Saguhati asatizah kuliah mingguan, pengajian Al-Quran, sambutan hari kebesaran Islam dan bengkel fardhu ain."
+        },
+        {
+          "title": "Aktiviti Komuniti & Kebajikan",
+          "desc": "Program gotong-royong, iftar Ramadan, jamuan ukhuwah, serta bantuan kebajikan segera untuk jemaah asnaf."
+        },
+        {
+          "title": "Pembersihan & Kebersihan Persekitaran",
+          "desc": "Pencucian karpet berkala, sanitasi bilik air dan pemeliharaan kebersihan ruang solat agar sentiasa selesa dan harum."
+        }
+      ]
+    }
+  },
+  "activities": {
+    "title": "Aktiviti, Kuliah & Berita Komuniti",
+    "subtitle": "Kekal terhubung dengan aktiviti pengimarahan, majlis ilmu dan perkembangan komuniti di Musolla Al-Widad.",
+    "socialSection": {
+      "title": "Saluran Media Sosial Rasmi",
+      "desc": "Ikuti saluran media sosial kami untuk siaran langsung kuliah, rakaman video, serta hebahan pantas harian."
+    },
+    "eventsTitle": "Aktiviti & Takwim Semasa",
+    "filterAll": "Semua",
+    "filterLectures": "Kuliah & Pengajian",
+    "filterCommunity": "Kemasyarakatan",
+    "filterYouth": "Kanak-Kanak & Remaja",
+    "emptyNotice": "Tiada aktiviti dijadualkan pada masa ini. Nantikan hebahan seterusnya daripada pihak jawatankuasa.",
+    "badgeUpcoming": "Akan Datang",
+    "badgeCompleted": "Selesai",
+    "timeLabel": "Masa",
+    "locationLabel": "Tempat"
+  },
+  "faq": {
+    "title": "Soalan Lazim (FAQ)",
+    "subtitle": "Jawapan bagi persoalan lazim jemaah dan penduduk Pangsapuri Kita Sejati Cybersouth.",
+    "items": [
+      {
+        "q": "Adakah solat Jumaat didirikan di Musolla Al-Widad?",
+        "a": "Pada masa ini, Musolla Al-Widad mendirikan solat fardu lima waktu berjemaah, solat sunat tarawih dan qiamullail. Solat Jumaat didirikan di Masjid Al-Ilmi Dengkil dan masjid kariah berdekatan sehingga mendapat kelulusan rasmi daripada pihak berkuasa agama."
+      },
+      {
+        "q": "Bagaimana cara menyertai Khairat Kematian?",
+        "a": "Musolla Al-Widad bernaung di bawah program Khairat Kematian Masjid Al-Ilmi Dengkil. Anda hanya perlu menekan butang 'Daftar Khairat' di laman web ini untuk dialihkan ke portal rasmi e-Khairat Masjid Al-Ilmi Dengkil (https://www.e-khairat.com/al-ilmi)."
+      },
+      {
+        "q": "Bagaimana saya boleh menyumbang tenaga sebagai sukarelawan (AJK / Biro)?",
+        "a": "Kami sentiasa mengalu-alukan penglibatan warga penduduk, khususnya golongan muda dan profesional, untuk menyumbang kepakaran dalam biro dakwah, media, kebajikan atau penyelenggaraan. Sila hubungi pihak jawatankuasa melalui nombor tertera."
+      },
+      {
+        "q": "Di manakah saya boleh menyemak penyata kewangan musolla?",
+        "a": "Penyata kewangan bulanan dan tahunan sentiasa dimuat naik mengikut tahun di bahagian 'Kewangan' di laman web ini dalam format PDF untuk disemak oleh seluruh jemaah."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "subtitle": "Sila hubungi barisan jawatankuasa untuk sebarang pertanyaan, urusan wakaf, atau semakan aktiviti.",
+    "formSection": {
+      "badge": "Aduan & Cadangan",
+      "title": "Borang Maklum Balas Penduduk (Google Form)",
+      "desc": "Ada sebarang cadangan untuk penambahbaikan musolla, aduan fasiliti, atau permohonan program? Sila kemukakan melalui pautan Google Form rasmi kami.",
+      "button": "Buka Borang Google Form"
+    },
+    "contactsTitle": "Maklumat Hubungan Utama",
+    "pengerusi": {
+      "role": "Pengerusi Musolla",
+      "name": "Pengerusi Musolla"
+    },
+    "setiausaha": {
+      "role": "Setiausaha Musolla",
+      "name": "Setiausaha Musolla"
+    },
+    "email": {
+      "role": "Emel Rasmi Musolla",
+      "address": "alwidad.kitasejati@gmail.com"
+    },
+    "call": "Panggil",
+    "whatsapp": "WhatsApp",
+    "sendEmail": "Hantar Emel",
+    "locationSection": {
+      "title": "Lokasi & Navigasi Musolla",
+      "address": "Musolla Al-Widad, Pangsapuri Kita Sejati Cybersouth, Persiaran Cybersouth Perdana, Cybersouth, 43800 Dengkil, Selangor Darul Ehsan",
+      "openGoogleMaps": "Buka di Google Maps",
+      "copyAddress": "Salin Alamat Penuh",
+      "copiedAddressToast": "Alamat berjaya disalin!"
+    }
+  },
+  "footer": {
+    "aboutTitle": "Musolla Al-Widad",
+    "aboutDesc": "Pusat ibadah dan pemangkin ukhuwah kejiranan warga Pangsapuri Kita Sejati Cybersouth, Dengkil, Selangor.",
+    "quickLinksTitle": "Pautan Pantas",
+    "contactTitle": "Hubungi Jawatankuasa",
+    "socialTitle": "Ikuti Kami di Media Sosial",
+    "rights": "Hak Cipta Terpelihara. Musolla Al-Widad Kita Sejati.",
+    "developedFor": "Dibina dengan ikhlas untuk komuniti Pangsapuri Kita Sejati Cybersouth.",
+    "creditsBtn": "Kredit & Penghargaan"
+  },
+  "credits": {
+    "title": "Kredit & Penghargaan",
+    "lead": "Laman web rasmi Musolla Al-Widad Kita Sejati ini dibangunkan secara sumber terbuka (open source) menggunakan pustaka dan teknologi moden berikut:",
+    "aiAttribution": "Laman web ini dijana menggunakan Google Gemini dan Google Antigravity dengan arahan (prompt) daripada Hanis Irfan.",
+    "feedbackWelcome": "Sebarang cadangan penambahbaikan, komen atau aduan berkaitan laman web ini amat dialu-alukan melalui borang maklum balas rasmi kami.",
+    "close": "Tutup"
+  },
+  "common": {
+    "loading": "Memuatkan...",
+    "close": "Tutup",
+    "copy": "Salin",
+    "copied": "Berjaya disalin!",
+    "download": "Muat Turun",
+    "view": "Lihat",
+    "backToTop": "Ke Atas",
+    "externalLink": "Pautan Luar",
+    "allRightsReserved": "Hak cipta terpelihara."
+  }
+}

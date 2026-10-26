@@ -1,0 +1,158 @@
+{
+  "tenure": "Sesi 2026 / 2028",
+  "members": [
+    {
+      "id": "penasihat",
+      "level": 1,
+      "roleMs": "Penasihat / Pegawai Hal Ehwal Islam",
+      "roleEn": "Advisor / Religious Affairs Officer",
+      "name": "Ustaz Haji Ahmad Faiz bin Zakaria",
+      "image": "assets/avatars/avatar-penasihat.svg",
+      "badge": "Penasihat",
+      "phone": "",
+      "note": "Wakil Masjid Al-Ilmi Dengkil"
+    },
+    {
+      "id": "pengerusi",
+      "level": 2,
+      "roleMs": "Pengerusi",
+      "roleEn": "Chairman",
+      "name": "Hj. Muhammad Irfan bin Abdullah",
+      "image": "assets/avatars/avatar-pengerusi.svg",
+      "badge": "Pimpinan Utama",
+      "phone": "+6012-345 6789",
+      "whatsapp": "60123456789",
+      "note": "Penyelaras Keseluruhan Pentadbiran"
+    },
+    {
+      "id": "timb-pengerusi",
+      "level": 3,
+      "roleMs": "Timbalan Pengerusi",
+      "roleEn": "Deputy Chairman",
+      "name": "En. Khairul Anuar bin Osman",
+      "image": "assets/avatars/avatar-timb.svg",
+      "badge": "Pimpinan",
+      "phone": "+6012-987 6543",
+      "whatsapp": "60129876543",
+      "note": "Hal Ehwal Jemaah & Operasi"
+    },
+    {
+      "id": "setiausaha",
+      "level": 4,
+      "roleMs": "Setiausaha",
+      "roleEn": "Secretary",
+      "name": "En. Mohd Hafiz bin Syukri",
+      "image": "assets/avatars/avatar-setiausaha.svg",
+      "badge": "Pengurusan",
+      "phone": "+6013-456 7890",
+      "whatsapp": "60134567890",
+      "note": "Dokumentasi & Urusan Rasmi"
+    },
+    {
+      "id": "pen-setiausaha",
+      "level": 4,
+      "roleMs": "Penolong Setiausaha",
+      "roleEn": "Assistant Secretary",
+      "name": "En. Luqman bin Hakim",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Pengurusan",
+      "phone": "+6013-112 2334",
+      "whatsapp": "60131122334",
+      "note": "Hebahan & Media Sosial"
+    },
+    {
+      "id": "bendahari",
+      "level": 4,
+      "roleMs": "Bendahari",
+      "roleEn": "Treasurer",
+      "name": "En. Faris Izzuddin bin Halim",
+      "image": "assets/avatars/avatar-bendahari.svg",
+      "badge": "Kewangan",
+      "phone": "+6017-223 3445",
+      "whatsapp": "60172233445",
+      "note": "Penyata Kewangan & Akaun Infaq"
+    },
+    {
+      "id": "pen-bendahari",
+      "level": 4,
+      "roleMs": "Penolong Bendahari",
+      "roleEn": "Assistant Treasurer",
+      "name": "En. Ridzuan bin Mansor",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Kewangan",
+      "phone": "+6019-334 4556",
+      "whatsapp": "60193344556",
+      "note": "Kutipan Tabung & Audit Dalaman"
+    },
+    {
+      "id": "biro-dakwah",
+      "level": 5,
+      "roleMs": "Ketua Biro Dakwah & Pengimarahan",
+      "roleEn": "Head of Dakwah & Religious Affairs",
+      "name": "Ustaz Shahrul bin Naim",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Biro Dakwah",
+      "phone": "+6011-234 5678",
+      "whatsapp": "60112345678",
+      "note": "Jadual Kuliah & Pengajian Al-Quran"
+    },
+    {
+      "id": "biro-kebajikan",
+      "level": 5,
+      "roleMs": "Ketua Biro Kebajikan & Khairat",
+      "roleEn": "Head of Welfare & Khairat",
+      "name": "Hj. Zainal Abidin bin Kassim",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Biro Kebajikan",
+      "phone": "+6018-987 6123",
+      "whatsapp": "60189876123",
+      "note": "Liaison Khairat Masjid Al-Ilmi"
+    },
+    {
+      "id": "biro-penyelenggaraan",
+      "level": 5,
+      "roleMs": "Ketua Biro Fasiliti & Penyelenggaraan",
+      "roleEn": "Head of Facilities & Maintenance",
+      "name": "En. Azlan bin Mat Saad",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Biro Fasiliti",
+      "phone": "+6016-554 4332",
+      "whatsapp": "60165544332",
+      "note": "Pendingin Hawa, Elektrik & Sanitasi"
+    },
+    {
+      "id": "biro-muslimat",
+      "level": 5,
+      "roleMs": "Ketua Hal Ehwal Muslimat",
+      "roleEn": "Head of Muslimat Affairs",
+      "name": "Pn. Hajjah Salmah binti Yusof",
+      "image": "assets/avatars/avatar-muslimat.svg",
+      "badge": "Biro Muslimat",
+      "phone": "+6012-776 6554",
+      "whatsapp": "60127766554",
+      "note": "Aktiviti & Kelengkapan Muslimat"
+    },
+    {
+      "id": "pemeriksa-kira1",
+      "level": 6,
+      "roleMs": "Pemeriksa Kira-Kira 1",
+      "roleEn": "Internal Auditor 1",
+      "name": "En. Kamaruzaman bin Ariffin",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Audit",
+      "phone": "",
+      "note": "Juruaudit Bebas Komuniti"
+    },
+    {
+      "id": "pemeriksa-kira2",
+      "level": 6,
+      "roleMs": "Pemeriksa Kira-Kira 2",
+      "roleEn": "Internal Auditor 2",
+      "name": "En. Taufiq bin Ibrahim",
+      "image": "assets/avatars/avatar-ajk.svg",
+      "badge": "Audit",
+      "phone": "",
+      "note": "Juruaudit Bebas Komuniti"
+    }
+  ]
+}

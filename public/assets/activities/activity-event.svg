@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgEvent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgEvent)"/>
+  
+  <!-- Mosque Dome Silhouette with crescent -->
+  <g transform="translate(400, 240)">
+    <path d="M -120 120 L -120 30 C -120 -60 0 -130 0 -130 C 0 -130 120 -60 120 30 L 120 120 Z" fill="#0284c7" fill-opacity="0.3"/>
+    <path d="M -90 120 L -90 40 C -90 -40 0 -100 0 -100 C 0 -100 90 -40 90 40 L 90 120 Z" fill="#f59e0b" fill-opacity="0.2"/>
+    <!-- Crescent on top -->
+    <circle cx="0" cy="-145" r="18" fill="#f59e0b"/>
+    <circle cx="6" cy="-149" r="15" fill="#242859"/>
+  </g>
+
+  <rect x="180" y="375" width="440" height="50" rx="25" fill="#000000" fill-opacity="0.5"/>
+  <text x="400" y="407" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#ffffff" text-anchor="middle">SAMBUTAN MAULIDUR RASUL</text>
+</svg>
